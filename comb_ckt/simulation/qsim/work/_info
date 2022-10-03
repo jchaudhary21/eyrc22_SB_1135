@@ -1,0 +1,119 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/himan/Desktop/verilog/comb_ckt/simulation/qsim
+vhard_block
+Z1 !s110 1664809344
+!i10b 1
+!s100 LZXVlSdUc5PfNWgHVYZaG1
+IXbz7S:hAWba^=@6Z:9^TT2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1664809342
+Z4 8comb_ckt.vo
+Z5 Fcomb_ckt.vo
+L0 196
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1664809344.000000
+Z8 !s107 comb_ckt.vo|
+Z9 !s90 -work|work|comb_ckt.vo|
+!i113 1
+Z10 o-work work
+Z11 tCvgOpt 0
+vMux_2_to_1
+Z12 !s110 1664809034
+!i10b 1
+!s100 7X9JGRHF^I_<J?>VNoiNG2
+IJ6;Fjka2IHOd1YlAnD>2I2
+R2
+R0
+w1664809033
+R4
+R5
+Z13 L0 32
+R6
+r1
+!s85 0
+31
+Z14 !s108 1664809034.000000
+R8
+R9
+!i113 1
+R10
+R11
+n@mux_2_to_1
+vMux_2_to_1_vlg_vec_tst
+R12
+!i10b 1
+!s100 5W4K@?4[Z]=8`N[74L=L[2
+IUeN2dF?RS5>JkWN7Ej`JG0
+R2
+R0
+w1664809032
+Z15 8Waveform.vwf.vt
+Z16 FWaveform.vwf.vt
+Z17 L0 30
+R6
+r1
+!s85 0
+31
+R14
+!s107 Waveform.vwf.vt|
+Z18 !s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R10
+R11
+n@mux_2_to_1_vlg_vec_tst
+vMux_4_to_1
+R1
+!i10b 1
+!s100 =o`6AO58S>OIYA3FBHolH0
+ICDzoHR[@TJn9;2kDiZW>d1
+R2
+R0
+R3
+R4
+R5
+R13
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@mux_4_to_1
+vMux_4_to_1_vlg_vec_tst
+R1
+!i10b 1
+!s100 3aUb]E5FUhWg3PdNnB;]Z2
+IKk]gQe[iML180JC]6o<gg2
+R2
+R0
+w1664809341
+R15
+R16
+R17
+R6
+r1
+!s85 0
+31
+R7
+!s107 Waveform.vwf.vt|
+R18
+!i113 1
+R10
+R11
+n@mux_4_to_1_vlg_vec_tst
