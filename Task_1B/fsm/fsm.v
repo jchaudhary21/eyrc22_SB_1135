@@ -28,6 +28,7 @@ reg Y1 = 0;
 assign Y = Y1;
 
 
+
 ////////////////////////WRITE YOUR CODE FROM HERE//////////////////// 
 	
 
@@ -88,12 +89,11 @@ case (cs)
 	else if (I == 4'b01) begin cs = s2 ; end 
 	else begin cs = s1 ; end 
 	
+	
+	
+	
 endcase
-
 end 
-
 ////////////////////////YOUR CODE ENDS HERE//////////////////////////
-
 endmodule
-
 ///////////////////////////////MODULE ENDS///////////////////////////
