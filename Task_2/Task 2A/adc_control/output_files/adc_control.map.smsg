@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at adc_control.v(27): object "adc_sck" differs only in case from object "ADC_SCK" in the same scope File: E:/E-yantra/Task 2/adc_control/adc_control.v Line: 27
+Info (10281): Verilog HDL Declaration information at adc_control.v(32): object "data_frame" differs only in case from object "DATA_FRAME" in the same scope File: E:/E-yantra/Task 2/adc_control/adc_control.v Line: 32
