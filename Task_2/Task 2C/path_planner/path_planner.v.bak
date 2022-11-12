@@ -1,0 +1,48 @@
+// SM : Task 2 C : Path Planning
+/*
+Instructions
+-------------------
+Students are not allowed to make any changes in the Module declaration.
+This file is used to design path planner.
+
+Recommended Quartus Version : 19.1
+The submitted project file must be 19.1 compatible as the evaluation will be done on Quartus Prime Lite 19.1.
+
+Warning: The error due to compatibility will not be entertained.
+-------------------
+*/
+
+//Path Planner design
+//Parameters : node_count : for total no. of nodes + 1 (consider an imaginary node, refer discuss forum),
+//					max_edges : no. of max edges for every node.
+
+
+//Inputs  	 : clk : 50 MHz clock, 
+//				   start : start signal to initiate the path planning,
+//				   s_node : start node,
+//				   e_node : destination node.
+//
+//Output     : done : Path planning completed signal,
+//             final_path : the final path from start to end node.
+
+
+
+//////////////////DO NOT MAKE ANY CHANGES IN MODULE//////////////////
+
+module path_planner
+#(parameter node_count = 27, parameter max_edges = 4)
+(
+	input clk,
+	input start,
+	input [4:0] s_node,
+	input [4:0] e_node,
+	output reg done,	
+	output reg [10*5-1:0] final_path
+);
+
+////////////////////////WRITE YOUR CODE FROM HERE////////////////////
+
+
+////////////////////////YOUR CODE ENDS HERE//////////////////////////
+endmodule
+///////////////////////////////MODULE ENDS///////////////////////////
