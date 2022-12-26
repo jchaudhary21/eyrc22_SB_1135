@@ -1,0 +1,62 @@
+
+State Machine - |uart|state4
+Name state4.state_fv8 state4.state_fv7 state4.state_fv6 state4.state_fv5 state4.state_fv4 state4.state_fv3 state4.state_fv2 state4.state_fv1 
+state4.state_fv1 0 0 0 0 0 0 0 0 
+state4.state_fv2 0 0 0 0 0 0 1 1 
+state4.state_fv3 0 0 0 0 0 1 0 1 
+state4.state_fv4 0 0 0 0 1 0 0 1 
+state4.state_fv5 0 0 0 1 0 0 0 1 
+state4.state_fv6 0 0 1 0 0 0 0 1 
+state4.state_fv7 0 1 0 0 0 0 0 1 
+state4.state_fv8 1 0 0 0 0 0 0 1 
+
+State Machine - |uart|state3
+Name state3.state_th8 state3.state_th7 state3.state_th6 state3.state_th5 state3.state_th4 state3.state_th3 state3.state_th2 state3.state_th1 
+state3.state_th1 0 0 0 0 0 0 0 0 
+state3.state_th2 0 0 0 0 0 0 1 1 
+state3.state_th3 0 0 0 0 0 1 0 1 
+state3.state_th4 0 0 0 0 1 0 0 1 
+state3.state_th5 0 0 0 1 0 0 0 1 
+state3.state_th6 0 0 1 0 0 0 0 1 
+state3.state_th7 0 1 0 0 0 0 0 1 
+state3.state_th8 1 0 0 0 0 0 0 1 
+
+State Machine - |uart|state2
+Name state2.state_b8 state2.state_b7 state2.state_b6 state2.state_b5 state2.state_b4 state2.state_b3 state2.state_b2 state2.state_b1 
+state2.state_b1 0 0 0 0 0 0 0 0 
+state2.state_b2 0 0 0 0 0 0 1 1 
+state2.state_b3 0 0 0 0 0 1 0 1 
+state2.state_b4 0 0 0 0 1 0 0 1 
+state2.state_b5 0 0 0 1 0 0 0 1 
+state2.state_b6 0 0 1 0 0 0 0 1 
+state2.state_b7 0 1 0 0 0 0 0 1 
+state2.state_b8 1 0 0 0 0 0 0 1 
+
+State Machine - |uart|int_count
+Name int_count.011 int_count.010 int_count.001 int_count.000 
+int_count.000 0 0 0 0 
+int_count.001 0 0 1 1 
+int_count.010 0 1 0 1 
+int_count.011 1 0 0 1 
+
+State Machine - |uart|state1
+Name state1.state_s8 state1.state_s7 state1.state_s6 state1.state_s5 state1.state_s4 state1.state_s3 state1.state_s2 state1.state_s1 
+state1.state_s1 0 0 0 0 0 0 0 0 
+state1.state_s2 0 0 0 0 0 0 1 1 
+state1.state_s3 0 0 0 0 0 1 0 1 
+state1.state_s4 0 0 0 0 1 0 0 1 
+state1.state_s5 0 0 0 1 0 0 0 1 
+state1.state_s6 0 0 1 0 0 0 0 1 
+state1.state_s7 0 1 0 0 0 0 0 1 
+state1.state_s8 1 0 0 0 0 0 0 1 
+
+State Machine - |uart|states
+Name states.state_fv states.state_th states.state_b states.state_s states.stop states.start states.idle states.finish 
+states.idle 0 0 0 0 0 0 0 0 
+states.start 0 0 0 0 0 1 1 0 
+states.stop 0 0 0 0 1 0 1 0 
+states.state_s 0 0 0 1 0 0 1 0 
+states.state_b 0 0 1 0 0 0 1 0 
+states.state_th 0 1 0 0 0 0 1 0 
+states.state_fv 1 0 0 0 0 0 1 0 
+states.finish 0 0 0 0 0 0 1 1 

@@ -1,0 +1,76 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/E-yantra/Task 2/adc_control/simulation/modelsim
+vadc_control
+Z1 !s110 1666764974
+!i10b 1
+!s100 @3UJb1Dz5nm=W2214VhF31
+I1[F71a4N_OnEjk3QTdCD51
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1666694167
+Z4 8adc_control.vo
+Z5 Fadc_control.vo
+L0 32
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1666764973.000000
+Z8 !s107 adc_control.vo|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|adc_control.vo|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+.
+Z12 tCvgOpt 0
+vadc_tb
+R1
+!i10b 1
+!s100 a@@6Td5mEn=<63HoWoQFi2
+IG<DNQHPnk0zUZIi;@>@Z?0
+R2
+R0
+w1627994322
+8E:/E-yantra/Task 2/adc_control/simulation/modelsim/adc_tb.v
+FE:/E-yantra/Task 2/adc_control/simulation/modelsim/adc_tb.v
+L0 3
+R6
+r1
+!s85 0
+31
+!s108 1666764974.000000
+!s107 E:/E-yantra/Task 2/adc_control/simulation/modelsim/adc_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/E-yantra/Task 2/adc_control/simulation/modelsim|E:/E-yantra/Task 2/adc_control/simulation/modelsim/adc_tb.v|
+!i113 1
+R10
+!s92 -vlog01compat -work work {+incdir+E:/E-yantra/Task 2/adc_control/simulation/modelsim}
+R12
+vhard_block
+R1
+!i10b 1
+!s100 k:h<>lezdziN>@Hff@d001
+If0<KFZWen:aAZ3_nhIPlE0
+R2
+R0
+R3
+R4
+R5
+L0 1130
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12

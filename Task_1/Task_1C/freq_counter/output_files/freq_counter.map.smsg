@@ -1,1 +1,0 @@
-Warning (10268): Verilog HDL information at freq_counter_tb.v(40): always construct contains both blocking and non-blocking assignments File: C:/Users/himan/Desktop/verilog/freq_counter/simulation/modelsim/freq_counter_tb.v Line: 40
