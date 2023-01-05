@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at uart.v(23): object "tx" differs only in case from object "Tx" in the same scope File: E:/E-yantra/Task 2/uart/uart.v Line: 23
+Info (10281): Verilog HDL Declaration information at uart.v(35): object "S_letter" differs only in case from object "s_letter" in the same scope File: E:/E-yantra/Task 2/uart/uart.v Line: 35
+Info (10281): Verilog HDL Declaration information at uart.v(36): object "B_letter" differs only in case from object "b_letter" in the same scope File: E:/E-yantra/Task 2/uart/uart.v Line: 36
+Info (10281): Verilog HDL Declaration information at uart.v(37): object "X_letter" differs only in case from object "x_letter" in the same scope File: E:/E-yantra/Task 2/uart/uart.v Line: 37
