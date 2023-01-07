@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at uart_xbee.v(27): object "adc_sck" differs only in case from object "ADC_SCK" in the same scope File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 27
+Info (10281): Verilog HDL Declaration information at uart_xbee.v(29): object "led_1" differs only in case from object "LED_1" in the same scope File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 29
+Info (10281): Verilog HDL Declaration information at uart_xbee.v(30): object "led_2" differs only in case from object "LED_2" in the same scope File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 30
+Info (10281): Verilog HDL Declaration information at uart_xbee.v(33): object "led_3" differs only in case from object "LED_3" in the same scope File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 33

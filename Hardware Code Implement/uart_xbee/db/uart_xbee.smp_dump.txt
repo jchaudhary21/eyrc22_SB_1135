@@ -1,0 +1,13 @@
+
+State Machine - |uart_xbee|cc
+Name cc.channel_3 cc.channel_1 cc.channel_2 
+cc.channel_1 0 0 0 
+cc.channel_2 0 1 1 
+cc.channel_3 1 1 0 
+
+State Machine - |uart_xbee|cs
+Name cs.df_3 cs.df_2 cs.df_1 cs.df_end 
+cs.df_end 0 0 0 0 
+cs.df_1 0 0 1 1 
+cs.df_2 0 1 0 1 
+cs.df_3 1 0 0 1 

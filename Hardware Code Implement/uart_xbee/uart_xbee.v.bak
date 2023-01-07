@@ -1,0 +1,87 @@
+
+
+
+module uart_xcbee)(
+
+   // line sensor communication 
+	input  clk_50 ,
+	input  analog_value ,
+	output adc_cs_n ,
+	output channel_addr ,
+	output adc_sck ,
+	output [11:0] ch0_value ,
+	output [11:0] ch1_value ,
+	output [11:0] ch2_value ,
+	
+	// xcbee communication  
+	output tx 
+
+);
+
+
+/* --- Declarations --- */ 
+
+
+// ADC Clock
+reg [4:0]counter_25 = 0 ;
+reg ADC_SCK = 0 ;
+assign adc_sck = ADC_SCK ;
+
+
+// Channel Address 
+reg address = 0 ;
+assign channel_addr = address ;
+reg [4:0]address_counter
+
+
+
+
+/* --- Functions --- */
+
+
+// ADC CLOCK 
+always @(negedge clk_50)
+begin 
+
+/*
+	To output 2.5 Mhz clock for ADC 
+	we need  to output 1/HIGH for every 20th cycle of 50 Mhz clock 
+   20 ==> 10100	
+
+*/
+
+
+	if (counter_25 ==  5'b0 | counter_25 == 5b'10100 )
+   begin
+		ADC_SCK = 0 ;
+		counter_25 = 5'b0 ;
+	end 
+	
+	else if ( counter_25 == 5b'10100 )
+	begin 
+		ADC_SCK = 1 ;
+	end 
+	
+	counter_25 = 5'b1 + counter_25 ;
+end 
+
+
+// Address of channel 
+always @(negedge adc_sck)
+begin 
+  addre
+
+
+
+
+
+
+
+
+
+
+		
+	
+	
+	
+	
