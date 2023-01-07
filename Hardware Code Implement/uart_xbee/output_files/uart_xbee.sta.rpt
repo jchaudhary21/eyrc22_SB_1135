@@ -1,5 +1,5 @@
 Timing Analyzer report for uart_xbee
-Sat Jan 07 13:19:53 2023
+Sat Jan 07 14:21:23 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -103,7 +103,7 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.01        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
@@ -127,7 +127,7 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 316.16 MHz ; 250.0 MHz       ; clk_50     ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 320.62 MHz ; 250.0 MHz       ; clk_50     ; limit due to minimum period restriction (max I/O toggle rate) ;
 ; 634.52 MHz ; 500.0 MHz       ; ADC_SCK    ; limit due to minimum period restriction (tmin)                ;
 +------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -144,8 +144,8 @@ HTML report is unavailable in plain text report export.
 +---------+--------+------------------+
 ; Clock   ; Slack  ; End Point TNS    ;
 +---------+--------+------------------+
-; clk_50  ; -2.163 ; -6.315           ;
-; ADC_SCK ; -0.576 ; -3.843           ;
+; clk_50  ; -2.119 ; -6.272           ;
+; ADC_SCK ; -0.576 ; -3.866           ;
 +---------+--------+------------------+
 
 
@@ -186,30 +186,30 @@ No paths to report.
 +--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node     ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
-; -2.163 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 3.095      ;
-; -2.158 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 3.090      ;
-; -2.034 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.966      ;
-; -1.991 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.923      ;
-; -1.605 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.537      ;
-; -1.470 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.402      ;
-; -1.463 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.395      ;
-; -1.445 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.377      ;
-; -1.440 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.372      ;
-; -1.316 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.248      ;
-; -1.310 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.242      ;
-; -1.273 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.205      ;
-; -1.267 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.199      ;
-; -1.105 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.037      ;
-; -1.099 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.031      ;
-; -1.020 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.952      ;
-; -1.013 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.945      ;
-; -0.943 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.500        ; 2.294      ; 3.921      ;
-; -0.802 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.734      ;
-; -0.758 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.690      ;
-; -0.582 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.514      ;
-; -0.566 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 1.000        ; 2.294      ; 4.044      ;
-; -0.217 ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.149      ;
-; -0.214 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.146      ;
+; -2.119 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 3.051      ;
+; -2.113 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 3.045      ;
+; -1.944 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.876      ;
+; -1.834 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.766      ;
+; -1.550 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.482      ;
+; -1.473 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.405      ;
+; -1.467 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.399      ;
+; -1.449 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.381      ;
+; -1.441 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.373      ;
+; -1.281 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.213      ;
+; -1.275 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.207      ;
+; -1.171 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.103      ;
+; -1.165 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.097      ;
+; -1.109 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.041      ;
+; -1.103 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 2.035      ;
+; -1.023 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.955      ;
+; -1.017 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.949      ;
+; -0.941 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.500        ; 2.268      ; 3.893      ;
+; -0.765 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.697      ;
+; -0.648 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.580      ;
+; -0.586 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.518      ;
+; -0.537 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 1.000        ; 2.268      ; 3.989      ;
+; -0.208 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.140      ;
+; -0.073 ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 1.005      ;
 ; 0.273  ; counter_25[0] ; counter_25[0] ; clk_50       ; clk_50      ; 1.000        ; -0.063     ; 0.659      ;
 +--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 
@@ -220,44 +220,44 @@ No paths to report.
 ; Slack  ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 ; -0.576 ; address_counter[2] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 1.507      ;
-; -0.502 ; address_counter[1] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 1.433      ;
+; -0.501 ; address_counter[1] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 1.432      ;
 ; -0.498 ; channel_counter[0] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 1.429      ;
+; -0.460 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.718      ;
+; -0.460 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.718      ;
+; -0.460 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.718      ;
+; -0.460 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.718      ;
+; -0.460 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.718      ;
+; -0.460 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.718      ;
 ; -0.459 ; channel_counter[0] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 1.390      ;
-; -0.456 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.715      ;
-; -0.456 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.715      ;
-; -0.456 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.715      ;
-; -0.456 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.715      ;
-; -0.456 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.715      ;
-; -0.456 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.715      ;
 ; -0.456 ; address_counter[1] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 1.387      ;
-; -0.449 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.708      ;
-; -0.449 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.708      ;
-; -0.449 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.708      ;
-; -0.449 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.708      ;
-; -0.449 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.708      ;
-; -0.449 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.708      ;
-; -0.297 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.556      ;
-; -0.297 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.556      ;
-; -0.297 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.556      ;
-; -0.297 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.556      ;
-; -0.297 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.556      ;
-; -0.297 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.556      ;
-; -0.189 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.448      ;
-; -0.189 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.448      ;
-; -0.189 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.448      ;
-; -0.189 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.448      ;
-; -0.189 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.448      ;
-; -0.189 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.264      ; 1.448      ;
-; -0.072 ; address_counter[1] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 1.003      ;
+; -0.453 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.711      ;
+; -0.453 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.711      ;
+; -0.453 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.711      ;
+; -0.453 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.711      ;
+; -0.453 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.711      ;
+; -0.453 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.711      ;
+; -0.300 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.558      ;
+; -0.300 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.558      ;
+; -0.300 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.558      ;
+; -0.300 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.558      ;
+; -0.300 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.558      ;
+; -0.300 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.558      ;
+; -0.192 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.450      ;
+; -0.192 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.450      ;
+; -0.192 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.450      ;
+; -0.192 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.450      ;
+; -0.192 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.450      ;
+; -0.192 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.263      ; 1.450      ;
+; -0.071 ; address_counter[1] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 1.002      ;
 ; -0.066 ; channel_counter[0] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 0.997      ;
 ; -0.041 ; address_counter[2] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 0.972      ;
 ; 0.094  ; address_counter[3] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 0.837      ;
-; 0.117  ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.801      ;
+; 0.114  ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.804      ;
 ; 0.117  ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.801      ;
-; 0.219  ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.699      ;
+; 0.218  ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.700      ;
+; 0.218  ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.700      ;
 ; 0.219  ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.699      ;
-; 0.221  ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.697      ;
-; 0.221  ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.697      ;
+; 0.222  ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.077     ; 0.696      ;
 ; 0.272  ; channel_counter[0] ; channel_counter[0] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.064     ; 0.659      ;
 +--------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 
@@ -268,12 +268,12 @@ No paths to report.
 ; Slack ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 ; 0.359 ; channel_counter[0] ; channel_counter[0] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.064      ; 0.580      ;
-; 0.361 ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.595      ;
-; 0.366 ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.600      ;
-; 0.366 ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.600      ;
-; 0.366 ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.600      ;
-; 0.466 ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.700      ;
+; 0.363 ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.597      ;
+; 0.365 ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.599      ;
+; 0.367 ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.601      ;
+; 0.367 ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.601      ;
 ; 0.467 ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.701      ;
+; 0.469 ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.077      ; 0.703      ;
 ; 0.527 ; address_counter[3] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.064      ; 0.748      ;
 ; 0.556 ; address_counter[2] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.064      ; 0.777      ;
 ; 0.570 ; channel_counter[0] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.064      ; 0.791      ;
@@ -283,30 +283,30 @@ No paths to report.
 ; 0.848 ; address_counter[1] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.064      ; 1.069      ;
 ; 0.848 ; channel_counter[0] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.064      ; 1.069      ;
 ; 0.850 ; channel_counter[0] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.064      ; 1.071      ;
-; 0.870 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.432      ;
-; 0.870 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.432      ;
-; 0.870 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.432      ;
-; 0.870 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.432      ;
-; 0.870 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.432      ;
-; 0.870 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.432      ;
-; 0.986 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.548      ;
-; 0.986 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.548      ;
-; 0.986 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.548      ;
-; 0.986 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.548      ;
-; 0.986 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.548      ;
-; 0.986 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.548      ;
-; 1.134 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.696      ;
-; 1.134 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.696      ;
-; 1.134 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.696      ;
-; 1.134 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.696      ;
-; 1.134 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.696      ;
-; 1.134 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.696      ;
-; 1.135 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.697      ;
-; 1.135 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.697      ;
-; 1.135 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.697      ;
-; 1.135 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.697      ;
-; 1.135 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.697      ;
-; 1.135 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.405      ; 1.697      ;
+; 0.872 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.433      ;
+; 0.872 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.433      ;
+; 0.872 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.433      ;
+; 0.872 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.433      ;
+; 0.872 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.433      ;
+; 0.872 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.433      ;
+; 0.987 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.548      ;
+; 0.987 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.548      ;
+; 0.987 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.548      ;
+; 0.987 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.548      ;
+; 0.987 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.548      ;
+; 0.987 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.548      ;
+; 1.136 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.697      ;
+; 1.136 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.697      ;
+; 1.136 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.697      ;
+; 1.136 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.697      ;
+; 1.136 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.697      ;
+; 1.136 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.697      ;
+; 1.138 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.699      ;
+; 1.138 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.699      ;
+; 1.138 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.699      ;
+; 1.138 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.699      ;
+; 1.138 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.699      ;
+; 1.138 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.404      ; 1.699      ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -317,29 +317,29 @@ No paths to report.
 +-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 ; 0.360 ; counter_25[0] ; counter_25[0] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 0.580      ;
 ; 0.566 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 0.786      ;
-; 0.724 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 0.944      ;
-; 0.729 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 0.949      ;
-; 0.730 ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 0.950      ;
+; 0.578 ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 0.798      ;
+; 0.718 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 0.938      ;
 ; 0.758 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 0.978      ;
 ; 0.854 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.074      ;
-; 0.992 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.212      ;
-; 0.998 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.218      ;
-; 1.000 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.220      ;
-; 1.008 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.228      ;
-; 1.010 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.230      ;
-; 1.018 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.000        ; 2.380      ; 3.784      ;
-; 1.102 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.322      ;
-; 1.110 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.330      ;
-; 1.120 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.340      ;
-; 1.136 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.356      ;
-; 1.421 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.641      ;
-; 1.428 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; -0.500       ; 2.380      ; 3.694      ;
-; 1.709 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.929      ;
-; 1.944 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.164      ;
-; 2.204 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.424      ;
-; 2.285 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.505      ;
-; 2.297 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.517      ;
-; 2.334 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.554      ;
+; 0.856 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.076      ;
+; 0.858 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.078      ;
+; 0.958 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.178      ;
+; 0.968 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.188      ;
+; 0.990 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.000        ; 2.353      ; 3.729      ;
+; 0.992 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.212      ;
+; 0.994 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.214      ;
+; 1.104 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.324      ;
+; 1.137 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.357      ;
+; 1.221 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.441      ;
+; 1.328 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.548      ;
+; 1.419 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.639      ;
+; 1.430 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; -0.500       ; 2.353      ; 3.669      ;
+; 1.707 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 1.927      ;
+; 1.907 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.127      ;
+; 2.022 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.242      ;
+; 2.138 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.358      ;
+; 2.269 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.489      ;
+; 2.278 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.063      ; 2.498      ;
 +-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -354,8 +354,8 @@ No synchronizer chains to report.
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 349.16 MHz ; 250.0 MHz       ; clk_50     ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 715.82 MHz ; 500.0 MHz       ; ADC_SCK    ; limit due to minimum period restriction (tmin)                ;
+; 354.11 MHz ; 250.0 MHz       ; clk_50     ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 715.31 MHz ; 500.0 MHz       ; ADC_SCK    ; limit due to minimum period restriction (tmin)                ;
 +------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -365,8 +365,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------+--------+-----------------+
 ; Clock   ; Slack  ; End Point TNS   ;
 +---------+--------+-----------------+
-; clk_50  ; -1.864 ; -5.116          ;
-; ADC_SCK ; -0.397 ; -2.590          ;
+; clk_50  ; -1.824 ; -5.086          ;
+; ADC_SCK ; -0.398 ; -2.604          ;
 +---------+--------+-----------------+
 
 
@@ -375,8 +375,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------+-------+-----------------+
 ; Clock   ; Slack ; End Point TNS   ;
 +---------+-------+-----------------+
-; ADC_SCK ; 0.320 ; 0.000           ;
-; clk_50  ; 0.320 ; 0.000           ;
+; ADC_SCK ; 0.319 ; 0.000           ;
+; clk_50  ; 0.319 ; 0.000           ;
 +---------+-------+-----------------+
 
 
@@ -407,31 +407,31 @@ No paths to report.
 +--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node     ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
-; -1.864 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.804      ;
-; -1.858 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.798      ;
-; -1.717 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.657      ;
-; -1.687 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.627      ;
-; -1.329 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.269      ;
-; -1.200 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.140      ;
-; -1.194 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.134      ;
-; -1.181 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.121      ;
-; -1.176 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.116      ;
-; -1.066 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 2.006      ;
-; -1.048 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.988      ;
-; -1.036 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.976      ;
-; -1.018 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.958      ;
-; -0.878 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.500        ; 2.067      ; 3.610      ;
-; -0.874 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.814      ;
-; -0.856 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.796      ;
-; -0.795 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.735      ;
-; -0.789 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.729      ;
-; -0.613 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.553      ;
-; -0.570 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.510      ;
-; -0.408 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.348      ;
-; -0.404 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 1.000        ; 2.067      ; 3.636      ;
-; -0.076 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.016      ;
-; -0.076 ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 1.016      ;
-; 0.357  ; counter_25[0] ; counter_25[0] ; clk_50       ; clk_50      ; 1.000        ; -0.055     ; 0.583      ;
+; -1.824 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 2.763      ;
+; -1.817 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 2.756      ;
+; -1.619 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 2.558      ;
+; -1.516 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 2.455      ;
+; -1.254 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 2.193      ;
+; -1.205 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 2.144      ;
+; -1.198 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 2.137      ;
+; -1.186 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 2.125      ;
+; -1.178 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 2.117      ;
+; -1.043 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.982      ;
+; -1.025 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.964      ;
+; -0.940 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.879      ;
+; -0.922 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.861      ;
+; -0.878 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.817      ;
+; -0.860 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.799      ;
+; -0.858 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.500        ; 2.048      ; 3.571      ;
+; -0.800 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.739      ;
+; -0.793 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.732      ;
+; -0.577 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.516      ;
+; -0.474 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.413      ;
+; -0.412 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.351      ;
+; -0.338 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 1.000        ; 2.048      ; 3.551      ;
+; -0.071 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 1.010      ;
+; 0.048  ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 0.891      ;
+; 0.356  ; counter_25[0] ; counter_25[0] ; clk_50       ; clk_50      ; 1.000        ; -0.056     ; 0.583      ;
 +--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -440,46 +440,46 @@ No paths to report.
 +--------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
-; -0.397 ; address_counter[2] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 1.337      ;
-; -0.338 ; address_counter[1] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 1.278      ;
-; -0.332 ; channel_counter[0] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 1.272      ;
-; -0.316 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.544      ;
-; -0.316 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.544      ;
-; -0.316 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.544      ;
-; -0.316 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.544      ;
-; -0.316 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.544      ;
-; -0.316 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.544      ;
-; -0.309 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.537      ;
-; -0.309 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.537      ;
-; -0.309 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.537      ;
-; -0.309 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.537      ;
-; -0.309 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.537      ;
-; -0.309 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.537      ;
-; -0.297 ; channel_counter[0] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 1.237      ;
-; -0.295 ; address_counter[1] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 1.235      ;
-; -0.182 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.410      ;
-; -0.182 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.410      ;
-; -0.182 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.410      ;
-; -0.182 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.410      ;
-; -0.182 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.410      ;
-; -0.182 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.410      ;
-; -0.082 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.310      ;
-; -0.082 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.310      ;
-; -0.082 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.310      ;
-; -0.082 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.310      ;
-; -0.082 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.310      ;
-; -0.082 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.310      ;
-; 0.050  ; address_counter[1] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 0.890      ;
-; 0.056  ; channel_counter[0] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 0.884      ;
-; 0.069  ; address_counter[2] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 0.871      ;
-; 0.193  ; address_counter[3] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 0.747      ;
-; 0.204  ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.068     ; 0.723      ;
-; 0.204  ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.068     ; 0.723      ;
-; 0.300  ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.068     ; 0.627      ;
-; 0.308  ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.068     ; 0.619      ;
-; 0.309  ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.068     ; 0.618      ;
-; 0.309  ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.068     ; 0.618      ;
-; 0.357  ; channel_counter[0] ; channel_counter[0] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.055     ; 0.583      ;
+; -0.398 ; address_counter[2] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 1.337      ;
+; -0.339 ; address_counter[1] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 1.278      ;
+; -0.333 ; channel_counter[0] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 1.272      ;
+; -0.318 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.546      ;
+; -0.318 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.546      ;
+; -0.318 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.546      ;
+; -0.318 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.546      ;
+; -0.318 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.546      ;
+; -0.318 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.546      ;
+; -0.312 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.540      ;
+; -0.312 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.540      ;
+; -0.312 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.540      ;
+; -0.312 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.540      ;
+; -0.312 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.540      ;
+; -0.312 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.540      ;
+; -0.298 ; channel_counter[0] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 1.237      ;
+; -0.296 ; address_counter[1] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 1.235      ;
+; -0.183 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.411      ;
+; -0.183 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.411      ;
+; -0.183 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.411      ;
+; -0.183 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.411      ;
+; -0.183 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.411      ;
+; -0.183 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.411      ;
+; -0.084 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.312      ;
+; -0.084 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.312      ;
+; -0.084 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.312      ;
+; -0.084 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.312      ;
+; -0.084 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.312      ;
+; -0.084 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.233      ; 1.312      ;
+; 0.049  ; address_counter[1] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 0.890      ;
+; 0.055  ; channel_counter[0] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 0.884      ;
+; 0.068  ; address_counter[2] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 0.871      ;
+; 0.192  ; address_counter[3] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 0.747      ;
+; 0.203  ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.067     ; 0.725      ;
+; 0.205  ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.067     ; 0.723      ;
+; 0.300  ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.067     ; 0.628      ;
+; 0.307  ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.067     ; 0.621      ;
+; 0.307  ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.067     ; 0.621      ;
+; 0.311  ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.067     ; 0.617      ;
+; 0.356  ; channel_counter[0] ; channel_counter[0] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.056     ; 0.583      ;
 +--------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -488,46 +488,46 @@ No paths to report.
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
-; 0.320 ; channel_counter[0] ; channel_counter[0] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.519      ;
-; 0.322 ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.068      ; 0.534      ;
-; 0.333 ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.068      ; 0.545      ;
-; 0.333 ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.068      ; 0.545      ;
-; 0.333 ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.068      ; 0.545      ;
-; 0.414 ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.068      ; 0.626      ;
-; 0.414 ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.068      ; 0.626      ;
-; 0.482 ; address_counter[3] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.681      ;
-; 0.501 ; address_counter[2] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.700      ;
-; 0.515 ; channel_counter[0] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.714      ;
-; 0.517 ; address_counter[1] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.716      ;
-; 0.745 ; address_counter[2] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.944      ;
-; 0.752 ; address_counter[1] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.951      ;
-; 0.754 ; channel_counter[0] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.953      ;
-; 0.759 ; address_counter[1] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.958      ;
-; 0.761 ; channel_counter[0] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.055      ; 0.960      ;
-; 0.797 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.297      ;
-; 0.797 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.297      ;
-; 0.797 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.297      ;
-; 0.797 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.297      ;
-; 0.797 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.297      ;
-; 0.797 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.297      ;
+; 0.319 ; channel_counter[0] ; channel_counter[0] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.519      ;
+; 0.325 ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.067      ; 0.536      ;
+; 0.333 ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.067      ; 0.544      ;
+; 0.335 ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.067      ; 0.546      ;
+; 0.335 ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.067      ; 0.546      ;
+; 0.416 ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.067      ; 0.627      ;
+; 0.417 ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.067      ; 0.628      ;
+; 0.481 ; address_counter[3] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.681      ;
+; 0.500 ; address_counter[2] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.700      ;
+; 0.514 ; channel_counter[0] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.714      ;
+; 0.516 ; address_counter[1] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.716      ;
+; 0.744 ; address_counter[2] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.944      ;
+; 0.751 ; address_counter[1] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.951      ;
+; 0.753 ; channel_counter[0] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.953      ;
+; 0.758 ; address_counter[1] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.958      ;
+; 0.760 ; channel_counter[0] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.056      ; 0.960      ;
+; 0.798 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.298      ;
+; 0.798 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.298      ;
+; 0.798 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.298      ;
+; 0.798 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.298      ;
+; 0.798 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.298      ;
+; 0.798 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.298      ;
 ; 0.899 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.399      ;
 ; 0.899 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.399      ;
 ; 0.899 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.399      ;
 ; 0.899 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.399      ;
 ; 0.899 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.399      ;
 ; 0.899 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.399      ;
-; 1.033 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
-; 1.033 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.533      ;
+; 1.035 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
+; 1.035 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.356      ; 1.535      ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -536,31 +536,31 @@ No paths to report.
 +-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node     ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
-; 0.320 ; counter_25[0] ; counter_25[0] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 0.519      ;
-; 0.510 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 0.709      ;
-; 0.664 ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 0.863      ;
-; 0.666 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 0.865      ;
-; 0.667 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 0.866      ;
-; 0.690 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 0.889      ;
-; 0.759 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 0.958      ;
-; 0.900 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.099      ;
-; 0.901 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.100      ;
-; 0.903 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.102      ;
-; 0.908 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.107      ;
-; 0.908 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.000        ; 2.142      ; 3.404      ;
-; 0.910 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.109      ;
-; 0.986 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.185      ;
-; 0.997 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.196      ;
-; 0.999 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.198      ;
-; 1.015 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.214      ;
-; 1.279 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.478      ;
-; 1.404 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; -0.500       ; 2.142      ; 3.400      ;
-; 1.528 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.727      ;
-; 1.781 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 1.980      ;
-; 2.032 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 2.231      ;
-; 2.048 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 2.247      ;
-; 2.057 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 2.256      ;
-; 2.099 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.055      ; 2.298      ;
+; 0.319 ; counter_25[0] ; counter_25[0] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 0.519      ;
+; 0.509 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 0.709      ;
+; 0.522 ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 0.722      ;
+; 0.660 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 0.860      ;
+; 0.689 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 0.889      ;
+; 0.758 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 0.958      ;
+; 0.761 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 0.961      ;
+; 0.768 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 0.968      ;
+; 0.845 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.000        ; 2.123      ; 3.322      ;
+; 0.857 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.057      ;
+; 0.878 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.078      ;
+; 0.895 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.095      ;
+; 0.902 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.102      ;
+; 0.991 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.191      ;
+; 1.016 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.216      ;
+; 1.112 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.312      ;
+; 1.176 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.376      ;
+; 1.276 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.476      ;
+; 1.388 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; -0.500       ; 2.123      ; 3.365      ;
+; 1.525 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.725      ;
+; 1.740 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.940      ;
+; 1.787 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 1.987      ;
+; 1.954 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 2.154      ;
+; 2.012 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 2.212      ;
+; 2.018 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.056      ; 2.218      ;
 +-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -575,7 +575,7 @@ No synchronizer chains to report.
 +---------+--------+-----------------+
 ; Clock   ; Slack  ; End Point TNS   ;
 +---------+--------+-----------------+
-; clk_50  ; -0.820 ; -1.663          ;
+; clk_50  ; -0.772 ; -1.629          ;
 ; ADC_SCK ; 0.122  ; 0.000           ;
 +---------+--------+-----------------+
 
@@ -585,7 +585,7 @@ No synchronizer chains to report.
 +---------+-------+-----------------+
 ; Clock   ; Slack ; End Point TNS   ;
 +---------+-------+-----------------+
-; ADC_SCK ; 0.186 ; 0.000           ;
+; ADC_SCK ; 0.187 ; 0.000           ;
 ; clk_50  ; 0.192 ; 0.000           ;
 +---------+-------+-----------------+
 
@@ -607,7 +607,7 @@ No paths to report.
 +---------+--------+-------------------------------+
 ; Clock   ; Slack  ; End Point TNS                 ;
 +---------+--------+-------------------------------+
-; clk_50  ; -3.000 ; -9.594                        ;
+; clk_50  ; -3.000 ; -9.582                        ;
 ; ADC_SCK ; -1.000 ; -10.000                       ;
 +---------+--------+-------------------------------+
 
@@ -617,30 +617,30 @@ No paths to report.
 +--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node     ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
-; -0.820 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.769      ;
-; -0.819 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.768      ;
-; -0.750 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.699      ;
-; -0.717 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.666      ;
-; -0.522 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.471      ;
-; -0.375 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.324      ;
-; -0.369 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.318      ;
-; -0.339 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.288      ;
-; -0.338 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.287      ;
-; -0.273 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.222      ;
-; -0.269 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.218      ;
-; -0.240 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.189      ;
-; -0.236 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.185      ;
-; -0.171 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.120      ;
-; -0.167 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.116      ;
-; -0.129 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.078      ;
-; -0.123 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.072      ;
-; 0.004  ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.945      ;
-; 0.019  ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.500        ; 1.598      ; 2.161      ;
-; 0.022  ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.927      ;
-; 0.118  ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.831      ;
-; 0.237  ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 1.000        ; 1.598      ; 2.443      ;
-; 0.309  ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.640      ;
-; 0.314  ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.635      ;
+; -0.772 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.721      ;
+; -0.765 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.714      ;
+; -0.670 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.619      ;
+; -0.609 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.558      ;
+; -0.467 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.416      ;
+; -0.378 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.327      ;
+; -0.376 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.325      ;
+; -0.347 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.296      ;
+; -0.340 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.289      ;
+; -0.249 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.198      ;
+; -0.245 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.194      ;
+; -0.188 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.137      ;
+; -0.184 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.133      ;
+; -0.173 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.122      ;
+; -0.169 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.118      ;
+; -0.132 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.081      ;
+; -0.130 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 1.079      ;
+; 0.016  ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.933      ;
+; 0.054  ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.500        ; 1.580      ; 2.108      ;
+; 0.084  ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.865      ;
+; 0.116  ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.833      ;
+; 0.299  ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 1.000        ; 1.580      ; 2.363      ;
+; 0.317  ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.632      ;
+; 0.393  ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.556      ;
 ; 0.590  ; counter_25[0] ; counter_25[0] ; clk_50       ; clk_50      ; 1.000        ; -0.038     ; 0.359      ;
 +--------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 
@@ -651,44 +651,44 @@ No paths to report.
 ; Slack ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 ; 0.122 ; address_counter[2] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.826      ;
+; 0.164 ; channel_counter[0] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.784      ;
 ; 0.165 ; address_counter[1] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.783      ;
-; 0.165 ; channel_counter[0] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.783      ;
 ; 0.197 ; address_counter[1] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.751      ;
 ; 0.197 ; channel_counter[0] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.751      ;
-; 0.204 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.937      ;
-; 0.204 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.937      ;
-; 0.204 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.937      ;
-; 0.204 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.937      ;
-; 0.204 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.937      ;
-; 0.204 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.937      ;
-; 0.209 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.932      ;
-; 0.209 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.932      ;
-; 0.209 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.932      ;
-; 0.209 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.932      ;
-; 0.209 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.932      ;
-; 0.209 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.932      ;
-; 0.302 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.839      ;
-; 0.302 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.839      ;
-; 0.302 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.839      ;
-; 0.302 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.839      ;
-; 0.302 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.839      ;
-; 0.302 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.839      ;
-; 0.358 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.783      ;
-; 0.358 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.783      ;
-; 0.358 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.783      ;
-; 0.358 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.783      ;
-; 0.358 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.783      ;
-; 0.358 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.154      ; 0.783      ;
+; 0.203 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.939      ;
+; 0.203 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.939      ;
+; 0.203 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.939      ;
+; 0.203 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.939      ;
+; 0.203 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.939      ;
+; 0.203 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.939      ;
+; 0.208 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.934      ;
+; 0.208 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.934      ;
+; 0.208 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.934      ;
+; 0.208 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.934      ;
+; 0.208 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.934      ;
+; 0.208 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.934      ;
+; 0.302 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.840      ;
+; 0.302 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.840      ;
+; 0.302 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.840      ;
+; 0.302 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.840      ;
+; 0.302 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.840      ;
+; 0.302 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.840      ;
+; 0.357 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.785      ;
+; 0.357 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.785      ;
+; 0.357 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.785      ;
+; 0.357 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.785      ;
+; 0.357 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.785      ;
+; 0.357 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; 0.155      ; 0.785      ;
 ; 0.400 ; address_counter[1] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.548      ;
-; 0.401 ; channel_counter[0] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.547      ;
+; 0.400 ; channel_counter[0] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.548      ;
 ; 0.414 ; address_counter[2] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.534      ;
 ; 0.489 ; address_counter[3] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.459      ;
-; 0.512 ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.048     ; 0.427      ;
-; 0.513 ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.048     ; 0.426      ;
-; 0.558 ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.048     ; 0.381      ;
-; 0.560 ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.048     ; 0.379      ;
-; 0.560 ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.048     ; 0.379      ;
-; 0.565 ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.048     ; 0.374      ;
+; 0.509 ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.047     ; 0.431      ;
+; 0.510 ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.047     ; 0.430      ;
+; 0.559 ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.047     ; 0.381      ;
+; 0.559 ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.047     ; 0.381      ;
+; 0.561 ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.047     ; 0.379      ;
+; 0.565 ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.047     ; 0.375      ;
 ; 0.589 ; channel_counter[0] ; channel_counter[0] ; ADC_SCK      ; ADC_SCK     ; 1.000        ; -0.039     ; 0.359      ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 
@@ -698,13 +698,13 @@ No paths to report.
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node          ; To Node            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
-; 0.186 ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.048      ; 0.318      ;
-; 0.186 ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.048      ; 0.318      ;
-; 0.188 ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.048      ; 0.320      ;
-; 0.189 ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.048      ; 0.321      ;
+; 0.187 ; cc.channel_3       ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.047      ; 0.318      ;
+; 0.188 ; cc.channel_2       ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.047      ; 0.319      ;
+; 0.189 ; cc.channel_2       ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.047      ; 0.320      ;
+; 0.191 ; cc.channel_3       ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.047      ; 0.322      ;
 ; 0.191 ; channel_counter[0] ; channel_counter[0] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.039      ; 0.314      ;
-; 0.245 ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.048      ; 0.377      ;
-; 0.245 ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.048      ; 0.377      ;
+; 0.248 ; cc.channel_1       ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.047      ; 0.379      ;
+; 0.249 ; cc.channel_1       ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.047      ; 0.380      ;
 ; 0.270 ; address_counter[3] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.039      ; 0.393      ;
 ; 0.295 ; address_counter[2] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.039      ; 0.418      ;
 ; 0.303 ; address_counter[1] ; address_counter[1] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.039      ; 0.426      ;
@@ -712,32 +712,32 @@ No paths to report.
 ; 0.444 ; address_counter[2] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.039      ; 0.567      ;
 ; 0.455 ; address_counter[1] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.039      ; 0.578      ;
 ; 0.456 ; channel_counter[0] ; address_counter[2] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.039      ; 0.579      ;
-; 0.457 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.782      ;
-; 0.457 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.782      ;
-; 0.457 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.782      ;
-; 0.457 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.782      ;
-; 0.457 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.782      ;
-; 0.457 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.782      ;
 ; 0.458 ; address_counter[1] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.039      ; 0.581      ;
+; 0.459 ; address_counter[2] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.784      ;
+; 0.459 ; address_counter[2] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.784      ;
+; 0.459 ; address_counter[2] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.784      ;
+; 0.459 ; address_counter[2] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.784      ;
+; 0.459 ; address_counter[2] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.784      ;
+; 0.459 ; address_counter[2] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.784      ;
 ; 0.459 ; channel_counter[0] ; address_counter[3] ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.039      ; 0.582      ;
-; 0.518 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.843      ;
-; 0.518 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.843      ;
-; 0.518 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.843      ;
-; 0.518 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.843      ;
-; 0.518 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.843      ;
-; 0.518 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.843      ;
-; 0.596 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
-; 0.596 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.921      ;
+; 0.520 ; address_counter[3] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.845      ;
+; 0.520 ; address_counter[3] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.845      ;
+; 0.520 ; address_counter[3] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.845      ;
+; 0.520 ; address_counter[3] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.845      ;
+; 0.520 ; address_counter[3] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.845      ;
+; 0.520 ; address_counter[3] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.845      ;
+; 0.598 ; address_counter[1] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.923      ;
+; 0.598 ; address_counter[1] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.923      ;
+; 0.598 ; address_counter[1] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.923      ;
+; 0.598 ; address_counter[1] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.923      ;
+; 0.598 ; address_counter[1] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.923      ;
+; 0.598 ; address_counter[1] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.923      ;
+; 0.599 ; channel_counter[0] ; cc.channel_2       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.924      ;
+; 0.599 ; channel_counter[0] ; LED_1              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.924      ;
+; 0.599 ; channel_counter[0] ; LED_3              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.924      ;
+; 0.599 ; channel_counter[0] ; cc.channel_1       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.924      ;
+; 0.599 ; channel_counter[0] ; LED_2              ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.924      ;
+; 0.599 ; channel_counter[0] ; cc.channel_3       ; ADC_SCK      ; ADC_SCK     ; 0.000        ; 0.241      ; 0.924      ;
 +-------+--------------------+--------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -748,29 +748,29 @@ No paths to report.
 +-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 ; 0.192 ; counter_25[0] ; counter_25[0] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.314      ;
 ; 0.303 ; counter_25[3] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.425      ;
-; 0.380 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.502      ;
-; 0.384 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.506      ;
-; 0.386 ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.508      ;
+; 0.310 ; counter_25[0] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.432      ;
+; 0.360 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.000        ; 1.632      ; 2.211      ;
+; 0.378 ; counter_25[1] ; counter_25[1] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.500      ;
 ; 0.401 ; counter_25[4] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.523      ;
-; 0.423 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; 0.000        ; 1.651      ; 2.293      ;
 ; 0.461 ; counter_25[3] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.583      ;
-; 0.527 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.649      ;
-; 0.532 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.654      ;
-; 0.535 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.657      ;
-; 0.539 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.661      ;
-; 0.542 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.664      ;
-; 0.590 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.712      ;
-; 0.598 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.720      ;
-; 0.605 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.727      ;
-; 0.622 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.744      ;
-; 0.670 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; -0.500       ; 1.651      ; 2.040      ;
-; 0.761 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.883      ;
-; 0.919 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.041      ;
-; 1.057 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.179      ;
-; 1.182 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.304      ;
-; 1.268 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.390      ;
-; 1.271 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.393      ;
-; 1.276 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.398      ;
+; 0.463 ; counter_25[0] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.585      ;
+; 0.466 ; counter_25[0] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.588      ;
+; 0.496 ; counter_25[2] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.618      ;
+; 0.529 ; counter_25[0] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.651      ;
+; 0.530 ; counter_25[1] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.652      ;
+; 0.533 ; counter_25[1] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.655      ;
+; 0.596 ; counter_25[1] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.718      ;
+; 0.624 ; counter_25[3] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.746      ;
+; 0.639 ; counter_25[2] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.761      ;
+; 0.639 ; ADC_SCK       ; ADC_SCK       ; ADC_SCK      ; clk_50      ; -0.500       ; 1.632      ; 1.990      ;
+; 0.702 ; counter_25[2] ; counter_25[4] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.824      ;
+; 0.760 ; counter_25[4] ; counter_25[2] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 0.882      ;
+; 0.918 ; counter_25[4] ; counter_25[3] ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.040      ;
+; 1.014 ; counter_25[3] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.136      ;
+; 1.111 ; counter_25[0] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.233      ;
+; 1.130 ; counter_25[1] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.252      ;
+; 1.250 ; counter_25[4] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.372      ;
+; 1.255 ; counter_25[2] ; ADC_SCK       ; clk_50       ; clk_50      ; 0.000        ; 0.038      ; 1.377      ;
 +-------+---------------+---------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -785,12 +785,12 @@ No synchronizer chains to report.
 +------------------+---------+-------+----------+---------+---------------------+
 ; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -2.163  ; 0.186 ; N/A      ; N/A     ; -3.000              ;
-;  ADC_SCK         ; -0.576  ; 0.186 ; N/A      ; N/A     ; -1.000              ;
-;  clk_50          ; -2.163  ; 0.192 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS  ; -10.158 ; 0.0   ; 0.0      ; 0.0     ; -19.594             ;
-;  ADC_SCK         ; -3.843  ; 0.000 ; N/A      ; N/A     ; -10.000             ;
-;  clk_50          ; -6.315  ; 0.000 ; N/A      ; N/A     ; -9.594              ;
+; Worst-case Slack ; -2.119  ; 0.187 ; N/A      ; N/A     ; -3.000              ;
+;  ADC_SCK         ; -0.576  ; 0.187 ; N/A      ; N/A     ; -1.000              ;
+;  clk_50          ; -2.119  ; 0.192 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -10.138 ; 0.0   ; 0.0      ; 0.0     ; -19.582             ;
+;  ADC_SCK         ; -3.866  ; 0.000 ; N/A      ; N/A     ; -10.000             ;
+;  clk_50          ; -6.272  ; 0.000 ; N/A      ; N/A     ; -9.582              ;
 +------------------+---------+-------+----------+---------+---------------------+
 
 
@@ -961,7 +961,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Sat Jan 07 13:19:51 2023
+    Info: Processing started: Sat Jan 07 14:21:22 2023
 Info: Command: quartus_sta uart_xbee -c uart_xbee
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -979,11 +979,11 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -2.163
+Info (332146): Worst-case setup slack is -2.119
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.163              -6.315 clk_50 
-    Info (332119):    -0.576              -3.843 ADC_SCK 
+    Info (332119):    -2.119              -6.272 clk_50 
+    Info (332119):    -0.576              -3.866 ADC_SCK 
 Info (332146): Worst-case hold slack is 0.359
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1002,16 +1002,16 @@ Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -1.864
+Info (332146): Worst-case setup slack is -1.824
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.864              -5.116 clk_50 
-    Info (332119):    -0.397              -2.590 ADC_SCK 
-Info (332146): Worst-case hold slack is 0.320
+    Info (332119):    -1.824              -5.086 clk_50 
+    Info (332119):    -0.398              -2.604 ADC_SCK 
+Info (332146): Worst-case hold slack is 0.319
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.320               0.000 ADC_SCK 
-    Info (332119):     0.320               0.000 clk_50 
+    Info (332119):     0.319               0.000 ADC_SCK 
+    Info (332119):     0.319               0.000 clk_50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
@@ -1023,29 +1023,29 @@ Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -0.820
+Info (332146): Worst-case setup slack is -0.772
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.820              -1.663 clk_50 
+    Info (332119):    -0.772              -1.629 clk_50 
     Info (332119):     0.122               0.000 ADC_SCK 
-Info (332146): Worst-case hold slack is 0.186
+Info (332146): Worst-case hold slack is 0.187
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.186               0.000 ADC_SCK 
+    Info (332119):     0.187               0.000 ADC_SCK 
     Info (332119):     0.192               0.000 clk_50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000              -9.594 clk_50 
+    Info (332119):    -3.000              -9.582 clk_50 
     Info (332119):    -1.000             -10.000 ADC_SCK 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4782 megabytes
-    Info: Processing ended: Sat Jan 07 13:19:53 2023
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 4783 megabytes
+    Info: Processing ended: Sat Jan 07 14:21:23 2023
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

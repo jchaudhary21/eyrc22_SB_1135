@@ -34,15 +34,18 @@ module uart_xbee(
 	
 ////////////////////////WRITE YOUR CODE FROM HERE////////////////////
 
+/* Parameters */ 
+
+// ---- ADC Clock ---
 reg [4:0]counter_25 = 5'b0 ;
 reg ADC_SCK = 0 ;
 assign adc_sck = ADC_SCK ; 
 
-
+// ---- Chip Select ---
 wire [1:0]chip_select = 2'b0 ;
 assign adc_cs_n = chip_select ;
 
-
+// ---- LED turn OFF n ON ---
 reg LED_1 ;
 reg LED_2 ;
 reg LED_3 ;
@@ -50,7 +53,7 @@ assign led_1 = LED_1 ;
 assign led_2 = LED_2 ;
 assign led_3 = LED_3 ;
 
-
+// ---- Next Addrress --- 
 reg address = 0;
 assign din = address ;
 reg [4:0]address_counter = 5'b00 ;
@@ -61,16 +64,24 @@ localparam df_1 = 2'b01 ,
 			  df_end = 2'b00 ;
 reg [1:0]cs = df_1 ;
 
+// ---- Data Retrieve from channel ---
 reg [4:0]channel_counter = 5'b00 ;
 reg [11:0]Data = 12'b00 ;
-localparam channel_1 = 2'b01 ,   // <== channel 5
-			  channel_2 = 2'b10 ,	// <== channel 6
-			  channel_3 = 2'b11 ;	// <== channel 7
+localparam channel_1 = 2'b01 ,   // <== channel 1
+			  channel_2 = 2'b10 ,	// <== channel 2
+			  channel_3 = 2'b11 ;	// <== channel 0
 reg [1:0]cc = channel_1 ;
 
+// ---- Comparison Threshold --- 
 reg [11:0]comparison = 12'b0 ;
 
- 
+
+/* Paramater Ends */
+
+/* Code and Functions */
+
+
+// ---- Initializing code with parameter ---  
 initial
 begin 
 LED_1 = 1'b1 ;
@@ -79,6 +90,7 @@ LED_3 = 1'b1 ;
 end
 
 
+// ---- ADC Clock ---
 always @(negedge clk_50)
 begin	
 		if ( counter_25 == 5'b0 | counter_25 == 5'b10100)
@@ -96,7 +108,7 @@ begin
 		counter_25 = 5'b1 + counter_25 ;
 end
 
-
+// ---- ADC address --- 
 always @(negedge adc_sck)
 begin
    address = 0 ;
@@ -105,19 +117,19 @@ begin
 		case (cs)
 			
 			df_1 : 
-			if (address_counter == 5'b10) begin address = 1 ;end 
+			if (address_counter == 5'b10) begin address = 0 ;end 
 			else if (address_counter == 5'b11) begin address = 0; end 
 			else if (address_counter == 5'b100) begin address = 1 ; cs = df_2; end 
 			
 			df_2 :
-			if (address_counter == 5'b10) begin address = 1 ;end 
+			if (address_counter == 5'b10) begin address = 0 ;end 
 			else if (address_counter == 5'b11) begin address = 1 ; end 
 			else if (address_counter == 5'b100) begin address = 0 ; cs = df_3 ;end 
 			
 			df_3 :
-			if (address_counter == 5'b10) begin address = 1 ;end 
-			else if (address_counter == 5'b11) begin address = 1 ;end 
-			else if (address_counter == 5'b100) begin address = 1 ; cs = df_end ;end 
+			if (address_counter == 5'b10) begin address = 0 ;end 
+			else if (address_counter == 5'b11) begin address = 0 ;end 
+			else if (address_counter == 5'b100) begin address = 0 ; cs = df_end ;end 
 			
 			df_end:
 				address = 0 ;
@@ -130,7 +142,8 @@ begin
 	address_counter = address_counter + 1 ;
 end 	
 		
-
+		
+// ---- Data retrieve ---
 always @(negedge adc_sck)
 begin
 

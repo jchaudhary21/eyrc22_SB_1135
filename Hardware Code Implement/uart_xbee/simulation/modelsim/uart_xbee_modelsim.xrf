@@ -1,6 +1,6 @@
 vendor_name = ModelSim
-source_file = 1, E:/E-yantra/Task 2/uart_xbee/uart_xbee.v
-source_file = 1, E:/E-yantra/Task 2/uart_xbee/db/uart_xbee.cbx.xml
+source_file = 1, D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/uart_xbee.v
+source_file = 1, D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/db/uart_xbee.cbx.xml
 design_name = uart_xbee
 instance = comp, \adc_cs_n~output , adc_cs_n~output, uart_xbee, 1
 instance = comp, \din~output , din~output, uart_xbee, 1
