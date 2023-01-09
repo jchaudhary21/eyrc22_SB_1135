@@ -1,16 +1,27 @@
 |uart_xbee
-clk_50 => counter_25[0].CLK
-clk_50 => counter_25[1].CLK
-clk_50 => counter_25[2].CLK
-clk_50 => counter_25[3].CLK
-clk_50 => counter_25[4].CLK
+clk_50 => adc_uart_switch[0].CLK
+clk_50 => adc_uart_switch[1].CLK
+clk_50 => adc_uart_switch[2].CLK
+clk_50 => adc_uart_switch[3].CLK
+clk_50 => adc_uart_switch[4].CLK
+clk_50 => adc_uart_switch[5].CLK
+clk_50 => adc_uart_switch[6].CLK
+clk_50 => adc_uart_switch[7].CLK
+clk_50 => adc_uart_switch[8].CLK
+clk_50 => adc_uart_flag.CLK
+clk_50 => adc_clk_counter[0].CLK
+clk_50 => adc_clk_counter[1].CLK
+clk_50 => adc_clk_counter[2].CLK
+clk_50 => adc_clk_counter[3].CLK
+clk_50 => adc_clk_counter[4].CLK
+clk_50 => adc_clk_counter[5].CLK
+clk_50 => adc_clk_counter[6].CLK
+clk_50 => adc_clk_counter[7].CLK
+clk_50 => adc_clk_counter[8].CLK
 clk_50 => ADC_SCK.CLK
-dout => Data.DATAB
-adc_cs_n <= <GND>
-din <= address.DB_MAX_OUTPUT_PORT_TYPE
 adc_sck <= ADC_SCK.DB_MAX_OUTPUT_PORT_TYPE
-led_1 <= LED_1.DB_MAX_OUTPUT_PORT_TYPE
-led_2 <= LED_2.DB_MAX_OUTPUT_PORT_TYPE
-led_3 <= LED_3.DB_MAX_OUTPUT_PORT_TYPE
+din <= <GND>
+dout <= <GND>
+tx <= Tx.DB_MAX_OUTPUT_PORT_TYPE
 
 

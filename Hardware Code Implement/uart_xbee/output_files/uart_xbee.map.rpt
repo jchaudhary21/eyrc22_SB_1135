@@ -1,5 +1,5 @@
 Analysis & Synthesis report for uart_xbee
-Sat Jan 07 14:21:06 2023
+Mon Jan 09 22:13:42 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -13,16 +13,14 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |uart_xbee|cc
-  9. State Machine - |uart_xbee|cs
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
- 17. Analysis & Synthesis Suppressed Messages
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+ 15. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -49,16 +47,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jan 07 14:21:06 2023       ;
+; Analysis & Synthesis Status        ; Successful - Mon Jan 09 22:13:42 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; uart_xbee                                   ;
 ; Top-level Entity Name              ; uart_xbee                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 20                                          ;
-;     Total combinational functions  ; 17                                          ;
-;     Dedicated logic registers      ; 16                                          ;
-; Total registers                    ; 16                                          ;
-; Total pins                         ; 8                                           ;
+; Total logic elements               ; 26                                          ;
+;     Total combinational functions  ; 26                                          ;
+;     Dedicated logic registers      ; 18                                          ;
+; Total registers                    ; 18                                          ;
+; Total pins                         ; 5                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -165,49 +163,49 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.1%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                      ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                        ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
-; uart_xbee.v                      ; yes             ; User Verilog HDL File  ; D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/uart_xbee.v ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                           ;
++----------------------------------+-----------------+------------------------+------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path             ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------+---------+
+; uart_xbee.v                      ; yes             ; User Verilog HDL File  ; E:/E-yantra/Task 2/uart_xbee/uart_xbee.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------+---------+
 
 
-+-------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary           ;
-+---------------------------------------------+---------+
-; Resource                                    ; Usage   ;
-+---------------------------------------------+---------+
-; Estimated Total logic elements              ; 20      ;
-;                                             ;         ;
-; Total combinational functions               ; 17      ;
-; Logic element usage by number of LUT inputs ;         ;
-;     -- 4 input functions                    ; 4       ;
-;     -- 3 input functions                    ; 3       ;
-;     -- <=2 input functions                  ; 10      ;
-;                                             ;         ;
-; Logic elements by mode                      ;         ;
-;     -- normal mode                          ; 12      ;
-;     -- arithmetic mode                      ; 5       ;
-;                                             ;         ;
-; Total registers                             ; 16      ;
-;     -- Dedicated logic registers            ; 16      ;
-;     -- I/O registers                        ; 0       ;
-;                                             ;         ;
-; I/O pins                                    ; 8       ;
-;                                             ;         ;
-; Embedded Multiplier 9-bit elements          ; 0       ;
-;                                             ;         ;
-; Maximum fan-out node                        ; ADC_SCK ;
-; Maximum fan-out                             ; 12      ;
-; Total fan-out                               ; 89      ;
-; Average fan-out                             ; 1.82    ;
-+---------------------------------------------+---------+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 26            ;
+;                                             ;               ;
+; Total combinational functions               ; 26            ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 6             ;
+;     -- 3 input functions                    ; 7             ;
+;     -- <=2 input functions                  ; 13            ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 12            ;
+;     -- arithmetic mode                      ; 14            ;
+;                                             ;               ;
+; Total registers                             ; 18            ;
+;     -- Dedicated logic registers            ; 18            ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 5             ;
+;                                             ;               ;
+; Embedded Multiplier 9-bit elements          ; 0             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; adc_uart_flag ;
+; Maximum fan-out                             ; 18            ;
+; Total fan-out                               ; 127           ;
+; Average fan-out                             ; 2.35          ;
++---------------------------------------------+---------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -215,71 +213,42 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |uart_xbee                 ; 17 (17)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 8    ; 0            ; |uart_xbee          ; uart_xbee   ; work         ;
+; |uart_xbee                 ; 26 (26)             ; 18 (18)                   ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |uart_xbee          ; uart_xbee   ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-Encoding Type:  One-Hot
-+-----------------------------------------------------------+
-; State Machine - |uart_xbee|cc                             ;
-+--------------+--------------+--------------+--------------+
-; Name         ; cc.channel_3 ; cc.channel_1 ; cc.channel_2 ;
-+--------------+--------------+--------------+--------------+
-; cc.channel_1 ; 0            ; 0            ; 0            ;
-; cc.channel_2 ; 0            ; 1            ; 1            ;
-; cc.channel_3 ; 1            ; 1            ; 0            ;
-+--------------+--------------+--------------+--------------+
++-------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                            ;
++----------------------------------------+--------------------------------------+
+; Register name                          ; Reason for Removal                   ;
++----------------------------------------+--------------------------------------+
+; bit_counter[1]                         ; Stuck at GND due to stuck port clock ;
+; cs[0]                                  ; Stuck at GND due to stuck port clock ;
+; bit_counter[0]                         ; Stuck at GND due to stuck port clock ;
+; data[2]                                ; Stuck at VCC due to stuck port clock ;
+; cs[1,2]                                ; Stuck at GND due to stuck port clock ;
+; data[0,1]                              ; Stuck at GND due to stuck port clock ;
+; bit_counter[2,3]                       ; Stuck at GND due to stuck port clock ;
+; Tx                                     ; Stuck at GND due to stuck port clock ;
+; adc_uart_switch[0]                     ; Merged with adc_clk_counter[0]       ;
+; adc_uart_switch[1]                     ; Merged with adc_clk_counter[1]       ;
+; Total Number of Removed Registers = 13 ;                                      ;
++----------------------------------------+--------------------------------------+
 
 
-Encoding Type:  One-Hot
-+-----------------------------------------------------+
-; State Machine - |uart_xbee|cs                       ;
-+-----------+---------+---------+---------+-----------+
-; Name      ; cs.df_3 ; cs.df_2 ; cs.df_1 ; cs.df_end ;
-+-----------+---------+---------+---------+-----------+
-; cs.df_end ; 0       ; 0       ; 0       ; 0         ;
-; cs.df_1   ; 0       ; 0       ; 1       ; 1         ;
-; cs.df_2   ; 0       ; 1       ; 0       ; 1         ;
-; cs.df_3   ; 1       ; 0       ; 0       ; 1         ;
-+-----------+---------+---------+---------+-----------+
-
-
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; Data[0..11]                            ; Lost fanout                            ;
-; address_counter[0]                     ; Merged with channel_counter[0]         ;
-; cs~6                                   ; Lost fanout                            ;
-; cs~7                                   ; Lost fanout                            ;
-; channel_counter[3]                     ; Merged with address_counter[3]         ;
-; channel_counter[4]                     ; Merged with address_counter[4]         ;
-; channel_counter[2]                     ; Merged with address_counter[2]         ;
-; channel_counter[1]                     ; Merged with address_counter[1]         ;
-; cs.df_1                                ; Stuck at GND due to stuck port data_in ;
-; cs.df_2                                ; Stuck at GND due to stuck port data_in ;
-; address                                ; Stuck at GND due to stuck port data_in ;
-; cs.df_3                                ; Stuck at GND due to stuck port data_in ;
-; cs.df_end                              ; Stuck at GND due to stuck port data_in ;
-; address_counter[4]                     ; Lost fanout                            ;
-; Total Number of Removed Registers = 25 ;                                        ;
-+----------------------------------------+----------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                    ;
-+---------------+---------------------------+----------------------------------------------------------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                             ;
-+---------------+---------------------------+----------------------------------------------------------------------------------------------------+
-; Data[11]      ; Lost Fanouts              ; Data[10], Data[9], Data[8], Data[7], Data[6], Data[5], Data[4], Data[3], Data[2], Data[1], Data[0] ;
-; cs.df_1       ; Stuck at GND              ; address, cs.df_end                                                                                 ;
-;               ; due to stuck port data_in ;                                                                                                    ;
-; cs~6          ; Lost Fanouts              ; address_counter[4]                                                                                 ;
-; cs.df_2       ; Stuck at GND              ; cs.df_3                                                                                            ;
-;               ; due to stuck port data_in ;                                                                                                    ;
-+---------------+---------------------------+----------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                        ;
++----------------+-------------------------+---------------------------------------------------------+
+; Register name  ; Reason for Removal      ; Registers Removed due to This Register                  ;
++----------------+-------------------------+---------------------------------------------------------+
+; cs[0]          ; Stuck at GND            ; bit_counter[0], data[2], bit_counter[2], bit_counter[3] ;
+;                ; due to stuck port clock ;                                                         ;
+; bit_counter[1] ; Stuck at GND            ; Tx                                                      ;
+;                ; due to stuck port clock ;                                                         ;
+; cs[2]          ; Stuck at GND            ; data[1]                                                 ;
+;                ; due to stuck port clock ;                                                         ;
++----------------+-------------------------+---------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -287,12 +256,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 16    ;
+; Total registers                              ; 18    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 6     ;
+; Number of registers using Clock Enable       ; 17    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -302,10 +271,8 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; LED_1                                  ; 1       ;
-; LED_2                                  ; 1       ;
-; LED_3                                  ; 1       ;
-; Total number of inverted registers = 3 ;         ;
+; adc_uart_flag                          ; 18      ;
+; Total number of inverted registers = 1 ;         ;
 +----------------------------------------+---------+
 
 
@@ -314,22 +281,22 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 8                           ;
-; cycloneiii_ff         ; 16                          ;
-;     ENA               ; 6                           ;
-;     plain             ; 10                          ;
-; cycloneiii_lcell_comb ; 21                          ;
-;     arith             ; 5                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 3                           ;
-;     normal            ; 16                          ;
+; boundary_port         ; 5                           ;
+; cycloneiii_ff         ; 18                          ;
+;     ENA               ; 17                          ;
+;     plain             ; 1                           ;
+; cycloneiii_lcell_comb ; 27                          ;
+;     arith             ; 14                          ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 4                           ;
+;     normal            ; 13                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 9                           ;
-;         2 data inputs ; 2                           ;
-;         4 data inputs ; 4                           ;
+;         1 data inputs ; 3                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 6                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.20                        ;
-; Average LUT depth     ; 1.60                        ;
+; Max LUT depth         ; 3.60                        ;
+; Average LUT depth     ; 2.40                        ;
 +-----------------------+-----------------------------+
 
 
@@ -338,7 +305,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -348,40 +315,48 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Sat Jan 07 14:20:53 2023
+    Info: Processing started: Mon Jan 09 22:13:34 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off uart_xbee -c uart_xbee
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file uart_xbee.v
-    Info (12023): Found entity 1: uart_xbee File: D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/uart_xbee.v Line: 22
+    Info (12023): Found entity 1: uart_xbee File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 2
+Warning (12019): Can't analyze file -- file test_bench.v is missing
 Info (12127): Elaborating entity "uart_xbee" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at uart_xbee.v(46): truncated value with size 2 to match size of target (1) File: D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/uart_xbee.v Line: 46
-Warning (10230): Verilog HDL assignment warning at uart_xbee.v(142): truncated value with size 32 to match size of target (5) File: D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/uart_xbee.v Line: 142
-Warning (10230): Verilog HDL assignment warning at uart_xbee.v(187): truncated value with size 32 to match size of target (5) File: D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/uart_xbee.v Line: 187
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(27): truncated value with size 5 to match size of target (1) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 27
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(37): truncated value with size 9 to match size of target (1) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 37
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(54): truncated value with size 14 to match size of target (1) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 54
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(82): truncated value with size 32 to match size of target (9) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 82
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(83): truncated value with size 32 to match size of target (9) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 83
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(110): truncated value with size 32 to match size of target (1) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 110
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(111): truncated value with size 32 to match size of target (1) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 111
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(129): truncated value with size 32 to match size of target (1) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 129
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(150): truncated value with size 32 to match size of target (3) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 150
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(169): truncated value with size 32 to match size of target (4) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 169
+Warning (10230): Verilog HDL assignment warning at uart_xbee.v(182): truncated value with size 32 to match size of target (4) File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 182
+Warning (10034): Output port "dout" at uart_xbee.v(7) has no driver File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 7
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "adc_cs_n" is stuck at GND File: D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/uart_xbee.v Line: 25
-    Warning (13410): Pin "din" is stuck at GND File: D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/uart_xbee.v Line: 26
+    Warning (13410): Pin "din" is stuck at GND File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 6
+    Warning (13410): Pin "dout" is stuck at GND File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 7
+    Warning (13410): Pin "tx" is stuck at GND File: E:/E-yantra/Task 2/uart_xbee/uart_xbee.v Line: 12
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 15 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/output_files/uart_xbee.map.smsg
+Info (144001): Generated suppressed messages file E:/E-yantra/Task 2/uart_xbee/output_files/uart_xbee.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "dout" File: D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/uart_xbee.v Line: 24
-Info (21057): Implemented 28 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 6 output pins
-    Info (21061): Implemented 20 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+Info (21057): Implemented 31 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 4 output pins
+    Info (21061): Implemented 26 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
     Info: Peak virtual memory: 4758 megabytes
-    Info: Processing ended: Sat Jan 07 14:21:06 2023
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Processing ended: Mon Jan 09 22:13:42 2023
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:17
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in D:/Git/eyrc22_SB_1135/Hardware Code Implement/uart_xbee/output_files/uart_xbee.map.smsg.
+The suppressed messages can be found in E:/E-yantra/Task 2/uart_xbee/output_files/uart_xbee.map.smsg.
 
 

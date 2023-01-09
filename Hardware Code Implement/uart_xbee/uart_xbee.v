@@ -1,192 +1,209 @@
-// SB : Task 2 A : ADC
-/*
-Instructions
--------------------
-Students are not allowed to make any changes in the Module declaration.
-This file is used to design ADC Controller.
 
-Recommended Quartus Version : 19.1
-The submitted project file must be 19.1 compatible as the evaluation will be done on Quartus Prime Lite 19.1.
-
-Warning: The error due to compatibility will not be entertained.
--------------------
-*/
-
-//ADC Controller design
-//Inputs  : clk_50 : 50 MHz clock, dout : digital output from ADC128S022 (serial 12-bit)
-//Output  : adc_cs_n : Chip Select, din : Ch. address input to ADC128S022, adc_sck : 2.5 MHz ADC clock,
-//				d_out_ch5, d_out_ch6, d_out_ch7 : 12-bit output of ch. 5,6 & 7,
-//				data_frame : To represent 16-cycle frame (optional)
-
-//////////////////DO NOT MAKE ANY CHANGES IN MODULE//////////////////
 module uart_xbee(
-	input  clk_50,				//50 MHz clock
-	input  dout,				//digital output from ADC128S022 (serial 12-bit)
-	output adc_cs_n,			//ADC128S022 Chip Select
-	output din,					//Ch. address input to ADC128S022 (serial)
-	output adc_sck,			//2.5 MHz ADC clock
 
-	output led_1 ,
-	output led_2 ,
-	output led_3 
-	
+     input clk_50 ,
+	  output adc_sck,
+     input din ,
+	  output dout  ,
+	  output tx ,
+	  output adc_cs_n 
+	  
+	  
+	  
 );
-	
-////////////////////////WRITE YOUR CODE FROM HERE////////////////////
 
-/* Parameters */ 
 
-// ---- ADC Clock ---
-reg [4:0]counter_25 = 5'b0 ;
+
+reg [8:0]adc_clk_counter = 5'b00000;  
+reg [8:0]adc_uart_switch = 9'b000000000; // highest count 320 , 101000000
 reg ADC_SCK = 0 ;
-assign adc_sck = ADC_SCK ; 
-
-// ---- Chip Select ---
-wire [1:0]chip_select = 2'b0 ;
-assign adc_cs_n = chip_select ;
-
-// ---- LED turn OFF n ON ---
-reg LED_1 ;
-reg LED_2 ;
-reg LED_3 ;
-assign led_1 = LED_1 ;
-assign led_2 = LED_2 ;
-assign led_3 = LED_3 ;
-
-// ---- Next Addrress --- 
-reg address = 0;
-assign din = address ;
-reg [4:0]address_counter = 5'b00 ;
-
-localparam df_1 = 2'b01 ,
-			  df_2 = 2'b10 ,
-			  df_3 = 2'b11 ,
-			  df_end = 2'b00 ;
-reg [1:0]cs = df_1 ;
-
-// ---- Data Retrieve from channel ---
-reg [4:0]channel_counter = 5'b00 ;
-reg [11:0]Data = 12'b00 ;
-localparam channel_1 = 2'b01 ,   // <== channel 1
-			  channel_2 = 2'b10 ,	// <== channel 2
-			  channel_3 = 2'b11 ;	// <== channel 0
-reg [1:0]cc = channel_1 ;
-
-// ---- Comparison Threshold --- 
-reg [11:0]comparison = 12'b0 ;
+assign adc_sck = ADC_SCK ;
 
 
-/* Paramater Ends */
 
-/* Code and Functions */
-
-
-// ---- Initializing code with parameter ---  
-initial
-begin 
-LED_1 = 1'b1 ;
-LED_2 = 1'b1 ;
-LED_3 = 1'b1 ;
-end
+reg adc_uart_flag = 1;
 
 
-// ---- ADC Clock ---
+
+reg [4:0]addr_counter = 5'b00000;
+
+reg DIN = 0 ;
+assign din = DIN ;
+
+reg [11:0]data_adc = 12'b0 ;
+  
+
+  
+reg uart_clk = 0 ;   // highest uart_clk 434, 110110010 
+reg [8:0]uart_clk_counter = 9'b000000000;
+
+reg Tx ;
+assign tx = Tx ;
+
+
+localparam 
+				idle      = 3'b000 ,
+				start     = 3'b001 ,
+				stop      = 3'b010 ,
+				terminate = 3'b011 ,
+				ch0_lb    = 3'b100 ,  
+            ch0_ub	 = 3'b101 ;			
+				
+reg [2:0]cs = idle ;
+reg [3:0]bit_counter = 4'b00 ;
+reg [2:0]data = 3'b100 ;
+reg [13:0]uart_adc_switch =  14'b00000000000000; // 14'b10011011111110
+
+// Master Clock 
+
 always @(negedge clk_50)
-begin	
-		if ( counter_25 == 5'b0 | counter_25 == 5'b10100)
-		begin
-			ADC_SCK = 0 ;
-			counter_25 = 5'b0 ;
-			
-		end 
+begin 
+
+if(adc_uart_flag == 1 )
+begin
+ 
+if (adc_clk_counter == 5'b10100)
+	begin 
+		ADC_SCK = 0 ;
+		adc_clk_counter = 0 ;
+	end 
+ 
+ if (adc_clk_counter ==  5'b01010)
+	begin 
+		ADC_SCK = 1 ;
 		
-		else if ( counter_25 == 5'b01010) 
+	end 
+ 
+ if ( adc_uart_switch == 9'b101000000)
+   begin 
+	   adc_uart_flag = 0 ;
+		uart_adc_switch = 0 ;
+		uart_clk_counter = 0 ;
+
+	end
+	
+ adc_clk_counter = adc_clk_counter + 1 ;
+ adc_uart_switch = adc_uart_switch + 1 ;
+ 
+end 
+
+
+if (adc_uart_flag == 0 )
+begin
+ 
+	 
+	 
+	if (uart_clk_counter == 9'b110110010 )
 		begin
-			ADC_SCK = 1 ;
+        uart_clk = 0;
+		  uart_clk_counter  = 0 ;
+		  
 		end
 		
-		counter_25 = 5'b1 + counter_25 ;
-end
+	if (uart_clk_counter == 9'b011011001 )
+		begin
+        uart_clk = 1;
 
-// ---- ADC address --- 
-always @(negedge adc_sck)
-begin
-   address = 0 ;
-	if (address_counter == 5'b10 | address_counter == 5'b11 | address_counter == 5'b100)
-	begin
-		case (cs)
-			
-			df_1 : 
-			if (address_counter == 5'b10) begin address = 0 ;end 
-			else if (address_counter == 5'b11) begin address = 0; end 
-			else if (address_counter == 5'b100) begin address = 1 ; cs = df_2; end 
-			
-			df_2 :
-			if (address_counter == 5'b10) begin address = 0 ;end 
-			else if (address_counter == 5'b11) begin address = 1 ; end 
-			else if (address_counter == 5'b100) begin address = 0 ; cs = df_3 ;end 
-			
-			df_3 :
-			if (address_counter == 5'b10) begin address = 0 ;end 
-			else if (address_counter == 5'b11) begin address = 0 ;end 
-			else if (address_counter == 5'b100) begin address = 0 ; cs = df_end ;end 
-			
-			df_end:
-				address = 0 ;
-	endcase 
-	end
-	else if (address_counter == 5'b10000)
-	begin 
-		address_counter = 0 ;
-	end
-	address_counter = address_counter + 1 ;
-end 	
-		
-		
-// ---- Data retrieve ---
-always @(negedge adc_sck)
-begin
 
-	if (channel_counter >= 5'b100)
-	begin
-		Data = Data<<1 ;
-		Data = Data + dout ;
-	end
+		end
 	
+ 
+  if ( uart_adc_switch == 14'b10011011111110)
+   begin 
+	   adc_uart_flag = 1 ;
+		 adc_clk_counter = 0 ;
+       adc_uart_switch = 0;
+	end
 
-	if (channel_counter == 5'b00 | channel_counter == 5'b10000 )
-	begin
-		case (cc)
-		
-		channel_1 : begin
-		            if (Data >= comparison) begin LED_1 = 0 ; LED_2 = 1 ; LED_3 = 1 ; end 
+	uart_adc_switch  = uart_adc_switch + 1 ;
+	uart_clk_counter = uart_clk_counter + 1 ;
+	
+end 
+
+end
+ 
+ 
+ // ADC data receive 
+always @(negedge adc_sck)
+begin 
+
+
+			
+		      if (addr_counter >= 5'b00101 )
+			    begin
+				   data_adc = data_adc >> 1 ;
+					data_adc  = data_adc + dout ;
 					
-						cc = channel_2 ;
-						end 
-		channel_2 :
+
+				 end  
+				 
+			addr_counter = addr_counter + 1;
+		
+end 
+
+
+always @(negedge uart_clk)
+begin 
+
+
+case (cs)
+
+			idle :
+					begin 
+					Tx = 1 ;
+					cs = start ;
+					
+					end 
+					
+			start : 
+					 begin 
+					 Tx = 0 ;
+					 cs = data ;
+					 data = data + 1 ;
+					 end 
+					 
+			stop :
+					 begin 
+					 Tx = 1 ;
+					 cs = idle ;
+					 end 
+					 
+			terminate :
 						begin 
-						if (Data >= comparison) begin LED_1 = 1 ; LED_2 = 0 ; LED_3 = 1 ; end 
-						
-						cc = channel_3 ;
+						Tx = 1 ;
+						cs = idle ;
+						data = 3'b100 ; 
 						end 
-		channel_3 : 
-						begin 
-						if (Data >= comparison) begin LED_1 = 1 ; LED_2 = 1 ; LED_3 = 0 ; end 
 						
-						cc = channel_1 ;
-						end 					
-		endcase 
-	 end
-	
-	
-	if (channel_counter == 5'b10000)
-	begin 
-		channel_counter = 5'b00 ;
-	end
-	
-	channel_counter = channel_counter + 1 ;
+			ch0_lb :
+						begin 
+						Tx = data_adc[bit_counter] ;
+						bit_counter = bit_counter + 1 ;
+                  
+						if (bit_counter == 4'b1000)
+						begin 
+						bit_counter = 0 ;
+						cs = stop  ;
+						end 
+						end 
+						
+						
+						
+			ch0_ub :
+						begin 
+						Tx = data_adc[bit_counter+8] ;
+						bit_counter = bit_counter + 1 ;
+
+						if (bit_counter == 4'b1000)
+						begin 
+						bit_counter = 0 ;
+						cs = terminate  ;
+						end 
+						end 
+			
+
+endcase 
 end
 
-////////////////////////YOUR CODE ENDS HERE//////////////////////////
-endmodule
-///////////////////////////////MODULE ENDS///////////////////////////
+ 
+ endmodule

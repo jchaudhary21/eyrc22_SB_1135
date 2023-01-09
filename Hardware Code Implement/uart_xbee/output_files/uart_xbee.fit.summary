@@ -1,15 +1,15 @@
-Fitter Status : Successful - Sat Jan 07 14:21:16 2023
+Fitter Status : Successful - Mon Jan 09 22:13:48 2023
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : uart_xbee
 Top-level Entity Name : uart_xbee
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 21 / 22,320 ( < 1 % )
-    Total combinational functions : 17 / 22,320 ( < 1 % )
-    Dedicated logic registers : 16 / 22,320 ( < 1 % )
-Total registers : 16
-Total pins : 8 / 154 ( 5 % )
+Total logic elements : 26 / 22,320 ( < 1 % )
+    Total combinational functions : 26 / 22,320 ( < 1 % )
+    Dedicated logic registers : 18 / 22,320 ( < 1 % )
+Total registers : 18
+Total pins : 5 / 154 ( 3 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
