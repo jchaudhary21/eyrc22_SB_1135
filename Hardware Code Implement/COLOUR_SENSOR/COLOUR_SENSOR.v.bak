@@ -1,0 +1,99 @@
+module COLOUR_SENSOR (
+  input wire clock,
+  input wire reset,
+  input wire enable,
+  output reg [7:0] red,
+  output reg [7:0] green,
+  output reg [7:0] blue,
+  output reg [7:0] clear
+);
+
+// Internal registers to hold color data
+reg [7:0] red_data;
+reg [7:0] green_data;
+reg [7:0] blue_data;
+reg [7:0] clear_data;
+
+// Counter to track number of clock cycles
+reg [9:0] count;
+
+// State machine to control sensor operation
+reg [1:0] state;
+
+// Control signals for sensor
+wire s0;
+wire s1;
+wire s2;
+wire s3;
+
+// Output enable signal
+wire oe;
+
+// Clock enable signal
+wire ce;
+
+// State definitions
+parameter IDLE = 2'b00;
+parameter MEASURE_RED = 2'b01;
+parameter MEASURE_GREEN = 2'b10;
+parameter MEASURE_BLUE = 2'b11;
+
+// Control signal logic
+assign s0 = (state == MEASURE_RED);
+assign s1 = (state == MEASURE_GREEN);
+assign s2 = (state == MEASURE_BLUE);
+assign s3 = (state == MEASURE_CLEAR);
+assign oe = 1'b1;
+assign ce = (state != IDLE);
+
+// State machine logic
+always @(posedge clock or negedge reset) begin
+  if (reset) begin
+    state <= IDLE;
+    count <= 10'b0;
+  end else begin
+    case (state)
+      IDLE: begin
+        if (enable) begin
+          state <= MEASURE_RED;
+        end
+      end
+      MEASURE_RED: begin
+        state <= MEASURE_GREEN;
+      end
+      MEASURE_GREEN: begin
+        state <= MEASURE_BLUE;
+      end
+      MEASURE_BLUE: begin
+        state <= MEASURE_CLEAR;
+      end
+      MEASURE_CLEAR: begin
+        state <= IDLE;
+      end
+    endcase
+  end
+end
+
+// Data measurement logic
+always @(posedge clock) begin
+  if (ce) begin
+    count <= count + 1;
+    if (count == 10'b1111111111) begin
+      red_data <= red;
+      green_data <= green;
+      blue_data <= blue;
+      clear_data <= clear;
+      count <= 10'b0;
+    end
+  end
+end
+
+// Output assignment logic
+always @* begin
+  red <= red_data;
+  green <= green_data;
+  blue <= blue_data;
+  clear <= clear_data;
+end
+
+endmodule

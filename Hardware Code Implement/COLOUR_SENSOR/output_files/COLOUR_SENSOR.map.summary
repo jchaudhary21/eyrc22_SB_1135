@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Jan 11 16:33:50 2023
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : COLOUR_SENSOR
+Top-level Entity Name : COLOUR_SENSOR
+Family : Cyclone IV E
+Total logic elements : 713
+    Total combinational functions : 469
+    Dedicated logic registers : 525
+Total registers : 525
+Total pins : 13
+Total virtual pins : 0
+Total memory bits : 1,536
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

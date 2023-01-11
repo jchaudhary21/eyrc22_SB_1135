@@ -1,152 +1,125 @@
-
 module uart_xbee(
-
-     input clk_50 ,
-	  output adc_sck,
-     input din ,
-	  output dout  ,
-	  output tx ,
-	  output adc_cs_n 
-	  
-	  
-	  
+	input  clk_50,				
+	input  dout,				
+	output adc_cs_n,			
+	output din,					
+	output adc_sck,			
+	output [11:0]d_out_ch5,	
+	output [11:0]d_out_ch6,	
+	output [11:0]d_out_ch7,	
+	output [1:0]data_frame,
+	output tx ,
+	output  LED1,
+	output  LED2,
+	output  LED3
 );
+	
+
+/* __________ Parameters __________ */ 
+	
+/* ------- ADC ------- */
+	
+reg adc_clock = 0 ;
+assign adc_sck = adc_clock ;
+reg [4:0]adc_clock_counter = 5'b10100 ;
+
+reg led1 = 0 ;
+reg led2 = 0 ;
+reg led3 = 0 ;
+assign LED1 = led1 ;
+assign LED2 = led2 ;
+assign LED3 = led3 ;
+
+reg adc_uart = 1 ;
+reg adc_initalize = 0 ;
+
+reg adc_cs = 0 ;
+assign adc_cs_n = adc_cs ;
+
+reg adc_addr = 0 ;
+assign din = adc_addr ;
+reg [4:0]adc_addr_counter = 5'b0 ; 
+reg [11:0]data = 12'b0 ; 
 
 
+reg [8:0]adc_counter =  9'b000000000 ;
 
-reg [8:0]adc_clk_counter = 5'b00000;  
-reg [8:0]adc_uart_switch = 9'b000000000; // highest count 320 , 101000000
-reg ADC_SCK = 0 ;
-assign adc_sck = ADC_SCK ;
+/* -xxxxxxxxxxxxxxxxx- */
 
-
-
-reg adc_uart_flag = 1;
-
-
-
-reg [4:0]addr_counter = 5'b00000;
-
-reg DIN = 0 ;
-assign din = DIN ;
-
-reg [11:0]data_adc = 12'b0 ;
-  
-
-  
-reg uart_clk = 0 ;   // highest uart_clk 434, 110110010 
-reg [8:0]uart_clk_counter = 9'b000000000;
+/*------- UART ------- */
 
 reg Tx ;
 assign tx = Tx ;
-
 
 localparam 
 				idle      = 3'b000 ,
 				start     = 3'b001 ,
 				stop      = 3'b010 ,
 				terminate = 3'b011 ,
-				ch0_lb    = 3'b100 ,  
-            ch0_ub	 = 3'b101 ;			
-				
-reg [2:0]cs = idle ;
-reg [3:0]bit_counter = 4'b00 ;
-reg [2:0]data = 3'b100 ;
-reg [13:0]uart_adc_switch =  14'b00000000000000; // 14'b10011011111110
+				ch0_ub    = 3'b100 ,                        
+			   ch0_lb    = 3'b101 ;                       
 
-// Master Clock 
+reg [8:0]counter = 9'b00 ; 				
+reg [2:0]cs = idle ;	
+reg [2:0]uart_data = 3'b100 ;
+reg [3:0]bit_counter = 4'b00 ;	
+
+
+
+/* -xxxxxxxxxxxxxxxx-*/
+		
+/* _______________________________ */
+
+
+
 
 always @(negedge clk_50)
 begin 
 
-if(adc_uart_flag == 1 )
-begin
- 
-if (adc_clk_counter == 5'b10100)
-	begin 
-		ADC_SCK = 0 ;
-		adc_clk_counter = 0 ;
-	end 
- 
- if (adc_clk_counter ==  5'b01010)
-	begin 
-		ADC_SCK = 1 ;
-		
-	end 
- 
- if ( adc_uart_switch == 9'b101000000)
-   begin 
-	   adc_uart_flag = 0 ;
-		uart_adc_switch = 0 ;
-		uart_clk_counter = 0 ;
 
-	end
+         /* ADC Clock */
+if (adc_uart == 1 )
+begin 
 	
- adc_clk_counter = adc_clk_counter + 1 ;
- adc_uart_switch = adc_uart_switch + 1 ;
- 
-end 
-
-
-if (adc_uart_flag == 0 )
-begin
- 
-	 
-	 
-	if (uart_clk_counter == 9'b110110010 )
-		begin
-        uart_clk = 0;
-		  uart_clk_counter  = 0 ;
-		  
+   if (adc_initalize == 1)
+	   begin 
+		 adc_clock_counter = 5'b0 ;
+		 adc_clock = 0 ;
+		 adc_initalize = 0 ;
 		end
 		
-	if (uart_clk_counter == 9'b011011001 )
-		begin
-        uart_clk = 1;
-
-
+	if (adc_clock_counter == 5'b10100)
+	   begin 
+		     adc_clock_counter = 5'b0 ;
+			  adc_clock = 0 ;
+		end 
+	
+	if (adc_clock_counter == 5'b01010)
+	    begin 
+		     adc_clock = 1 ;
+		 end 
+    if (adc_counter == 9'b101000001)
+	   begin
+	    adc_counter = 0 ;
+		 adc_uart = 0 ; 
+		 led1 = 1 ;
 		end
-	
- 
-  if ( uart_adc_switch == 14'b10011011111110)
-   begin 
-	   adc_uart_flag = 1 ;
-		 adc_clk_counter = 0 ;
-       adc_uart_switch = 0;
-	end
-
-	uart_adc_switch  = uart_adc_switch + 1 ;
-	uart_clk_counter = uart_clk_counter + 1 ;
-	
-end 
-
-end
- 
- 
- // ADC data receive 
-always @(negedge adc_sck)
+	adc_clock_counter = adc_clock_counter + 1 ;
+	adc_counter =  adc_counter + 1 ;
+end 		 
+		 
+		 
+		 
+		 
+		 		 
+else if (adc_uart == 0 ) 
 begin 
+	led2 = 1 ;
 
+	if (counter == 0 || counter == 9'b110110010 )
+	begin 
 
-			
-		      if (addr_counter >= 5'b00101 )
-			    begin
-				   data_adc = data_adc >> 1 ;
-					data_adc  = data_adc + dout ;
-					
-
-				 end  
-				 
-			addr_counter = addr_counter + 1;
-		
-end 
-
-
-always @(negedge uart_clk)
-begin 
-
-
-case (cs)
+		case (cs)
 
 			idle :
 					begin 
@@ -158,8 +131,8 @@ case (cs)
 			start : 
 					 begin 
 					 Tx = 0 ;
-					 cs = data ;
-					 data = data + 1 ;
+					 cs = uart_data ;
+					 uart_data = uart_data + 1 ;
 					 end 
 					 
 			stop :
@@ -171,15 +144,16 @@ case (cs)
 			terminate :
 						begin 
 						Tx = 1 ;
+						adc_initalize = 1 ;
+						adc_uart = 1 ;
 						cs = idle ;
-						data = 3'b100 ; 
+						uart_data = 100 ;
 						end 
 						
-			ch0_lb :
+			ch0_ub   :
 						begin 
-						Tx = data_adc[bit_counter] ;
+						Tx = data[11-bit_counter] ;
 						bit_counter = bit_counter + 1 ;
-                  
 						if (bit_counter == 4'b1000)
 						begin 
 						bit_counter = 0 ;
@@ -189,11 +163,10 @@ case (cs)
 						
 						
 						
-			ch0_ub :
+			ch0_lb   :
 						begin 
-						Tx = data_adc[bit_counter+8] ;
+						Tx = data[7-bit_counter] ;
 						bit_counter = bit_counter + 1 ;
-
 						if (bit_counter == 4'b1000)
 						begin 
 						bit_counter = 0 ;
@@ -202,8 +175,61 @@ case (cs)
 						end 
 			
 
-endcase 
+	  endcase 
+	end 
+
+	if (counter == 9'b110110010)
+	begin
+		counter = 9'b0 ;
+	end 
+
+	counter = counter + 1 ;
+
+
+end 
+ 
+
+end 
+ 
+//
+	//
+		//
+ 
+ 
+always @ (negedge adc_sck)
+begin 
+
+if (adc_uart == 1 )
+begin 
+	
+    if (adc_addr_counter >= 5'b00100 )
+	   begin
+		
+		  data = data<<1 ;
+		  data = data + dout ;
+        adc_cs = 1 ;
+
+      end 
+		
+		if (adc_addr_counter == 5'b10000)
+	    begin
+		 adc_addr_counter = 0 ;
+		 $display(data);
+		 led3 = 1 ;
+		 end 
+     
+	  adc_addr_counter = adc_addr_counter + 1 ; 
 end
 
- 
- endmodule
+end 
+
+//
+	//
+		//
+		
+
+
+
+////////////////////////YOUR CODE ENDS HERE//////////////////////////
+endmodule
+///////////////////////////////MODULE ENDS///////////////////////////

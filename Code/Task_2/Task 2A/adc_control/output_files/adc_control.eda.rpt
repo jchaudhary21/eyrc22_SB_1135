@@ -1,5 +1,5 @@
 EDA Netlist Writer report for adc_control
-Tue Oct 25 16:06:07 2022
+Tue Jan 10 14:23:55 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Tue Oct 25 16:06:07 2022 ;
+; EDA Netlist Writer Status ; Successful - Tue Jan 10 14:23:55 2023 ;
 ; Revision Name             ; adc_control                           ;
 ; Top-level Entity Name     ; adc_control                           ;
 ; Family                    ; Cyclone IV E                          ;
@@ -66,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+-------------------------------------------------------------------+
-; Simulation Generated Files                                        ;
-+-------------------------------------------------------------------+
-; Generated Files                                                   ;
-+-------------------------------------------------------------------+
-; E:/E-yantra/Task 2/adc_control/simulation/modelsim/adc_control.vo ;
-+-------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                        ;
++-------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                   ;
++-------------------------------------------------------------------------------------------------------------------+
+; C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Code/Task_2/Task 2A/adc_control/simulation/modelsim/adc_control.vo ;
++-------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -81,14 +81,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Tue Oct 25 16:06:06 2022
+    Info: Processing started: Tue Jan 10 14:23:52 2023
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off adc_control -c adc_control
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file adc_control.vo in folder "E:/E-yantra/Task 2/adc_control/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file adc_control.vo in folder "C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Code/Task_2/Task 2A/adc_control/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4638 megabytes
-    Info: Processing ended: Tue Oct 25 16:06:07 2022
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:00
+    Info: Peak virtual memory: 4650 megabytes
+    Info: Processing ended: Tue Jan 10 14:23:55 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

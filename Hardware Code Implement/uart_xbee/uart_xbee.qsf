@@ -68,4 +68,14 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/rtl_work/test_bench.v -section_id test_bench
+set_location_assignment PIN_A8 -to clk_50
+set_location_assignment PIN_A10 -to adc_cs_n
+set_location_assignment PIN_B14 -to adc_sck
+set_location_assignment PIN_B10 -to din
+set_location_assignment PIN_A9 -to dout
+set_location_assignment PIN_B12 -to tx
+set_location_assignment PIN_A15 -to LED
+set_location_assignment PIN_A13 -to LED1
+set_location_assignment PIN_A11 -to LED2
+set_location_assignment PIN_B13 -to LED3
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
