@@ -1,0 +1,11 @@
+
+module line_follower (
+
+		input clk ,
+		
+		output RW_A ,
+		output RW_B ,
+		output LW_A ,
+		output LW_B 
+		
+	) ;

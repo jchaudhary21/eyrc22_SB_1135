@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Jan 19 03:29:46 2023
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : line_follower
+Top-level Entity Name : line_follower
+Family : Cyclone IV E
+Total logic elements : 144
+    Total combinational functions : 105
+    Dedicated logic registers : 105
+Total registers : 105
+Total pins : 9
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
