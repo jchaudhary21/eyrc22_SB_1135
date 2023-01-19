@@ -1,7 +1,7 @@
 
 
 //////////////////DO NOT MAKE ANY CHANGES IN MODULE//////////////////
-module working_ADC(
+module adc_control(
 
 	input  clk_50,				//50 MHz clock
 	input  dout,				//digital output from ADC128S022 (serial 12-bit)
