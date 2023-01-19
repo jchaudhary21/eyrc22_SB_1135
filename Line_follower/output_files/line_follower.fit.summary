@@ -1,0 +1,10 @@
+I/O Assignment Analysis Status : Successful - Thu Jan 19 03:33:41 2023
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : line_follower
+Top-level Entity Name : line_follower
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total pins : 9 / 154 ( 6 % )
+Total virtual pins : 0
+Total PLLs : 0 / 4 ( 0 % )
