@@ -1,0 +1,25 @@
+|pwm_motor
+clk => freq_cnt2[0].CLK
+clk => freq_cnt2[1].CLK
+clk => freq_cnt2[2].CLK
+clk => freq_cnt2[3].CLK
+clk => freq_cnt2[4].CLK
+clk => freq_cnt2[5].CLK
+clk => freq_cnt2[6].CLK
+clk => freq_cnt2[7].CLK
+clk => pwm_out2.CLK
+clk => freq_cnt1[0].CLK
+clk => freq_cnt1[1].CLK
+clk => freq_cnt1[2].CLK
+clk => freq_cnt1[3].CLK
+clk => freq_cnt1[4].CLK
+clk => freq_cnt1[5].CLK
+clk => freq_cnt1[6].CLK
+clk => freq_cnt1[7].CLK
+clk => pwm_out1.CLK
+PWM_OUT1 <= pwm_out1.DB_MAX_OUTPUT_PORT_TYPE
+PWM_OUT2 <= pwm_out2.DB_MAX_OUTPUT_PORT_TYPE
+PWM_OUT3 <= <VCC>
+PWM_OUT4 <= <GND>
+
+
