@@ -86,10 +86,10 @@ reg [1:0] cf = data_1 ;
 	
 // --- MOTOR PARAMATERS INITALIZATION 
 	
-reg white_threshold 		       		=  0 ; // <---| > 1V 
-reg [7:0]lower_dutycycle_threshold  =  0 ; // <---| 20 % 
-reg [7:0]upper_dutycycle_threshold  =  0 ; // <---| 90 % 
-reg [7:0]stop_dutycycle_threshold   =  0 ; // <---|  0 %
+reg white_threshold 		       		=  12'b010011011010 ; // <---| > 1V 
+reg [7:0]lower_dutycycle_threshold  =  8'b00010100 ; // <---| 20 % 
+reg [7:0]upper_dutycycle_threshold  =  8'b01011010 ; // <---| 90 % 
+reg [7:0]stop_dutycycle_threshold   =  8'b000000000 ; // <---|  0 %
 
 reg [7:0]pwm_counter = 8'b0 ;
 
@@ -361,8 +361,8 @@ begin
 				
 	if( pwm_counter <= rw_dutycycle - 1 )
 		begin	
-				rw_f = 1 ;
-				rw_b = 0 ;
+				rw_f = 0 ;
+//				rw_b = 0 ;
 				pwm_counter = pwm_counter + 8'b10 ;	
 		end 
 				
@@ -370,24 +370,24 @@ begin
 				
 	if ( pwm_counter <= lw_dutycycle - 1)
 		begin
-        		lw_f = 1 ;
-				lw_b = 0 ;
+        		lw_f = 0 ;
+//				lw_b = 0 ;
 
 		end
 				
 				
 	if ( pwm_counter > rw_dutycycle - 1 )
 		begin 
-				rw_f = 0 ;
-				rw_b = 0 ;
+				rw_f = 1 ;
+//				rw_b = 0 ;
 				pwm_counter = pwm_counter + 8'b10 ;
 		end
 	
 	
 	if ( pwm_counter > lw_dutycycle - 1 )
 		begin 
-           lw_f = 0 ;
-			  lw_b = 0 ; 
+           lw_f = 1 ;
+//			  lw_b = 0 ; 
 		end 
 
 
