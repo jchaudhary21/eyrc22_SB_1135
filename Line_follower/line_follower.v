@@ -1,5 +1,5 @@
 
-module line_follower (
+module Line_Follower (
 
       // GLOBAL CLOCK 
 		
@@ -15,8 +15,15 @@ module line_follower (
 		output RW_F ,              // Right wheel front side  
 		output RW_B ,					// Right wheel front side
 		output LW_F ,					// Left wheel  front side
-		output LW_B 					// Left wheel  front side
+		output LW_B ,					// Left wheel  front side
 		
+		output led_r ,
+		output led_m ,
+		output led_l ,
+		
+		output led_test1 ,
+		output led_test2 ,
+		output led_test3 
 		
 		
 	) ;
@@ -86,12 +93,13 @@ reg [1:0] cf = data_1 ;
 	
 // --- MOTOR PARAMATERS INITALIZATION 
 	
-reg white_threshold 		       		=  12'b010011011010 ; // <---| > 1V 
-reg [7:0]lower_dutycycle_threshold  =  8'b00010100 ; // <---| 20 % 
-reg [7:0]upper_dutycycle_threshold  =  8'b01011010 ; // <---| 90 % 
-reg [7:0]stop_dutycycle_threshold   =  8'b000000000 ; // <---|  0 %
+reg [11:0]white_threshold 		       		=  12'b010011011010 ; // <---| > 1V 
+reg [7:0]lower_dutycycle_threshold  =  0 ; // <---| 20 % 
+reg [7:0]upper_dutycycle_threshold  =  0 ; // <---| 90 % 
+reg [7:0]stop_dutycycle_threshold   =  0 ; // <---|  0 %
 
-reg [7:0]pwm_counter = 8'b0 ;
+reg [7:0]pwm_counter_r = 8'b0 ;
+reg [7:0]pwm_counter_l = 8'b0 ;
 
 reg rw_f = 0 ;
 reg rw_b = 0 ;
@@ -114,6 +122,29 @@ reg flag_stop_movement        = 0  ;
 reg flag_action               = 0  ;
 reg flag_decision             = 1  ;
 reg flag_pwm                  = 0  ;
+
+
+
+
+reg t1_led = 0 ;
+reg t2_led = 0 ;
+reg t3_led = 0 ;
+
+reg r_led = 0 ;
+reg m_led = 0 ;
+reg l_led = 0 ;
+
+assign led_r = r_led ;
+assign led_m = m_led ;
+assign led_l = l_led ;
+
+assign led_test1 = t1_led ;
+assign led_test2 = t2_led ;
+assign led_test3 = t3_led ;
+reg [10:0]left_thresh = 40;
+reg [10:0]right_thresh = 250;
+
+
 
 
 always @ (posedge clk )
@@ -140,13 +171,15 @@ begin
 	
 	if ( L_linesensor <= white_threshold & C_linesensor <= white_threshold & R_linesensor <= white_threshold)
 	begin 
-	
+		
+		t1_led = 0;
+		t2_led = 0;
+		t3_led = 0;
 		flag_normal_movement  		= 0  ;
-		flag_right_movement  	   = 0  ;
+		flag_right_movement  	   = 1  ;
 		flag_left_movement  		   = 0  ;
-		flag_stop_movement         = 1  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 0  ;
+		flag_stop_movement         = 0  ;
+		flag_pwm                   = 1  ;
 		flag_action                = 1  ;
 		
 	end 
@@ -156,13 +189,12 @@ begin
 	
 	else if ( L_linesensor <= white_threshold & C_linesensor <= white_threshold & R_linesensor >= white_threshold)
 	begin
-	
+		t3_led = 1;
 		flag_normal_movement  		= 0  ;
-		flag_right_movement  	   = 1  ;
-		flag_left_movement  		   = 0  ;
+		flag_right_movement  	   = 0  ;
+		flag_left_movement  		   = 1  ;
 		flag_stop_movement         = 0  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 0  ;
+		flag_pwm                   = 1  ;
 		flag_action                = 1  ;
 		
 	end
@@ -172,13 +204,14 @@ begin
 		
 	else if ( L_linesensor <= white_threshold & C_linesensor >= white_threshold & R_linesensor <= white_threshold)
 	begin
-	
+		t1_led = 1;
+		t2_led = 1;
+		t3_led = 1;
 		flag_normal_movement  		= 1  ;
 		flag_right_movement  	   = 0  ;
 		flag_left_movement  		   = 0  ;
 		flag_stop_movement         = 0  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 0  ;
+		flag_pwm                   = 1  ;
 		flag_action                = 1  ;
 		
 	end
@@ -191,10 +224,9 @@ begin
 	
 		flag_normal_movement  		= 0  ;
 		flag_right_movement  	   = 0  ;
-		flag_left_movement  		   = 0  ;
-		flag_stop_movement         = 1  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 0  ;
+		flag_left_movement  		   = 1  ;
+		flag_stop_movement         = 0  ;
+		flag_pwm                   = 1  ;
 		flag_action                = 1  ;
 
 		
@@ -205,13 +237,12 @@ begin
 		
 	else if ( L_linesensor >= white_threshold & C_linesensor <= white_threshold & R_linesensor <= white_threshold)
 	begin
-	
+		t1_led = 1;
 		flag_normal_movement  		= 0  ;
-		flag_right_movement  	   = 0  ;
-		flag_left_movement  		   = 1  ;
+		flag_right_movement  	   = 1  ;
+		flag_left_movement  		   = 0  ;
 		flag_stop_movement         = 0  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 0  ;
+		flag_pwm                   = 1  ;
 		flag_action                = 1  ;
 	
 	end
@@ -226,8 +257,7 @@ begin
 		flag_right_movement  	   = 0  ;
 		flag_left_movement  		   = 0  ;
 		flag_stop_movement         = 1  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 0  ;
+		flag_pwm                   = 1  ;
 		flag_action                = 1  ;
 
 	end
@@ -239,11 +269,10 @@ begin
 	begin
 	
 		flag_normal_movement  		= 0  ;
-		flag_right_movement  	   = 0  ;
+		flag_right_movement  	   = 1  ;
 		flag_left_movement  		   = 0  ;
-		flag_stop_movement         = 1  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 0  ;
+		flag_stop_movement         = 0  ;
+		flag_pwm                   = 1  ;
 		flag_action                = 1  ;
 		
 	end
@@ -258,8 +287,7 @@ begin
 		flag_right_movement  	   = 0  ;
 		flag_left_movement  		   = 0  ;
 		flag_stop_movement         = 1  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 0  ;
+		flag_pwm                   = 1  ;
 		flag_action                = 1  ;
 	
 	end
@@ -285,112 +313,213 @@ end
 //                                        right :  upper dutycycle threshold ( eg : 90 % )
  	
 	
-if (flag_action == 1 )
-begin
-
-	if ( flag_stop_movement == 1 )
-	begin
-	
-		rw_dutycycle = stop_dutycycle_threshold ;
-	   lw_dutycycle = stop_dutycycle_threshold ;	
-		flag_decision              = 0  ;
-		flag_pwm                   = 1  ;
-		flag_action                = 0  ;
-	
-	end 
-	
-	
-	
-	else if (flag_right_movement == 1)
-	begin 
-	
-		rw_dutycycle = upper_dutycycle_threshold  ;
-		lw_dutycycle = lower_dutycycle_threshold  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 1  ;
-		flag_action                = 0  ;
-		
-	end 
-	
-	
-	
-	else if (flag_left_movement == 1)
-	begin 
-	
-		lw_dutycycle = upper_dutycycle_threshold  ;
-		rw_dutycycle = lower_dutycycle_threshold  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 1  ;
-		flag_action                = 0  ;
-	
-	end
-
-	
-	
-	else if (flag_right_movement == 1)
-	begin 
-	
-		rw_dutycycle = upper_dutycycle_threshold  ;
-		lw_dutycycle = upper_dutycycle_threshold  ;
-		flag_decision              = 0  ;
-		flag_pwm                   = 1  ;
-		flag_action                = 0  ;
-		
-	end 
-
-end 
+//if (flag_action == 1 )
+//begin
+//
+//	if ( flag_stop_movement == 1 )
+//	begin
+//	
+//		rw_dutycycle = stop_dutycycle_threshold ;
+//	   lw_dutycycle = stop_dutycycle_threshold ;	
+//		flag_decision              = 0  ;
+//		flag_pwm                   = 1  ;
+//		flag_action                = 0  ;
+//	
+//	end 
+//	
+//	
+//	
+//	else if (flag_right_movement == 1)
+//	begin 
+//	
+//		rw_dutycycle = upper_dutycycle_threshold  ;
+//		lw_dutycycle = lower_dutycycle_threshold  ;
+//		flag_decision              = 0  ;
+//		flag_pwm                   = 1  ;
+//		flag_action                = 0  ;
+//		
+//	end 
+//	
+//	
+//	
+//	else if (flag_left_movement == 1)
+//	begin 
+//	
+//		lw_dutycycle = upper_dutycycle_threshold  ;
+//		rw_dutycycle = lower_dutycycle_threshold  ;
+//		flag_decision              = 0  ;
+//		flag_pwm                   = 1  ;
+//		flag_action                = 0  ;
+//	
+//	end
+//
+//	
+//	
+//	else if (flag_right_movement == 1)
+//	begin 
+//	
+//		rw_dutycycle = upper_dutycycle_threshold  ;
+//		lw_dutycycle = upper_dutycycle_threshold  ;
+//		flag_decision              = 0  ;
+//		flag_pwm                   = 1  ;
+//		flag_action                = 0  ;
+//		
+//	end 
+//
+//end 
 
 
 if (flag_pwm == 1 )
 begin 
+//	t1_led = 1;
+// NORMAL MOVEMENT 
 
-
-	if ( pwm_counter == 8'b01100100 )
-		begin 
-				pwm_counter    =  8'b00 ;
-				rw_f           =  1  ;
-				lw_b           =  0  ;
-				lw_f           =  1  ;
-				lw_b           =  0  ;
-				flag_pwm       =  0  ; 
-				flag_action    =  0  ;
-		      flag_decision  =  1  ;
-		end 
-				
-
-				
-	if( pwm_counter <= rw_dutycycle - 1 )
-		begin	
-				rw_f = 0 ;
-//				rw_b = 0 ;
-				pwm_counter = pwm_counter + 8'b10 ;	
-		end 
-				
-				
-				
-	if ( pwm_counter <= lw_dutycycle - 1)
+		if (flag_normal_movement == 1)
 		begin
-        		lw_f = 0 ;
-//				lw_b = 0 ;
-
-		end
+		
+				if (pwm_counter_r == right_thresh) 
+				begin
+					
+					rw_f = 0 ;
+					rw_b = 0 ;
 				
-				
-	if ( pwm_counter > rw_dutycycle - 1 )
-		begin 
-				rw_f = 1 ;
-//				rw_b = 0 ;
-				pwm_counter = pwm_counter + 8'b10 ;
+				end
+		   
+				if (pwm_counter_r < right_thresh )
+				begin
+		
+					rw_f = 1 ;
+					rw_b = 0 ;
+					pwm_counter_r = pwm_counter_r + 1 ;
+			
+				end 
+		 
+			 if (pwm_counter_l == left_thresh )
+			 begin
+		      
+					lw_f = 0 ;
+					lw_b = 0 ; 
+					flag_normal_movement = 0 ;
+					flag_pwm       =  0  ; 
+					flag_action    =  0  ;
+					flag_decision  =  1  ;
+					pwm_counter_r  =  0  ;
+					pwm_counter_l  =  0  ;
+			  
+			  
+			end
+
+		  if (pwm_counter_l < left_thresh )
+		  begin
+		      
+			  lw_f = 1 ;
+			  lw_b = 0 ;
+			  pwm_counter_l = pwm_counter_l + 1 ;
+
+			  
+		  end 	  
+		
 		end
-	
-	
-	if ( pwm_counter > lw_dutycycle - 1 )
-		begin 
-           lw_f = 1 ;
-//			  lw_b = 0 ; 
-		end 
 
+		
+// RIGHT MOVEMENT 
 
+	 if (flag_right_movement == 1)
+		begin
+//			t2_led = 1;
+		 
+		  if (pwm_counter_r == right_thresh )
+		  begin
+		      
+			  rw_f = 0 ;
+			  rw_b = 0 ; 
+			  lw_f = 0 ;
+			  lw_b = 0 ;
+			  
+			  
+			  flag_right_movement = 0 ;
+			  flag_pwm       =  0  ; 
+			  flag_action    =  0  ;
+			  flag_decision  =  1  ;
+			  pwm_counter_r  =  0  ;
+			  pwm_counter_l  =  0  ;
+			  
+		  end
+
+		  if (pwm_counter_r < right_thresh )
+		  begin
+		     pwm_counter_r = pwm_counter_r + 1 ;
+			  rw_f = 1 ;
+			  rw_b = 0 ; 
+			  lw_f = 0 ;
+			  lw_b = 0 ;
+			 
+			  
+			  
+		  end 	  
+		
+		end
+		
+// LEFT MOVEMENT 
+
+	 if (flag_left_movement == 1)
+		begin
+			
+		 
+		  if (pwm_counter_l == left_thresh )
+		  begin
+//		      t3_led = 1;
+			  lw_f = 0 ;
+			  lw_b = 0 ; 
+			  rw_f = 0 ;
+			  rw_b = 0 ;
+			  
+			  
+			 flag_left_movement = 0 ;
+			 flag_pwm       =  0  ; 
+			 flag_action    =  0  ;
+			 flag_decision  =  1  ;
+			 pwm_counter_r  =  0  ;
+			 pwm_counter_l  =  0  ;
+			  
+		  end
+
+		  if (pwm_counter_l < left_thresh )
+		  begin
+		      pwm_counter_l = pwm_counter_l + 1 ;
+			  rw_f = 0 ;
+			  rw_b = 0 ; 
+			  lw_f = 1 ;
+			  lw_b = 0 ;
+			 
+			  
+			  
+		  end 	  
+		
+		end
+		
+		
+// STOP MOVEMENT 
+
+	 if (flag_stop_movement == 1)
+		begin
+
+			  lw_f = 0 ;
+			  lw_b = 0 ; 
+			  rw_f = 0 ;
+			  rw_b = 0 ;
+			 
+			  flag_stop_movement = 0 ;
+			  flag_pwm       =  0  ; 
+			  flag_action    =  0  ;
+			  flag_decision  =  1  ;
+			  pwm_counter_r  =  0  ;
+			  pwm_counter_l  =  0  ;
+			  
+			  
+ 		
+		end
+		
 end 
 end
 
@@ -510,10 +639,19 @@ begin
 		channel_1 : 
 		            begin
 		
-						C_linesensor  = Data_1  ;
+						L_linesensor  = Data_1  ;
 						cc            = channel_2 ;
 						cf            = data_2 ;
-
+						
+                  if ( white_threshold >= L_linesensor )
+						begin 
+							r_led = 1 ;
+						end
+						else if( Data_1 > white_threshold )
+					    	begin 
+					          		r_led = 0 ;
+							end
+							
 			
 						end
 						
@@ -521,9 +659,18 @@ begin
 		channel_2 :
 						begin 
 						
-						R_linesensor  = Data_2  ;
+						C_linesensor  = Data_2  ;
 						cc            = channel_3 ;
 						cf            = data_3 ;
+					
+                  if ( white_threshold >= C_linesensor )
+						begin 
+							m_led = 1 ;
+						end 
+						else if( Data_2 > white_threshold )
+					    	begin 
+					          		m_led = 0 ;
+							end
 					
 						end 
 						
@@ -531,11 +678,19 @@ begin
 		channel_3 : 
 						begin 
 						
-						L_linesensor  = Data_3 ;
+						R_linesensor  = Data_3 ;
 						cc            = channel_1 ;
 						cf            = data_1 ;
-					
-						end 				
+						
+						if ( white_threshold >= R_linesensor )
+						begin 
+							l_led = 1 ;
+						end 
+						else if( Data_3 > white_threshold )
+					    	begin 
+					          		l_led = 0 ;
+							end
+				end 				
 						
 		endcase 
 	 end
