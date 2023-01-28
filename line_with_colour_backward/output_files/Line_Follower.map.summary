@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Sat Jan 21 17:50:05 2023
+Analysis & Synthesis Status : Successful - Fri Jan 27 20:40:54 2023
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : Line_Follower
 Top-level Entity Name : Line_Follower
 Family : Cyclone IV E
-Total logic elements : 622
-    Total combinational functions : 483
+Total logic elements : 617
+    Total combinational functions : 478
     Dedicated logic registers : 328
 Total registers : 328
 Total pins : 19

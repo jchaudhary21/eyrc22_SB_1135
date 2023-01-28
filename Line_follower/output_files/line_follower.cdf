@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22) Path("C:/Users/himan/Desktop/verilog/Line_Follower/") File("output_file.jic") MfrSpec(OpMask(1) SEC_Device(EPCS64) Child_OpMask(1 1));
+		Device PartName(EP4CE22F17) Path("C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/output_files/") File("Line_Follower.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

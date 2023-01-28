@@ -33,12 +33,14 @@ always @( posedge clk )
 begin
 
 
-		if (freq_cnt1 == 78) begin
+		if (freq_cnt1 == 50) begin
 			pwm_out1 <= 1;
+			pwm_out3 <= 1;
 			freq_cnt1 <= 0;
 		end
 		else begin
 			pwm_out1 <= 0;
+			pwm_out3 <= 0;
 			freq_cnt1 <= freq_cnt1 + 1;
 			end
 //		if (freq_cnt == 50) begin
@@ -75,20 +77,20 @@ begin
 //	end     
 end   
 
-always @( posedge clk )
-
-begin
-
-
-		if (freq_cnt2 == 215) begin
-			pwm_out2 <= 1;
-			freq_cnt2 <= 0;
-		end
-		else begin
-			pwm_out2 <= 0;
-			freq_cnt2 <= freq_cnt2 + 1;
-			end 
-end
+//always @( posedge clk )
+//
+//begin
+//
+//
+//		if (freq_cnt2 == 215) begin
+//			pwm_out2 <= 1;
+//			freq_cnt2 <= 0;
+//		end
+//		else begin
+//			pwm_out2 <= 0;
+//			freq_cnt2 <= freq_cnt2 + 1;
+//			end 
+//end
 ////////////////////////YOUR CODE ENDS HERE//////////////////////////
 endmodule
 ///////////////////////////////MODULE ENDS///////////////////////////

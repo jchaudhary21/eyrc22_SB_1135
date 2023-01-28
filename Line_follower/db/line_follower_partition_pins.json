@@ -16,7 +16,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "RW_B",
+					"strict" : false
+				},
+				{
 					"name" : "LW_F",
+					"strict" : false
+				},
+				{
+					"name" : "LW_B",
 					"strict" : false
 				},
 				{

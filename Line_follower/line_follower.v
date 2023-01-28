@@ -141,8 +141,8 @@ assign led_l = l_led ;
 assign led_test1 = t1_led ;
 assign led_test2 = t2_led ;
 assign led_test3 = t3_led ;
-reg [10:0]left_thresh = 40;
-reg [10:0]right_thresh = 250;
+reg [10:0]left_thresh = 100;
+reg [10:0]right_thresh = 100;
 
 
 
@@ -176,7 +176,7 @@ begin
 		t2_led = 0;
 		t3_led = 0;
 		flag_normal_movement  		= 0  ;
-		flag_right_movement  	   = 1  ;
+		flag_right_movement  	   = 0  ;
 		flag_left_movement  		   = 0  ;
 		flag_stop_movement         = 0  ;
 		flag_pwm                   = 1  ;
@@ -452,7 +452,7 @@ begin
 			  rw_f = 1 ;
 			  rw_b = 0 ; 
 			  lw_f = 0 ;
-			  lw_b = 0 ;
+			  lw_b = 1 ;
 			 
 			  
 			  
@@ -488,7 +488,7 @@ begin
 		  begin
 		      pwm_counter_l = pwm_counter_l + 1 ;
 			  rw_f = 0 ;
-			  rw_b = 0 ; 
+			  rw_b = 1 ; 
 			  lw_f = 1 ;
 			  lw_b = 0 ;
 			 

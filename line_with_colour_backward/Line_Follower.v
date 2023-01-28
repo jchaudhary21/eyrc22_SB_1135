@@ -160,8 +160,8 @@ assign led_l = l_led ;
 assign led_test1 = t1_led ;
 assign led_test2 = t2_led ;
 assign led_test3 = t3_led ;
-reg [10:0]left_thresh = 40;
-reg [10:0]right_thresh = 250;
+reg [10:0]left_thresh = 80;
+reg [10:0]right_thresh = 80;
 
 
 //color detection block

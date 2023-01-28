@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Line_Follower
-Fri Jan 20 20:54:22 2023
+Sat Jan 28 17:29:38 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -50,15 +50,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jan 20 20:54:22 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan 28 17:29:38 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; Line_Follower                               ;
 ; Top-level Entity Name              ; Line_Follower                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 283                                         ;
-;     Total combinational functions  ; 246                                         ;
-;     Dedicated logic registers      ; 114                                         ;
-; Total registers                    ; 114                                         ;
+; Total logic elements               ; 287                                         ;
+;     Total combinational functions  ; 250                                         ;
+;     Dedicated logic registers      ; 116                                         ;
+; Total registers                    ; 116                                         ;
 ; Total pins                         ; 15                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -171,13 +171,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                               ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                 ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
-; Line_Follower.v                  ; yes             ; User Verilog HDL File  ; C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------+---------+
+; Line_Follower.v                  ; yes             ; User Verilog HDL File  ; C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------+
@@ -185,20 +185,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------+
 ; Resource                                    ; Usage   ;
 +---------------------------------------------+---------+
-; Estimated Total logic elements              ; 283     ;
+; Estimated Total logic elements              ; 287     ;
 ;                                             ;         ;
-; Total combinational functions               ; 246     ;
+; Total combinational functions               ; 250     ;
 ; Logic element usage by number of LUT inputs ;         ;
-;     -- 4 input functions                    ; 111     ;
-;     -- 3 input functions                    ; 88      ;
-;     -- <=2 input functions                  ; 47      ;
+;     -- 4 input functions                    ; 119     ;
+;     -- 3 input functions                    ; 86      ;
+;     -- <=2 input functions                  ; 45      ;
 ;                                             ;         ;
 ; Logic elements by mode                      ;         ;
-;     -- normal mode                          ; 212     ;
+;     -- normal mode                          ; 216     ;
 ;     -- arithmetic mode                      ; 34      ;
 ;                                             ;         ;
-; Total registers                             ; 114     ;
-;     -- Dedicated logic registers            ; 114     ;
+; Total registers                             ; 116     ;
+;     -- Dedicated logic registers            ; 116     ;
 ;     -- I/O registers                        ; 0       ;
 ;                                             ;         ;
 ; I/O pins                                    ; 15      ;
@@ -207,8 +207,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;         ;
 ; Maximum fan-out node                        ; clk_adc ;
 ; Maximum fan-out                             ; 89      ;
-; Total fan-out                               ; 1109    ;
-; Average fan-out                             ; 2.84    ;
+; Total fan-out                               ; 1134    ;
+; Average fan-out                             ; 2.86    ;
 +---------------------------------------------+---------+
 
 
@@ -217,7 +217,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name   ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
-; |Line_Follower             ; 246 (246)           ; 114 (114)                 ; 0           ; 0            ; 0       ; 0         ; 15   ; 0            ; |Line_Follower      ; Line_Follower ; work         ;
+; |Line_Follower             ; 250 (250)           ; 116 (116)                 ; 0           ; 0            ; 0       ; 0         ; 15   ; 0            ; |Line_Follower      ; Line_Follower ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -263,8 +263,6 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; rw_b                                   ; Stuck at GND due to stuck port data_in ;
-; lw_b                                   ; Stuck at GND due to stuck port data_in ;
 ; flag_decision                          ; Stuck at VCC due to stuck port data_in ;
 ; address_counter[0]                     ; Merged with channel_counter[0]         ;
 ; cc~4                                   ; Lost fanout                            ;
@@ -282,20 +280,18 @@ Encoding Type:  One-Hot
 ; flag_right_movement                    ; Lost fanout                            ;
 ; flag_stop_movement                     ; Lost fanout                            ;
 ; flag_pwm                               ; Lost fanout                            ;
-; Total Number of Removed Registers = 19 ;                                        ;
+; Total Number of Removed Registers = 17 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                  ;
-+---------------+---------------------------+--------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register           ;
-+---------------+---------------------------+--------------------------------------------------+
-; rw_b          ; Stuck at GND              ; flag_left_movement, flag_stop_movement, flag_pwm ;
-;               ; due to stuck port data_in ;                                                  ;
-; flag_decision ; Stuck at VCC              ; flag_right_movement                              ;
-;               ; due to stuck port data_in ;                                                  ;
-+---------------+---------------------------+--------------------------------------------------+
++-----------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                   ;
++---------------+---------------------------+---------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register            ;
++---------------+---------------------------+---------------------------------------------------+
+; flag_decision ; Stuck at VCC              ; flag_right_movement, flag_stop_movement, flag_pwm ;
+;               ; due to stuck port data_in ;                                                   ;
++---------------+---------------------------+---------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -303,12 +299,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 114   ;
-; Number of registers using Synchronous Clear  ; 6     ;
-; Number of registers using Synchronous Load   ; 6     ;
+; Total registers                              ; 116   ;
+; Number of registers using Synchronous Clear  ; 4     ;
+; Number of registers using Synchronous Load   ; 4     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 42    ;
+; Number of registers using Clock Enable       ; 46    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -334,23 +330,23 @@ Encoding Type:  One-Hot
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 15                          ;
-; cycloneiii_ff         ; 114                         ;
-;     ENA               ; 42                          ;
-;     SCLR SLD          ; 6                           ;
+; cycloneiii_ff         ; 116                         ;
+;     ENA               ; 46                          ;
+;     SCLR SLD          ; 4                           ;
 ;     plain             ; 66                          ;
-; cycloneiii_lcell_comb ; 247                         ;
+; cycloneiii_lcell_comb ; 251                         ;
 ;     arith             ; 34                          ;
-;         2 data inputs ; 17                          ;
-;         3 data inputs ; 17                          ;
-;     normal            ; 213                         ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 16                          ;
+;     normal            ; 217                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 6                           ;
-;         2 data inputs ; 24                          ;
-;         3 data inputs ; 71                          ;
-;         4 data inputs ; 111                         ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 70                          ;
+;         4 data inputs ; 119                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 14.10                       ;
-; Average LUT depth     ; 8.33                        ;
+; Max LUT depth         ; 14.00                       ;
+; Average LUT depth     ; 8.40                        ;
 +-----------------------+-----------------------------+
 
 
@@ -369,52 +365,50 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Fri Jan 20 20:54:08 2023
+    Info: Processing started: Sat Jan 28 17:29:22 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Line_Follower -c Line_Follower
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file line_follower.v
-    Info (12023): Found entity 1: Line_Follower File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 2
+    Info (12023): Found entity 1: Line_Follower File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 2
 Info (12127): Elaborating entity "Line_Follower" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(77): object "Data_ch5" assigned a value but never read File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 77
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(78): object "Data_ch6" assigned a value but never read File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 78
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(79): object "Data_ch7" assigned a value but never read File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 79
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(97): object "lower_dutycycle_threshold" assigned a value but never read File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 97
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(98): object "upper_dutycycle_threshold" assigned a value but never read File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 98
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(99): object "stop_dutycycle_threshold" assigned a value but never read File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 99
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(109): object "rw_dutycycle" assigned a value but never read File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 109
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(110): object "lw_dutycycle" assigned a value but never read File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 110
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(122): object "flag_action" assigned a value but never read File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 122
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(45): truncated value with size 2 to match size of target (1) File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 45
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(393): truncated value with size 32 to match size of target (8) File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 393
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(417): truncated value with size 32 to match size of target (8) File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 417
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(451): truncated value with size 32 to match size of target (8) File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 451
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(489): truncated value with size 32 to match size of target (8) File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 489
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(599): truncated value with size 32 to match size of target (5) File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 599
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(704): truncated value with size 32 to match size of target (5) File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 704
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(77): object "Data_ch5" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 77
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(78): object "Data_ch6" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 78
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(79): object "Data_ch7" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 79
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(97): object "lower_dutycycle_threshold" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 97
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(98): object "upper_dutycycle_threshold" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 98
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(99): object "stop_dutycycle_threshold" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 99
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(109): object "rw_dutycycle" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 109
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(110): object "lw_dutycycle" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 110
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(122): object "flag_action" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 122
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(45): truncated value with size 2 to match size of target (1) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 45
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(393): truncated value with size 32 to match size of target (8) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 393
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(417): truncated value with size 32 to match size of target (8) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 417
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(451): truncated value with size 32 to match size of target (8) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 451
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(489): truncated value with size 32 to match size of target (8) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 489
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(599): truncated value with size 32 to match size of target (5) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 599
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(704): truncated value with size 32 to match size of target (5) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 704
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "adc_chip_select" is stuck at GND File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 11
-    Warning (13410): Pin "RW_B" is stuck at GND File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 16
-    Warning (13410): Pin "LW_B" is stuck at GND File: C:/Users/himan/Desktop/verilog/Line_Follower/Line_Follower.v Line: 18
+    Warning (13410): Pin "adc_chip_select" is stuck at GND File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/Line_Follower.v Line: 11
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 8 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/himan/Desktop/verilog/Line_Follower/output_files/Line_Follower.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/output_files/Line_Follower.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 338 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 343 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 13 output pins
-    Info (21061): Implemented 323 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
-    Info: Peak virtual memory: 4760 megabytes
-    Info: Processing ended: Fri Jan 20 20:54:22 2023
-    Info: Elapsed time: 00:00:14
+    Info (21061): Implemented 328 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 4758 megabytes
+    Info: Processing ended: Sat Jan 28 17:29:38 2023
+    Info: Elapsed time: 00:00:16
     Info: Total CPU time (on all processors): 00:00:26
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/himan/Desktop/verilog/Line_Follower/output_files/Line_Follower.map.smsg.
+The suppressed messages can be found in C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower/output_files/Line_Follower.map.smsg.
 
 

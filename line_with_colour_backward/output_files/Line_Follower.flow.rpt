@@ -1,5 +1,5 @@
 Flow report for Line_Follower
-Sat Jan 21 17:57:11 2023
+Fri Jan 27 20:41:42 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Jan 21 17:57:11 2023       ;
+; Flow Status                        ; Successful - Fri Jan 27 20:41:42 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; Line_Follower                               ;
 ; Top-level Entity Name              ; Line_Follower                               ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 559 / 22,320 ( 3 % )                        ;
-;     Total combinational functions  ; 484 / 22,320 ( 2 % )                        ;
+; Total logic elements               ; 561 / 22,320 ( 3 % )                        ;
+;     Total combinational functions  ; 478 / 22,320 ( 2 % )                        ;
 ;     Dedicated logic registers      ; 328 / 22,320 ( 1 % )                        ;
 ; Total registers                    ; 328                                         ;
 ; Total pins                         ; 19 / 154 ( 12 % )                           ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/21/2023 17:49:50 ;
+; Start date & time ; 01/27/2023 20:40:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Line_Follower       ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589194.167430359008912         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 10995770589194.167483223210996         ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -98,33 +98,31 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                           ;
-+-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:15     ; 1.0                     ; 4764 MB             ; 00:00:25                           ;
-; Fitter                  ; 00:00:14     ; 1.0                     ; 5542 MB             ; 00:00:13                           ;
-; Assembler               ; 00:00:02     ; 1.0                     ; 4681 MB             ; 00:00:01                           ;
-; Timing Analyzer         ; 00:00:08     ; 1.0                     ; 4791 MB             ; 00:00:03                           ;
-; EDA Netlist Writer      ; 00:00:01     ; 1.0                     ; 4640 MB             ; 00:00:01                           ;
-; I/O Assignment Analysis ; 00:00:03     ; 1.0                     ; 4939 MB             ; 00:00:02                           ;
-; Total                   ; 00:00:43     ; --                      ; --                  ; 00:00:45                           ;
-+-------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:21     ; 1.0                     ; 4763 MB             ; 00:00:26                           ;
+; Fitter               ; 00:00:26     ; 1.0                     ; 5542 MB             ; 00:00:13                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4680 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 4791 MB             ; 00:00:03                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4640 MB             ; 00:00:01                           ;
+; Total                ; 00:00:57     ; --                      ; --                  ; 00:00:44                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+---------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                       ;
-+-------------------------+------------------+------------+------------+----------------+
-; Module Name             ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+-------------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis    ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter                  ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler               ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer         ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer      ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
-; I/O Assignment Analysis ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
-+-------------------------+------------------+------------+------------+----------------+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HEO44DP  ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
 
 
 ------------
@@ -135,7 +133,6 @@ quartus_fit --read_settings_files=off --write_settings_files=off Line_Follower -
 quartus_asm --read_settings_files=off --write_settings_files=off Line_Follower -c Line_Follower
 quartus_sta Line_Follower -c Line_Follower
 quartus_eda --read_settings_files=off --write_settings_files=off Line_Follower -c Line_Follower
-quartus_fit --read_settings_files=on --write_settings_files=off Line_Follower -c Line_Follower --plan
 
 
 
