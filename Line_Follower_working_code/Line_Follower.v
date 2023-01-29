@@ -93,7 +93,7 @@ reg [1:0] cf = data_1 ;
 	
 // --- MOTOR PARAMATERS INITALIZATION 
 	
-reg [11:0]white_threshold =  1200 ; // <---| > 1V 
+reg [11:0]white_threshold =  1600 ; // <---| > 1V 
 
 
 reg rw_f = 0 ;
@@ -136,17 +136,17 @@ assign led_l = l_led ;
 
 // --- PWM --- 
 
-reg [10:0] pwm_thres = 50000 ;
+reg [100:0] pwm_thres = 50000 ;
 
-reg [10:0] rw_f_pwm_thres = 0 ;
-reg [10:0] rw_b_pwm_thres = 0 ;
-reg [10:0] lw_f_pwm_thres = 0 ;
-reg [10:0] lw_b_pwm_thres = 0 ;
+reg [100:0] rw_f_pwm_thres = 0 ;
+reg [100:0] rw_b_pwm_thres = 0 ;
+reg [100:0] lw_f_pwm_thres = 0 ;
+reg [100:0] lw_b_pwm_thres = 0 ;
  
-reg [10:0] pwm_slow  = 50000;
-reg [10:0] pwm_fast  = 50000 ; 
+reg [100:0] pwm_slow  = 50000;
+reg [100:0] pwm_fast  = 50000; 
 
-reg [10:0] pwm_cnt = 0 ;
+reg [100:0] pwm_cnt = 0 ;
 
 // ------------
 
@@ -235,7 +235,7 @@ begin
       flag_decision  =  0  ;
 		cnt_case2 = 0 ;
 		rw_f_pwm_thres =  0;
-		rw_b_pwm_thres =   pwm_fast;
+		rw_b_pwm_thres =   pwm_slow;
 		lw_f_pwm_thres =  pwm_fast ;
 		lw_b_pwm_thres =  0;
 		
@@ -298,7 +298,7 @@ begin
 		flag_pwm                   = 1  ;
       flag_decision  =  0  ;
 		rw_f_pwm_thres =  0;
-		rw_b_pwm_thres =  pwm_fast ;
+		rw_b_pwm_thres =  pwm_slow ;
 		lw_f_pwm_thres =  pwm_fast ;
 		lw_b_pwm_thres =  0;
 		cnt_case4 = 0; 
@@ -333,7 +333,7 @@ begin
 		rw_f_pwm_thres =  pwm_fast ;
 		rw_b_pwm_thres =  0  ;
 		lw_f_pwm_thres =  0  ;
-		lw_b_pwm_thres =  pwm_fast  ;
+		lw_b_pwm_thres =  pwm_slow  ;
 		
 		end
 
@@ -397,7 +397,7 @@ begin
 		rw_f_pwm_thres =  pwm_fast;
 		rw_b_pwm_thres =  0 ;
 		lw_f_pwm_thres =  0 ;
-		lw_b_pwm_thres =  pwm_fast ;
+		lw_b_pwm_thres =  pwm_slow ;
 		
 		end
 
