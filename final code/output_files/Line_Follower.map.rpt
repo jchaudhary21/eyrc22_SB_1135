@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Line_Follower
-Mon Jan 30 19:46:14 2023
+Mon Jan 30 22:45:53 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -50,15 +50,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jan 30 19:46:14 2023       ;
+; Analysis & Synthesis Status        ; Successful - Mon Jan 30 22:45:53 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; Line_Follower                               ;
 ; Top-level Entity Name              ; Line_Follower                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 2,333                                       ;
-;     Total combinational functions  ; 2,194                                       ;
-;     Dedicated logic registers      ; 843                                         ;
-; Total registers                    ; 843                                         ;
+; Total logic elements               ; 2,476                                       ;
+;     Total combinational functions  ; 2,337                                       ;
+;     Dedicated logic registers      ; 880                                         ;
+; Total registers                    ; 880                                         ;
 ; Total pins                         ; 22                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -186,20 +186,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 2,333     ;
+; Estimated Total logic elements              ; 2,476     ;
 ;                                             ;           ;
-; Total combinational functions               ; 2194      ;
+; Total combinational functions               ; 2337      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 871       ;
-;     -- 3 input functions                    ; 355       ;
-;     -- <=2 input functions                  ; 968       ;
+;     -- 4 input functions                    ; 1056      ;
+;     -- 3 input functions                    ; 359       ;
+;     -- <=2 input functions                  ; 922       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 1392      ;
-;     -- arithmetic mode                      ; 802       ;
+;     -- normal mode                          ; 1498      ;
+;     -- arithmetic mode                      ; 839       ;
 ;                                             ;           ;
-; Total registers                             ; 843       ;
-;     -- Dedicated logic registers            ; 843       ;
+; Total registers                             ; 880       ;
+;     -- Dedicated logic registers            ; 880       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 22        ;
@@ -207,9 +207,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 756       ;
-; Total fan-out                               ; 9380      ;
-; Average fan-out                             ; 3.04      ;
+; Maximum fan-out                             ; 793       ;
+; Total fan-out                               ; 10136     ;
+; Average fan-out                             ; 3.11      ;
 +---------------------------------------------+-----------+
 
 
@@ -218,7 +218,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name   ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
-; |Line_Follower             ; 2194 (2194)         ; 843 (843)                 ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |Line_Follower      ; Line_Follower ; work         ;
+; |Line_Follower             ; 2337 (2337)         ; 880 (880)                 ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |Line_Follower      ; Line_Follower ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -264,6 +264,10 @@ Encoding Type:  One-Hot
 +-------------------------------------------+----------------------------------------+
 ; Register name                             ; Reason for Removal                     ;
 +-------------------------------------------+----------------------------------------+
+; variable_cnt[0]                           ; Merged with variable_num_cnt[0]        ;
+; variable_cnt[1]                           ; Merged with variable_num_cnt[1]        ;
+; variable_num_cnt[1]                       ; Merged with bled                       ;
+; variable_num_cnt[0]                       ; Merged with gled                       ;
 ; lw_b_pwm_thres[1..4,6,7,9..12,14,19..100] ; Merged with lw_b_pwm_thres[0]          ;
 ; lw_f_pwm_thres[0..4,6,7,9..12,14,19..100] ; Merged with lw_b_pwm_thres[0]          ;
 ; rw_b_pwm_thres[0..4,6,7,9..12,14,19..100] ; Merged with lw_b_pwm_thres[0]          ;
@@ -284,7 +288,7 @@ Encoding Type:  One-Hot
 ; cf.data_2                                 ; Merged with cc.channel_2               ;
 ; cf.data_3                                 ; Merged with cc.channel_3               ;
 ; lw_b_pwm_thres[0]                         ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 411   ;                                        ;
+; Total Number of Removed Registers = 415   ;                                        ;
 +-------------------------------------------+----------------------------------------+
 
 
@@ -293,12 +297,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 843   ;
+; Total registers                              ; 880   ;
 ; Number of registers using Synchronous Clear  ; 207   ;
 ; Number of registers using Synchronous Load   ; 106   ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 772   ;
+; Number of registers using Clock Enable       ; 799   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -308,10 +312,10 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; Tx                                     ; 1       ;
-; cs_uart[0]                             ; 12      ;
-; flag_decision                          ; 2       ;
-; data[0]                                ; 4       ;
+; Tx                                     ; 4       ;
+; flag_decision                          ; 21      ;
+; cs_uart[0]                             ; 11      ;
+; data[0]                                ; 3       ;
 ; data[2]                                ; 3       ;
 ; Total number of inverted registers = 5 ;         ;
 +----------------------------------------+---------+
@@ -322,24 +326,28 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-; 3:1                ; 101 bits  ; 202 LEs       ; 202 LEs              ; 0 LEs                  ; Yes        ; |Line_Follower|pwm_cnt[5]          ;
-; 3:1                ; 101 bits  ; 202 LEs       ; 101 LEs              ; 101 LEs                ; Yes        ; |Line_Follower|cnt_freq_str[79]    ;
+; 3:1                ; 101 bits  ; 202 LEs       ; 202 LEs              ; 0 LEs                  ; Yes        ; |Line_Follower|pwm_cnt[24]         ;
+; 3:1                ; 101 bits  ; 202 LEs       ; 101 LEs              ; 101 LEs                ; Yes        ; |Line_Follower|cnt_freq_str[97]    ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |Line_Follower|uart_count3[9]      ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Line_Follower|bled                ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |Line_Follower|rw_b_pwm_thres[13]  ;
-; 4:1                ; 101 bits  ; 202 LEs       ; 101 LEs              ; 101 LEs                ; Yes        ; |Line_Follower|COUNT_RED[54]       ;
-; 5:1                ; 101 bits  ; 303 LEs       ; 101 LEs              ; 202 LEs                ; Yes        ; |Line_Follower|COUNT_BLUE[69]      ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |Line_Follower|bit_counter[2]      ;
-; 6:1                ; 101 bits  ; 404 LEs       ; 101 LEs              ; 303 LEs                ; Yes        ; |Line_Follower|COUNT_GREEN[63]     ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |Line_Follower|cs_uart[1]          ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |Line_Follower|lw_b_pwm_thres[0]   ;
+; 4:1                ; 101 bits  ; 202 LEs       ; 101 LEs              ; 101 LEs                ; Yes        ; |Line_Follower|COUNT_RED[72]       ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |Line_Follower|uart_count2[10]     ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |Line_Follower|uart_count1[7]      ;
+; 5:1                ; 101 bits  ; 303 LEs       ; 101 LEs              ; 202 LEs                ; Yes        ; |Line_Follower|COUNT_BLUE[97]      ;
+; 6:1                ; 101 bits  ; 404 LEs       ; 101 LEs              ; 303 LEs                ; Yes        ; |Line_Follower|COUNT_GREEN[53]     ;
 ; 6:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case8[10]       ;
-; 6:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case7[8]        ;
-; 6:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case6[6]        ;
-; 6:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case5[10]       ;
-; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case4[10]       ;
-; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case3[2]        ;
-; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case2[9]        ;
-; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case1[1]        ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |Line_Follower|bit1                ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case7[10]       ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case6[10]       ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case5[9]        ;
+; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case4[8]        ;
+; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case3[10]       ;
+; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case2[10]       ;
+; 7:1                ; 11 bits   ; 44 LEs        ; 11 LEs               ; 33 LEs                 ; Yes        ; |Line_Follower|cnt_case1[6]        ;
+; 258:1              ; 2 bits    ; 344 LEs       ; 2 LEs                ; 342 LEs                ; Yes        ; |Line_Follower|data[3]             ;
+; 505:1              ; 9 bits    ; 3024 LEs      ; 9 LEs                ; 3015 LEs               ; Yes        ; |Line_Follower|bit_counter[7]      ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |Line_Follower|bit2                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Line_Follower|COUNT_BLUE          ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Line_Follower|flag_right_movement ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
 
@@ -350,25 +358,25 @@ Encoding Type:  One-Hot
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 22                          ;
-; cycloneiii_ff         ; 843                         ;
-;     ENA               ; 566                         ;
+; cycloneiii_ff         ; 880                         ;
+;     ENA               ; 593                         ;
 ;     ENA SCLR          ; 101                         ;
 ;     ENA SCLR SLD      ; 105                         ;
 ;     SCLR SLD          ; 1                           ;
-;     plain             ; 70                          ;
-; cycloneiii_lcell_comb ; 2195                        ;
-;     arith             ; 802                         ;
-;         2 data inputs ; 773                         ;
-;         3 data inputs ; 29                          ;
-;     normal            ; 1393                        ;
+;     plain             ; 80                          ;
+; cycloneiii_lcell_comb ; 2338                        ;
+;     arith             ; 839                         ;
+;         2 data inputs ; 811                         ;
+;         3 data inputs ; 28                          ;
+;     normal            ; 1499                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 21                          ;
-;         2 data inputs ; 174                         ;
-;         3 data inputs ; 326                         ;
-;         4 data inputs ; 871                         ;
+;         1 data inputs ; 25                          ;
+;         2 data inputs ; 86                          ;
+;         3 data inputs ; 331                         ;
+;         4 data inputs ; 1056                        ;
 ;                       ;                             ;
 ; Max LUT depth         ; 43.10                       ;
-; Average LUT depth     ; 23.10                       ;
+; Average LUT depth     ; 22.39                       ;
 +-----------------------+-----------------------------+
 
 
@@ -377,7 +385,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:24     ;
+; Top            ; 00:00:31     ;
 +----------------+--------------+
 
 
@@ -387,69 +395,67 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Mon Jan 30 19:45:34 2023
+    Info: Processing started: Mon Jan 30 22:45:07 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Line_Follower -c Line_Follower
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file line_follower.v
     Info (12023): Found entity 1: Line_Follower File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 1
 Info (12127): Elaborating entity "Line_Follower" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(145): object "Data_ch5" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 145
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(146): object "Data_ch6" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 146
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(147): object "Data_ch7" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 147
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(453): object "dash_letter_1" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 453
-Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(460): object "dash_letter_2" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 460
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(113): truncated value with size 2 to match size of target (1) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 113
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(238): truncated value with size 32 to match size of target (5) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 238
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(343): truncated value with size 32 to match size of target (5) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 343
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(446): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 446
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(447): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 447
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(481): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 481
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(489): truncated value with size 32 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 489
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(495): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 495
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(502): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 502
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(503): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 503
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(513): truncated value with size 32 to match size of target (4) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 513
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(517): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 517
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(525): truncated value with size 32 to match size of target (4) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 525
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(529): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 529
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(536): truncated value with size 32 to match size of target (4) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 536
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(540): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 540
-Warning (10199): Verilog HDL Case Statement warning at Line_Follower.v(545): case item expression never matches the case expression File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 545
-Warning (10199): Verilog HDL Case Statement warning at Line_Follower.v(560): case item expression never matches the case expression File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 560
-Warning (10199): Verilog HDL Case Statement warning at Line_Follower.v(571): case item expression never matches the case expression File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 571
-Warning (10199): Verilog HDL Case Statement warning at Line_Follower.v(585): case item expression never matches the case expression File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 585
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(599): truncated value with size 32 to match size of target (4) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 599
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(603): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 603
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(610): truncated value with size 32 to match size of target (4) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 610
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(614): truncated value with size 5 to match size of target (3) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 614
-Warning (10763): Verilog HDL warning at Line_Follower.v(476): case statement has overlapping case item expressions with non-constant or don't care bits - unable to check case statement for completeness File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 476
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(626): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 626
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(637): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 637
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(669): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 669
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(701): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 701
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(733): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 733
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(765): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 765
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(798): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 798
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(830): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 830
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(861): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 861
-Warning (10230): Verilog HDL assignment warning at Line_Follower.v(922): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 922
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(88): object "m_letter" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 88
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(89): object "d_letter" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 89
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(90): object "w_letter" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 90
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(91): object "letter_1" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 91
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(92): object "letter_2" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 92
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(93): object "letter_3" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 93
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(381): object "Data_ch5" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 381
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(382): object "Data_ch6" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 382
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(383): object "Data_ch7" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 383
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(653): object "flag_wait_lobby" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 653
+Warning (10036): Verilog HDL or VHDL warning at Line_Follower.v(655): object "cnt_wait_lobby" assigned a value but never read File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 655
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(137): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 137
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(159): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 159
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(171): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 171
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(182): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 182
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(195): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 195
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(199): truncated value with size 32 to match size of target (6) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 199
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(207): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 207
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(219): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 219
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(230): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 230
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(241): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 241
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(252): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 252
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(268): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 268
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(292): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 292
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(307): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 307
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(325): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 325
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(349): truncated value with size 2 to match size of target (1) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 349
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(474): truncated value with size 32 to match size of target (5) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 474
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(579): truncated value with size 32 to match size of target (5) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 579
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(667): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 667
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(699): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 699
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(731): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 731
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(763): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 763
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(795): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 795
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(828): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 828
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(860): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 860
+Warning (10230): Verilog HDL assignment warning at Line_Follower.v(891): truncated value with size 32 to match size of target (11) File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 891
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "adc_chip_select" is stuck at GND File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 10
+    Warning (13410): Pin "ledt" is stuck at GND File: C:/Users/himan/Desktop/verilog/final code/Line_Follower.v Line: 28
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/himan/Desktop/verilog/final code/output_files/Line_Follower.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2398 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2541 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 19 output pins
-    Info (21061): Implemented 2376 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 4798 megabytes
-    Info: Processing ended: Mon Jan 30 19:46:14 2023
-    Info: Elapsed time: 00:00:40
-    Info: Total CPU time (on all processors): 00:00:51
+    Info (21061): Implemented 2519 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 4799 megabytes
+    Info: Processing ended: Mon Jan 30 22:45:53 2023
+    Info: Elapsed time: 00:00:46
+    Info: Total CPU time (on all processors): 00:00:53
 
 
 +------------------------------------------+

@@ -1,0 +1,15 @@
+
+State Machine - |col_sen|sent_b
+Name sent_b.01 
+sent_b.00 0 
+sent_b.01 1 
+
+State Machine - |col_sen|sent_g
+Name sent_g.01 
+sent_g.00 0 
+sent_g.01 1 
+
+State Machine - |col_sen|sent_r
+Name sent_r.01 
+sent_r.00 0 
+sent_r.01 1 

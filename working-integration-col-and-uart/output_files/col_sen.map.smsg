@@ -1,0 +1,10 @@
+Warning (10268): Verilog HDL information at col_sen.v(81): always construct contains both blocking and non-blocking assignments File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 81
+Info (10281): Verilog HDL Declaration information at col_sen.v(7): object "tx" differs only in case from object "Tx" in the same scope File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 7
+Info (10281): Verilog HDL Declaration information at col_sen.v(41): object "G_letter" differs only in case from object "g_letter" in the same scope File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 41
+Info (10281): Verilog HDL Declaration information at col_sen.v(42): object "B_letter" differs only in case from object "b_letter" in the same scope File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 42
+Info (10281): Verilog HDL Declaration information at col_sen.v(43): object "I_letter" differs only in case from object "i_letter" in the same scope File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 43
+Info (10281): Verilog HDL Declaration information at col_sen.v(45): object "Dash_letter_1" differs only in case from object "dash_letter_1" in the same scope File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 45
+Info (10281): Verilog HDL Declaration information at col_sen.v(47): object "Dash_letter_2" differs only in case from object "dash_letter_2" in the same scope File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 47
+Info (10281): Verilog HDL Declaration information at col_sen.v(48): object "Hash_letter" differs only in case from object "hash_letter" in the same scope File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 48
+Info (10281): Verilog HDL Declaration information at col_sen.v(49): object "Null_letter" differs only in case from object "null_letter" in the same scope File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 49
+Info (10281): Verilog HDL Declaration information at col_sen.v(46): object "Variable_letter" differs only in case from object "variable_letter" in the same scope File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 46
