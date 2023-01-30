@@ -1,8 +1,8 @@
 vendor_name = ModelSim
-source_file = 1, C:/Users/himan/Desktop/verilog/Line_Follower_working_code/Line_Follower.v
-source_file = 1, C:/Users/himan/Desktop/verilog/Line_Follower_working_code/stp1.stp
-source_file = 1, C:/Users/himan/Desktop/verilog/Line_Follower_working_code/db/Line_Follower.cmp.rdb
-source_file = 1, C:/Users/himan/Desktop/verilog/Line_Follower_working_code/db/Line_Follower.cbx.xml
+source_file = 1, C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower_working_code/Line_Follower.v
+source_file = 1, C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower_working_code/stp1.stp
+source_file = 1, C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower_working_code/db/Line_Follower.cmp.rdb
+source_file = 1, C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower_working_code/db/Line_Follower.cbx.xml
 design_name = Line_Follower
 instance = comp, \adc_chip_select~output , adc_chip_select~output, Line_Follower, 1
 instance = comp, \adc_address~output , adc_address~output, Line_Follower, 1

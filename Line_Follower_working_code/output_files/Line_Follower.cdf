@@ -1,0 +1,13 @@
+/* Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition */
+JedecChain;
+	FileRevision(JESD32A);
+	DefaultMfr(6E);
+
+	P ActionCode(Cfg)
+		Device PartName(EP4CE22F17) Path("C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Line_Follower_working_code/output_files/") File("Line_Follower.sof") MfrSpec(OpMask(1));
+
+ChainEnd;
+
+AlteraBegin;
+	ChainType(JTAG);
+AlteraEnd;
