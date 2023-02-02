@@ -68,12 +68,18 @@ localparam
 				G_letter        = 5'b00101 ,
 				B_letter        = 5'b00110 ,
 				I_letter        = 5'b00111 ,
-				Number_letter   = 5'b01000 ,
+				Number_letter_1 = 5'b01000 ,
 				Dash_letter_1   = 5'b01001 ,
             Variable_letter = 5'b01010 ,				
 				Dash_letter_2   = 5'b01011 ,
 				Hash_letter     = 5'b01100 ,
-				Null_letter     = 5'b01101 ;
+				Null_letter_1   = 5'b01101 ,
+				N_letter        = 5'b01110 ,
+				O_letter        = 5'b01111 ,
+				D_letter        = 5'b10000 ,
+				E_letter   		 = 5'b10001 ,
+				Number_letter_2 = 5'b10010 ,
+				Null_letter_2   = 5'b10011 ;
 				
 			
 reg [8:0]counter = 9'b00 ; 				
@@ -85,22 +91,20 @@ reg [7:0]g_letter       = 8'b01000111 ;
 reg [7:0]b_letter       = 8'b01000010 ;                 
 reg [7:0]i_letter       = 8'b01001001 ;
 reg [7:0]dash_letter_1  = 8'b00101101 ;
-reg [7:0]m_letter       = 8'b01001101 ;
-reg [7:0]d_letter       = 8'b01000100 ;
-reg [7:0]w_letter       = 8'b01010111 ; 
-reg [7:0]letter_1       = 8'b00110001 ;
-reg [7:0]letter_2       = 8'b00110010 ;
-reg [7:0]letter_3       = 8'b00110011 ;
-reg [7:0]dash_letter_2  = 8'b00101101 ;
 reg [7:0]hash_letter    = 8'b00100011 ;
-reg [7:0]null_letter    = 8'b00000000 ;
+reg [7:0]dash_letter_2  = 8'b00101101 ;
+reg [7:0]null_letter_1    = 8'b00000000 ;	
+reg [7:0]n_letter       = 8'b01001110 ;
+reg [7:0]o_letter       = 8'b01001111 ;                 
+reg [7:0]d_letter       = 8'b01000100 ;
+reg [7:0]e_letter       = 8'b01000101 ;
+reg [7:0]null_letter_2    = 8'b00000000 ;
 
+
+reg [7:0] variable_number_1  [2:0];
+reg [7:0] variable_number_2  [2:0];
 reg [7:0] variable_letter  [2:0];
-reg [7:0] variable_number  [2:0];
-
 reg [3:0]variable_cnt = 0;
-reg [3:0]variable_num_cnt = 0;
-reg [5:0] cnt_uart = 0 ;
 reg uart_flag = 0 ;
 
 
@@ -111,9 +115,12 @@ begin
 variable_letter[0] = 8'b01001101;
 variable_letter[1] = 8'b01000100;
 variable_letter[2] = 8'b01010111;
-variable_number[0] = 8'b00110001;
-variable_number[1] = 8'b00110010;
-variable_number[2] = 8'b00110011;
+variable_number_1[0] = 8'b00110001;
+variable_number_1[1] = 8'b00110010;
+variable_number_1[2] = 8'b00110011;
+variable_number_2[0] = 8'b00110001;
+variable_number_2[1] = 8'b00110010;
+variable_number_2[2] = 8'b00110011;
 if (uart_flag == 1 )
 begin 
 
@@ -188,15 +195,14 @@ case (cs_uart)
 						end 
 						
 						
-		  Number_letter :
+		  Number_letter_1 :
 						begin 
-						Tx = variable_number[variable_num_cnt][bit_counter] ;	
+						Tx = variable_number_1[variable_cnt][bit_counter] ;	
 						
 						bit_counter = bit_counter + 1 ;
 						if (bit_counter == 4'b1000)
 						begin 
 						bit_counter = 0 ;
-						cnt_uart = cnt_uart + 1 ;
 						cs_uart = stop  ;
 						end 
 						end 
@@ -246,9 +252,77 @@ case (cs_uart)
 						end 
 						end 
 						
-			 Null_letter :
+			 Null_letter_1 :
 						begin 
-						Tx = null_letter[bit_counter] ;
+						Tx = null_letter_1[bit_counter] ;
+						bit_counter = bit_counter + 1 ;
+						if (bit_counter == 4'b1000)
+						begin 
+						bit_counter = 0 ;
+						cs_uart = stop  ;
+						end 
+						end 
+			
+			N_letter :
+						begin 
+						Tx = n_letter[bit_counter] ;
+						bit_counter = bit_counter + 1 ;
+						if (bit_counter == 4'b1000)
+						begin 
+						bit_counter = 0 ;
+						cs_uart = stop  ;
+						end 
+						end 
+						
+						
+			O_letter :
+						begin 
+						Tx = o_letter[bit_counter] ;
+						bit_counter = bit_counter + 1 ;
+						if (bit_counter == 4'b1000)
+						begin 
+						bit_counter = 0 ;
+						cs_uart = stop  ;
+						end 
+						end 
+
+			D_letter :
+						begin 
+						Tx = d_letter[bit_counter] ;
+						bit_counter = bit_counter + 1 ;
+						if (bit_counter == 4'b1000)
+						begin 
+						bit_counter = 0 ;
+						cs_uart = stop  ;
+						end 
+						end 
+						 
+			E_letter :
+						begin 
+						Tx = e_letter[bit_counter] ;
+						bit_counter = bit_counter + 1 ;
+						if (bit_counter == 4'b1000)
+						begin 
+						bit_counter = 0 ;
+						cs_uart = stop  ;
+						end 
+						end 
+						
+		  Number_letter_2 :
+						begin 
+						Tx = variable_number_2[variable_cnt][bit_counter] ;	
+						
+						bit_counter = bit_counter + 1 ;
+						if (bit_counter == 4'b1000)
+						begin 
+						bit_counter = 0 ;
+						cs_uart = stop  ;
+						end 
+						end 
+						
+		 Null_letter_2 :
+						begin 
+						Tx = null_letter_2[bit_counter] ;
 						bit_counter = bit_counter + 1 ;
 						if (bit_counter == 4'b1000)
 						begin 
@@ -257,7 +331,6 @@ case (cs_uart)
 						end 
 						end 
 			
-
 endcase 
 end 
 
@@ -275,10 +348,10 @@ end
 			act_freq_cnt <= cnt_freq_str;
 			cnt_freq_str <= 0;
 		end
-		if (act_freq_cnt>1200 & act_freq_cnt<1500)
+		if (act_freq_cnt>2500 & act_freq_cnt<2700)
 		begin
 			COUNT_RED = COUNT_RED + 1;
-			if (COUNT_RED == 30000000) begin
+			if (COUNT_RED == 15000000) begin
 			COUNT_RED = 0;
 			COUNT_GREEN = 0;
 			COUNT_BLUE = 0;
@@ -286,7 +359,6 @@ end
 			gled = 0;
 			bled = 0;
 			variable_cnt = 0;
-			variable_num_cnt = 0;
 			uart_count1=0;
 			uart_count2=0;
 			uart_count3 = uart_count3 +1;
@@ -294,10 +366,10 @@ end
 			if (uart_count3<2)begin uart_flag = 1;end
 			end
 		end
-		else if (act_freq_cnt>2300 & act_freq_cnt< 2700)
+		else if (act_freq_cnt>3500 & act_freq_cnt< 3700)
 		begin
 		COUNT_GREEN = COUNT_GREEN + 1;
-		if (COUNT_GREEN == 30000000) begin
+		if (COUNT_GREEN == 15000000) begin
 			COUNT_RED = 0;
 			COUNT_GREEN = 0;
 			COUNT_BLUE = 0;
@@ -305,17 +377,16 @@ end
 			gled = 1;
 			bled = 0;
 			uart_count2 = uart_count2 +1;
-		variable_cnt = 1;
-		variable_num_cnt = 1;
+		variable_cnt = 2;
 		uart_count1=0;
 		uart_count3=0;
 		if (uart_count2 <2)begin uart_flag = 1;end
 			end
 		end	
-		else if (act_freq_cnt>3900 & act_freq_cnt<4500)
+		else if (act_freq_cnt>1700 & act_freq_cnt<1950)
 		begin
 			COUNT_BLUE = COUNT_BLUE + 1;
-		if (COUNT_BLUE == 30000000) begin
+		if (COUNT_BLUE == 15000000) begin
 			COUNT_RED = 0;
 			COUNT_GREEN = 0;
 			COUNT_BLUE = 0;
@@ -323,8 +394,7 @@ end
 			gled = 0;
 			bled = 1;
 			uart_count1 = uart_count1 +1;
-		variable_cnt = 2;
-		variable_num_cnt = 2;
+		variable_cnt = 1;
 		uart_count2=0;
 		uart_count3=0;
 		if (uart_count1<2)begin uart_flag = 1;end
@@ -639,22 +709,53 @@ reg [100:0] pwm_cnt = 0 ;
 
 // ------------
 
-reg [10:0]cnt_case1 = 0 ;
-reg [10:0]cnt_case2 = 0 ;
-reg [10:0]cnt_case3 = 0 ;
-reg [10:0]cnt_case4 = 0 ;
-reg [10:0]cnt_case5 = 0 ;
-reg [10:0]cnt_case6 = 0 ;
-reg [10:0]cnt_case7 = 0 ;
-reg [10:0]cnt_case8 = 0 ;
+reg [100:0]cnt_case1 = 0 ;
+reg [20:0]cnt_case2 = 0 ;
+reg [20:0]cnt_case3 = 0 ;
+reg [20:0]cnt_case4 = 0 ;
+reg [20:0]cnt_case5 = 0 ;
+reg [20:0]cnt_case6 = 0 ;
+reg [20:0]cnt_case7 = 0 ;
+reg [20:0]cnt_case8 = 0 ;
 
-reg [10:0]cnt_caseX_thres = 20 ;
-
-reg flag_wait_lobby = 0 ;
-
-reg [10:0] cnt_wait_lobby = 0 ;
+reg [20:0]cnt_caseX_thres = 20 ;
 
 
+
+
+// movement parameters
+
+reg right_turn = 0 ;
+reg left_turn = 0 ;
+reg round_turn = 0 ;
+
+
+
+reg [100:0] count_n1 = 0;
+reg [100:0] cnt_pwm_thres_rl = 43000000 ;
+reg [100:0] cnt_pwm_thres_180 = 135000000 ;
+reg [100:0] cnt_pwm = 0 ;
+reg flag_check = 0;
+reg node_1_turn = 1;
+reg node_2_turn = 0;
+reg node_3_turn = 0;
+reg node_4_turn = 0;
+reg node_5_turn = 0;
+reg node_6_turn = 0;
+reg node_7_turn = 0;
+reg node_8_turn = 0;
+reg node_9_turn = 0;
+reg node_10_turn = 0;
+reg n1 = 0;
+reg n2 = 0;
+reg n3 = 0;
+reg n4 = 0;
+reg n5 = 0;
+reg n6 = 0;
+reg n7 = 0;
+reg n8 = 0;
+reg n9 = 0;
+reg n10 = 0;
 always @ (posedge clk) begin
 if ( flag_decision == 1 )
 begin
@@ -673,13 +774,24 @@ begin
 		bit1 = 0 ;
 		bit2 = 0 ;
 		bit3 = 0 ;
-		
+		tled = 1;
+//		count_n1 = count_n1 + 1;
+//		if (node_1_flag == 1) begin 
+//			right_turn = 1; 
+//			node_1_flag=0; 
+//			node_2_flag = 1;
+//		end
+//		if (node_2_flag == 1 & count_n1 > 100000000) begin 
+//			 
+//			left_turn = 1; 
+//			node_2_flag=0; 
+//		end
 		flag_normal_movement  		= 0  ;
 		flag_right_movement  	   = 0  ;
 		flag_left_movement  		   = 0  ;
 		flag_stop_movement         = 1  ;
 		flag_pwm                   = 1  ;
-		flag_wait_lobby = 1 ;	
+			
       cnt_case1 = 0 ;
 		flag_decision  =  0  ;
 		rw_f_pwm_thres =  0;
@@ -885,22 +997,34 @@ begin
 	 
 // CASE : 8 	
 	
-	else if ( L_linesensor >= white_threshold & C_linesensor >= white_threshold & R_linesensor >= white_threshold)
+	 if ( L_linesensor >= white_threshold & C_linesensor >= white_threshold & R_linesensor >= white_threshold)
 	begin
 
 		cnt_case8 = cnt_case8 + 1 ; 
-		if (cnt_case8 == cnt_caseX_thres)
+		if (cnt_case8 == cnt_caseX_thres+1000)
 		begin 
 		
 		bit0 = 0 ;
 		bit1 = 0 ;
 		bit2 = 0 ;
 		bit3 = 1 ;
-		 
+		flag_check = 1;
+		
+//		count_n1 = count_n1 + 1;
+//		if (node_1_flag == 1) begin
+//			tled = 1;
+//			right_turn = 1; 
+//			node_1_flag=0;
+//			node_2_flag = 1;	 
+//		end
+//		if (node_2_flag == 1 & count_n1 > 100000000) begin 
+//			left_turn = 1; 
+//			node_2_flag=0; 
+//		end
 		flag_normal_movement  		= 0  ;
 		flag_right_movement  	   = 0  ;
 		flag_left_movement  		   = 0  ;
-		flag_stop_movement         = 1  ;
+		flag_stop_movement         = 0  ;
 		flag_pwm                   = 1  ;
       flag_decision  =  0  ;
 		
@@ -915,7 +1039,48 @@ begin
 
 end 	
 
-	
+if (flag_check == 1) begin
+		if (node_1_turn == 1)begin
+		right_turn = 1;
+		n1 = 1;
+		end
+		if (node_2_turn == 1) begin
+		left_turn = 1;
+		n2 = 1;
+		end
+		if (node_3_turn == 1) begin
+		round_turn = 1;
+		n3 = 1;
+		end
+		if (node_4_turn == 1) begin
+		left_turn = 1;
+		n4 = 1;
+		end
+		if (node_5_turn == 1) begin
+		left_turn = 1;
+		n5 = 1;
+		end
+		if (node_6_turn == 1) begin
+		left_turn = 1;
+		n6 = 1;
+		end
+		if (node_7_turn == 1) begin
+		round_turn = 1;
+		n7 = 1;
+		end
+		if (node_8_turn == 1) begin
+		left_turn = 1;
+		n8 = 1;
+		end
+		if (node_9_turn == 1) begin
+		left_turn = 1;
+		n9 = 1;
+		end
+		if (node_10_turn == 1) begin
+		flag_stop_movement = 1;
+		end
+		
+		end
 
 
 if (flag_pwm == 1 )
@@ -1189,8 +1354,156 @@ begin
 			pwm_cnt = pwm_cnt + 1 ;
 			
 		end
+
 		
-		
+// TURN RIGHT
+
+	if ( right_turn == 1 )
+		begin 
+
+        if ( cnt_pwm < cnt_pwm_thres_rl )
+        begin
+
+        rw_f = 1 ;
+        rw_b = 0 ;
+       lw_f = 0 ;
+       lw_b = 1 ;
+
+        cnt_pwm = cnt_pwm + 1 ;
+
+        end
+
+        if ( cnt_pwm == cnt_pwm_thres_rl )
+        begin
+
+			rw_f = 0 ;
+			rw_b = 0 ;
+			lw_f = 0 ;
+			lw_b = 0 ;
+			flag_pwm       =  0  ;
+			flag_decision = 1;
+        cnt_pwm = 0 ;
+        right_turn = 0  ;
+		  flag_check = 0;
+		  if (n1 == 1) begin
+		  node_1_turn = 0;
+		  node_2_turn = 1;
+		  n1 = 0;
+		  end
+        end
+		  
+
+   end
+
+// TURN LEFT
+
+	if ( left_turn == 1 )
+		begin 
+
+        if ( cnt_pwm < cnt_pwm_thres_rl )
+        begin
+
+        rw_f = 0 ;
+        rw_b = 1 ;
+       lw_f = 1 ;
+       lw_b = 0 ;
+
+        cnt_pwm = cnt_pwm + 1 ;
+
+        end
+
+        if ( cnt_pwm == cnt_pwm_thres_rl )
+        begin
+
+			rw_f = 0 ;
+			rw_b = 0 ;
+			lw_f = 0 ;
+			lw_b = 0 ;
+			flag_pwm       =  0  ;
+			flag_decision = 1;
+        cnt_pwm = 0 ;
+        left_turn = 0  ;
+		  flag_check = 0;
+		  if (n2 == 1) begin
+		  node_2_turn = 0;
+		  node_3_turn = 1;
+		  n2 = 0;
+		  end
+		  if (n4 == 1) begin
+			node_4_turn = 0;
+			node_5_turn = 1;
+			n4 = 0;
+			end
+		  if (n5 == 1) begin
+			node_5_turn = 0;
+			node_6_turn = 1;
+			n5 = 0;
+			end
+		  if (n6 == 1) begin
+			node_6_turn = 0;
+			node_7_turn = 1;
+			n6 = 0;
+			end
+		 if (n8 == 1) begin
+			node_8_turn = 0;
+			node_9_turn = 1;
+			n8 = 0;
+			end
+		 if (n9 == 1) begin
+			node_9_turn = 0;
+			node_10_turn = 1;
+			n9 = 0;
+			end
+        end
+
+   end
+
+	// TURN 180
+
+	if ( round_turn == 1 )
+		begin 
+
+        if ( cnt_pwm < cnt_pwm_thres_180 )
+        begin
+
+        rw_f = 1 ;
+        rw_b = 0 ;
+       lw_f = 0 ;
+       lw_b = 1 ;
+
+        cnt_pwm = cnt_pwm + 1 ;
+
+        end
+
+        if ( cnt_pwm == cnt_pwm_thres_180 )
+        begin
+
+			rw_f = 0 ;
+			rw_b = 0 ;
+			lw_f = 0 ;
+			lw_b = 0 ;
+			flag_pwm       =  0  ;
+			flag_decision = 1;
+        cnt_pwm = 0 ;
+        round_turn = 0  ;
+		  flag_check = 0;
+		  if (n3 ==1) begin
+		  node_3_turn = 0;
+		  node_4_turn = 1;
+		  n3 = 0;
+		  end
+		  if (n7 ==1) begin
+		  node_7_turn = 0;
+//		  node_8_turn = 1;
+		  n7 = 0;
+		  end
+		  
+        end
+		  
+
+   end
+
+	
 // STOP MOVEMENT 
 
 	 if (flag_stop_movement == 1)

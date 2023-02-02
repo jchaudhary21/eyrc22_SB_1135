@@ -1,0 +1,375 @@
+Analysis & Synthesis report for col_sen
+Mon Jan 30 22:30:41 2023
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+ 15. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jan 30 22:30:41 2023       ;
+; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                      ; col_sen                                     ;
+; Top-level Entity Name              ; col_sen                                     ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 1,103                                       ;
+;     Total combinational functions  ; 1,001                                       ;
+;     Dedicated logic registers      ; 550                                         ;
+; Total registers                    ; 550                                         ;
+; Total pins                         ; 6                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE22F17C6       ;                    ;
+; Top-level entity name                                            ; col_sen            ; col_sen            ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+---------+
+; col_sen.v                        ; yes             ; User Verilog HDL File  ; C:/Users/himan/Desktop/verilog/col_sen/col_sen.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,103     ;
+;                                             ;           ;
+; Total combinational functions               ; 1001      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 327       ;
+;     -- 3 input functions                    ; 228       ;
+;     -- <=2 input functions                  ; 446       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 578       ;
+;     -- arithmetic mode                      ; 423       ;
+;                                             ;           ;
+; Total registers                             ; 550       ;
+;     -- Dedicated logic registers            ; 550       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 6         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 550       ;
+; Total fan-out                               ; 4618      ;
+; Average fan-out                             ; 2.95      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |col_sen                   ; 1001 (1001)         ; 550 (550)                 ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |col_sen            ; col_sen     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------+
+; Registers Removed During Synthesis                                  ;
++---------------------------------------+-----------------------------+
+; Register name                         ; Reason for Removal          ;
++---------------------------------------+-----------------------------+
+; variable_cnt[1]                       ; Merged with bled            ;
+; variable_num_cnt[1]                   ; Merged with bled            ;
+; variable_num_cnt[0]                   ; Merged with variable_cnt[0] ;
+; variable_cnt[0]                       ; Merged with gled            ;
+; Total Number of Removed Registers = 4 ;                             ;
++---------------------------------------+-----------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 550   ;
+; Number of registers using Synchronous Clear  ; 101   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 529   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; Tx                                     ; 4       ;
+; cs_uart[0]                             ; 11      ;
+; data[0]                                ; 3       ;
+; data[2]                                ; 3       ;
+; uart_tx_blue                           ; 3       ;
+; uart_tx_green                          ; 3       ;
+; uart_tx_red                            ; 2       ;
+; Total number of inverted registers = 7 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 101 bits  ; 202 LEs       ; 101 LEs              ; 101 LEs                ; Yes        ; |col_sen|cnt_freq_str[97]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |col_sen|bled              ;
+; 4:1                ; 101 bits  ; 202 LEs       ; 101 LEs              ; 101 LEs                ; Yes        ; |col_sen|COUNT_RED[73]     ;
+; 5:1                ; 101 bits  ; 303 LEs       ; 101 LEs              ; 202 LEs                ; Yes        ; |col_sen|COUNT_BLUE[100]   ;
+; 6:1                ; 101 bits  ; 404 LEs       ; 101 LEs              ; 303 LEs                ; Yes        ; |col_sen|COUNT_GREEN[89]   ;
+; 258:1              ; 2 bits    ; 344 LEs       ; 2 LEs                ; 342 LEs                ; Yes        ; |col_sen|data[8]           ;
+; 505:1              ; 9 bits    ; 3024 LEs      ; 9 LEs                ; 3015 LEs               ; Yes        ; |col_sen|bit_counter[7]    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |col_sen|COUNT_BLUE        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 6                           ;
+; cycloneiii_ff         ; 550                         ;
+;     ENA               ; 428                         ;
+;     ENA SCLR          ; 101                         ;
+;     plain             ; 21                          ;
+; cycloneiii_lcell_comb ; 1002                        ;
+;     arith             ; 423                         ;
+;         2 data inputs ; 419                         ;
+;         3 data inputs ; 4                           ;
+;     normal            ; 579                         ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 21                          ;
+;         3 data inputs ; 224                         ;
+;         4 data inputs ; 327                         ;
+;                       ;                             ;
+; Max LUT depth         ; 18.90                       ;
+; Average LUT depth     ; 12.74                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:09     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Mon Jan 30 22:30:19 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off col_sen -c col_sen
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file col_sen.v
+    Info (12023): Found entity 1: col_sen File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 1
+Info (12127): Elaborating entity "col_sen" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(15): object "pwm_cnt" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 15
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(27): object "uart_count1" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 27
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(28): object "uart_count2" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 28
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(29): object "uart_count3" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 29
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(60): object "m_letter" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 60
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(61): object "d_letter" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 61
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(62): object "w_letter" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 62
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(63): object "letter_1" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 63
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(64): object "letter_2" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 64
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(65): object "letter_3" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 65
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(77): object "sent_r" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 77
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(78): object "sent_g" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 78
+Warning (10036): Verilog HDL or VHDL warning at col_sen.v(79): object "sent_b" assigned a value but never read File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 79
+Warning (10230): Verilog HDL assignment warning at col_sen.v(117): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 117
+Warning (10230): Verilog HDL assignment warning at col_sen.v(139): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 139
+Warning (10230): Verilog HDL assignment warning at col_sen.v(151): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 151
+Warning (10230): Verilog HDL assignment warning at col_sen.v(162): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 162
+Warning (10230): Verilog HDL assignment warning at col_sen.v(175): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 175
+Warning (10230): Verilog HDL assignment warning at col_sen.v(179): truncated value with size 32 to match size of target (6) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 179
+Warning (10230): Verilog HDL assignment warning at col_sen.v(187): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 187
+Warning (10230): Verilog HDL assignment warning at col_sen.v(199): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 199
+Warning (10230): Verilog HDL assignment warning at col_sen.v(210): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 210
+Warning (10230): Verilog HDL assignment warning at col_sen.v(221): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 221
+Warning (10230): Verilog HDL assignment warning at col_sen.v(232): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 232
+Warning (10230): Verilog HDL assignment warning at col_sen.v(248): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Desktop/verilog/col_sen/col_sen.v Line: 248
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/himan/Desktop/verilog/col_sen/output_files/col_sen.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1112 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 4 output pins
+    Info (21061): Implemented 1106 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 4766 megabytes
+    Info: Processing ended: Mon Jan 30 22:30:41 2023
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:33
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/himan/Desktop/verilog/col_sen/output_files/col_sen.map.smsg.
+
+

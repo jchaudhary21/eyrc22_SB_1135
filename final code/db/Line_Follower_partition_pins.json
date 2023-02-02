@@ -60,6 +60,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "ledt",
+					"strict" : false
+				},
+				{
 					"name" : "red_led",
 					"strict" : false
 				},
