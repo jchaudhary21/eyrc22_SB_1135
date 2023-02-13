@@ -12,7 +12,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "tx",
+					"name" : "s2",
+					"strict" : false
+				},
+				{
+					"name" : "s3",
 					"strict" : false
 				},
 				{
@@ -25,6 +29,22 @@
 				},
 				{
 					"name" : "colour_freq",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
 					"strict" : false
 				}
 			]
