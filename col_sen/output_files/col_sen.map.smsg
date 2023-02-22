@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at col_sen.v(44): always construct contains both blocking and non-blocking assignments File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/col_sen/col_sen.v Line: 44
+Warning (10268): Verilog HDL information at col_sen.v(66): always construct contains both blocking and non-blocking assignments File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/col_sen/col_sen.v Line: 66
