@@ -62,6 +62,9 @@ reg [50:0] check_counter2b= 0;
 reg [50:0] check_counter3b= 0;
 reg [50:0] check_counter4b= 0;
 
+reg [50:0] red_delay= 0;
+reg [50:0] blue_delay= 0;
+reg [50:0] green_delay= 0;
 reg [50:0] global_count = 0;
 always @ (posedge clk )
 begin
@@ -174,7 +177,7 @@ if (global_count <5000000 ) begin
 	global_count = global_count +1 ;
 end
 else begin
-sum = (final_val1)+(final_val2)+(final_val3)+(final_val4);
+sum = (final_val1 >> 4)+(final_val2 >> 4)+(final_val3 >> 4)+(final_val4 >> 4);
 avg = sum >> 2;
 COUNT_RED = check_counter1r+check_counter2r+check_counter3r+check_counter4r;
 COUNT_GREEN = check_counter1g+check_counter2g+check_counter3g+check_counter4g;
@@ -201,27 +204,35 @@ end
 end
 always @ (posedge clk )
 begin
-	if (COUNT_RED >60 & avg>80000 & avg<100000)
+	if (COUNT_RED >60 | (avg>4500 & avg<4800))
 		begin
-			
+		red_delay = red_delay+1;
+		if (red_delay == 1000000) begin
+			red_delay = 0;
 			rled = 1;
 			gled = 0;
 			bled = 0;
-		
 		end
-		else if (COUNT_GREEN >60 & avg>100000 & avg<115000)
+		end
+		else if (COUNT_GREEN >60 | (avg>2800 & avg<3200))
 		begin
+		green_delay = green_delay+1;
+		if (green_delay == 1000000) begin
+			green_delay = 0;
 			rled = 0;
 			gled = 1;
 			bled = 0;
-	
+		end
 		end	
-		else if (COUNT_BLUE >60 & avg>55000 & avg<75000)
+		else if (COUNT_BLUE >60 | (avg>5000 & avg<5500))
 		begin
+		blue_delay = blue_delay+1;
+		if (blue_delay == 1000000) begin
+			blue_delay = 0;
 			rled = 0;
 			gled = 0;
 			bled = 1;
-
+		end
 		end
 
 

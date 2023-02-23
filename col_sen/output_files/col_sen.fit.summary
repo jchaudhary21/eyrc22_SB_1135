@@ -1,16 +1,16 @@
-Fitter Status : Successful - Wed Feb 22 23:20:48 2023
+Fitter Status : Successful - Thu Feb 23 03:50:06 2023
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : col_sen
 Top-level Entity Name : col_sen
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 9,356 / 22,320 ( 42 % )
-    Total combinational functions : 3,995 / 22,320 ( 18 % )
-    Dedicated logic registers : 8,569 / 22,320 ( 38 % )
-Total registers : 8569
+Total logic elements : 11,608 / 22,320 ( 52 % )
+    Total combinational functions : 5,339 / 22,320 ( 24 % )
+    Dedicated logic registers : 10,437 / 22,320 ( 47 % )
+Total registers : 10437
 Total pins : 7 / 154 ( 5 % )
 Total virtual pins : 0
-Total memory bits : 289,280 / 608,256 ( 48 % )
+Total memory bits : 341,504 / 608,256 ( 56 % )
 Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
 Total PLLs : 0 / 4 ( 0 % )
