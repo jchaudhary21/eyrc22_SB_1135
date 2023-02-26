@@ -462,7 +462,7 @@ localparam
 				data_3 = 2'b11 ;
 				
 reg [1:0] cf = data_1 ;
-reg [11:0]white_threshold =  1600 ; 
+reg [11:0]white_threshold =  2000 ; 
 
 
 
@@ -695,15 +695,15 @@ assign led_l = l_led ;
 
 // --- PWM --- 
 
-reg [100:0] pwm_thres = 40000 ;
+reg [100:0] pwm_thres = 100000 ;
 
 reg [100:0] rw_f_pwm_thres = 0 ;
 reg [100:0] rw_b_pwm_thres = 0 ;
 reg [100:0] lw_f_pwm_thres = 0 ;
 reg [100:0] lw_b_pwm_thres = 0 ;
  
-reg [100:0] pwm_slow  = 40000;
-reg [100:0] pwm_fast  = 40000; 
+reg [100:0] pwm_slow  = 100000;
+reg [100:0] pwm_fast  = 100000; 
 
 reg [100:0] pwm_cnt = 0 ;
 
@@ -820,8 +820,8 @@ begin
 		bit3 = 0 ;
 		
 		flag_normal_movement  		= 0  ;
-		flag_right_movement  	   = 0  ;
-		flag_left_movement  		   = 1  ;
+		flag_right_movement  	   = 1  ;
+		flag_left_movement  		   = 0  ;
 		flag_stop_movement         = 0  ;
 		flag_pwm                   = 1  ;
       flag_decision  =  0  ;
@@ -884,8 +884,8 @@ begin
 		bit3 = 0 ;
 		
 		flag_normal_movement  		= 0  ;
-		flag_right_movement  	   = 0  ;
-		flag_left_movement  		   = 1  ;
+		flag_right_movement  	   = 1  ;
+		flag_left_movement  		   = 0  ;
 		flag_stop_movement         = 0  ;
 		flag_pwm                   = 1  ;
       flag_decision  =  0  ;
@@ -917,8 +917,8 @@ begin
 		bit3 = 0 ;
 		
 		flag_normal_movement  		= 0  ;
-		flag_right_movement  	   = 1  ;
-		flag_left_movement  		   = 0  ;
+		flag_right_movement  	   = 0  ;
+		flag_left_movement  		   = 1  ;
 		flag_stop_movement         = 0  ;
 		flag_pwm                   = 1  ;
       flag_decision  =  0  ;
@@ -981,8 +981,8 @@ begin
 		bit3 = 0 ;
 		
 		flag_normal_movement  		= 0  ;
-		flag_right_movement  	   = 1  ;
-		flag_left_movement  		   = 0  ;
+		flag_right_movement  	   = 0  ;
+		flag_left_movement  		   = 1  ;
 		flag_stop_movement         = 0  ;
 		flag_pwm                   = 1  ;
       flag_decision  =  0  ;

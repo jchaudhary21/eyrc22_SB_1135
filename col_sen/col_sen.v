@@ -68,6 +68,8 @@ reg [50:0] green_delay= 0;
 reg [50:0] global_count = 0;
 always @ (posedge clk )
 begin
+
+// starting global count for generating 16 sample values for each filter and checking there occurances wrt to the given range of each colour
 if (global_count <5000000 ) begin
 	if (s2f ==0 & s3f == 0 ) begin
 		if (count_1 < 78125)begin
@@ -202,6 +204,9 @@ check_counter3g = 0;
 check_counter4g = 0;
 end
 end
+
+//checking the range of avg of samples values as well as the occurances to switch on the led
+
 always @ (posedge clk )
 begin
 	if (COUNT_RED >60 | (avg>4500 & avg<4800))

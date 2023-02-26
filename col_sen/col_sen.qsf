@@ -59,11 +59,11 @@ set_global_assignment -name VERILOG_FILE col_sen.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_location_assignment PIN_F9 -to red_led
-set_location_assignment PIN_E11 -to green_led
-set_location_assignment PIN_C11 -to blue_led
+set_location_assignment PIN_A3 -to red_led
+set_location_assignment PIN_C3 -to green_led
+set_location_assignment PIN_D3 -to blue_led
 set_location_assignment PIN_R8 -to clk
-set_location_assignment PIN_A12 -to colour_freq
+set_location_assignment PIN_E11 -to colour_freq
 set_global_assignment -name ENABLE_SIGNALTAP ON
 set_global_assignment -name USE_SIGNALTAP_FILE stp6.stp
 set_global_assignment -name SIGNALTAP_FILE stp1.stp
@@ -71,8 +71,8 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_location_assignment PIN_D12 -to tx
 set_global_assignment -name SIGNALTAP_FILE stp3.stp
-set_location_assignment PIN_E8 -to s2
-set_location_assignment PIN_F8 -to s3
+set_location_assignment PIN_C8 -to s2
+set_location_assignment PIN_A7 -to s3
 set_global_assignment -name SIGNALTAP_FILE stp4.stp
 set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0

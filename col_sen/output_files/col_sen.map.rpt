@@ -1,5 +1,5 @@
 Analysis & Synthesis report for col_sen
-Thu Feb 23 03:49:33 2023
+Sat Feb 25 12:31:09 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -53,7 +53,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Feb 23 03:49:33 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sat Feb 25 12:31:08 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; col_sen                                     ;
 ; Top-level Entity Name              ; col_sen                                     ;
@@ -169,7 +169,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
@@ -1202,7 +1202,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:05     ;
+; Top            ; 00:00:07     ;
 +----------------+--------------+
 
 
@@ -2587,7 +2587,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Thu Feb 23 03:48:52 2023
+    Info: Processing started: Sat Feb 25 12:30:07 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off col_sen -c col_sen
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -2616,7 +2616,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/col_sen/db/cmpr_ngc.tdf Line: 23
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2023.02.23.03:49:13 Progress: Loading sld85331bf7/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2023.02.25.12:30:37 Progress: Loading sld85331bf7/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -2650,10 +2650,10 @@ Info (21057): Implemented 13360 device resources after synthesis - the final res
     Info (21061): Implemented 12681 logic cells
     Info (21064): Implemented 667 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4943 megabytes
-    Info: Processing ended: Thu Feb 23 03:49:33 2023
-    Info: Elapsed time: 00:00:41
-    Info: Total CPU time (on all processors): 00:00:57
+    Info: Peak virtual memory: 4949 megabytes
+    Info: Processing ended: Sat Feb 25 12:31:09 2023
+    Info: Elapsed time: 00:01:02
+    Info: Total CPU time (on all processors): 00:00:59
 
 
 +------------------------------------------+

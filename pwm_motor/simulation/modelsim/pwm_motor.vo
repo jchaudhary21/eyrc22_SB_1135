@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition"
 
-// DATE "01/28/2023 16:39:37"
+// DATE "02/27/2023 01:01:28"
 
 // 
 // Device: Altera EP4CE22F17C6 Package FBGA256
@@ -65,33 +65,8 @@ wire \PWM_OUT2~output_o ;
 wire \PWM_OUT3~output_o ;
 wire \PWM_OUT4~output_o ;
 wire \clk~input_o ;
-wire \clk~inputclkctrl_outclk ;
-wire \Add0~0_combout ;
-wire \freq_cnt1~1_combout ;
-wire \Add0~1 ;
-wire \Add0~2_combout ;
-wire \freq_cnt1~0_combout ;
-wire \Add0~3 ;
-wire \Add0~4_combout ;
-wire \Add0~5 ;
-wire \Add0~6_combout ;
-wire \Equal0~0_combout ;
-wire \Add0~7 ;
-wire \Add0~8_combout ;
-wire \freq_cnt1~2_combout ;
-wire \Add0~9 ;
-wire \Add0~10_combout ;
-wire \freq_cnt1~3_combout ;
-wire \Add0~11 ;
-wire \Add0~12_combout ;
-wire \Add0~13 ;
-wire \Add0~14_combout ;
-wire \Equal0~1_combout ;
-wire \Equal0~2_combout ;
-wire \pwm_out1~q ;
-wire \pwm_out3~0_combout ;
-wire \pwm_out3~q ;
-wire [7:0] freq_cnt1;
+wire \pwm_out4~feeder_combout ;
+wire \pwm_out4~q ;
 
 
 hard_block auto_generated_inst(
@@ -101,7 +76,7 @@ hard_block auto_generated_inst(
 
 // Location: IOOBUF_X43_Y34_N23
 cycloneive_io_obuf \PWM_OUT1~output (
-	.i(\pwm_out1~q ),
+	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -114,7 +89,7 @@ defparam \PWM_OUT1~output .open_drain_output = "false";
 
 // Location: IOOBUF_X51_Y34_N16
 cycloneive_io_obuf \PWM_OUT2~output (
-	.i(gnd),
+	.i(\pwm_out4~q ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -127,7 +102,7 @@ defparam \PWM_OUT2~output .open_drain_output = "false";
 
 // Location: IOOBUF_X45_Y34_N16
 cycloneive_io_obuf \PWM_OUT3~output (
-	.i(!\pwm_out3~q ),
+	.i(gnd),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -140,7 +115,7 @@ defparam \PWM_OUT3~output .open_drain_output = "false";
 
 // Location: IOOBUF_X40_Y34_N9
 cycloneive_io_obuf \PWM_OUT4~output (
-	.i(gnd),
+	.i(\pwm_out4~q ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -161,384 +136,27 @@ defparam \clk~input .bus_hold = "false";
 defparam \clk~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: CLKCTRL_G18
-cycloneive_clkctrl \clk~inputclkctrl (
-	.ena(vcc),
-	.inclk({vcc,vcc,vcc,\clk~input_o }),
-	.clkselect(2'b00),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.outclk(\clk~inputclkctrl_outclk ));
-// synopsys translate_off
-defparam \clk~inputclkctrl .clock_type = "global clock";
-defparam \clk~inputclkctrl .ena_register_mode = "none";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N0
-cycloneive_lcell_comb \Add0~0 (
+// Location: LCCOMB_X27_Y4_N0
+cycloneive_lcell_comb \pwm_out4~feeder (
 // Equation(s):
-// \Add0~0_combout  = freq_cnt1[0] $ (VCC)
-// \Add0~1  = CARRY(freq_cnt1[0])
-
-	.dataa(freq_cnt1[0]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(gnd),
-	.combout(\Add0~0_combout ),
-	.cout(\Add0~1 ));
-// synopsys translate_off
-defparam \Add0~0 .lut_mask = 16'h55AA;
-defparam \Add0~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N22
-cycloneive_lcell_comb \freq_cnt1~1 (
-// Equation(s):
-// \freq_cnt1~1_combout  = (\Add0~0_combout  & ((!\Equal0~0_combout ) # (!\Equal0~1_combout )))
-
-	.dataa(\Equal0~1_combout ),
-	.datab(gnd),
-	.datac(\Add0~0_combout ),
-	.datad(\Equal0~0_combout ),
-	.cin(gnd),
-	.combout(\freq_cnt1~1_combout ),
-	.cout());
-// synopsys translate_off
-defparam \freq_cnt1~1 .lut_mask = 16'h50F0;
-defparam \freq_cnt1~1 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X44_Y33_N23
-dffeas \freq_cnt1[0] (
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\freq_cnt1~1_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(freq_cnt1[0]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \freq_cnt1[0] .is_wysiwyg = "true";
-defparam \freq_cnt1[0] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N2
-cycloneive_lcell_comb \Add0~2 (
-// Equation(s):
-// \Add0~2_combout  = (freq_cnt1[1] & (!\Add0~1 )) # (!freq_cnt1[1] & ((\Add0~1 ) # (GND)))
-// \Add0~3  = CARRY((!\Add0~1 ) # (!freq_cnt1[1]))
+// \pwm_out4~feeder_combout  = VCC
 
 	.dataa(gnd),
-	.datab(freq_cnt1[1]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Add0~1 ),
-	.combout(\Add0~2_combout ),
-	.cout(\Add0~3 ));
-// synopsys translate_off
-defparam \Add0~2 .lut_mask = 16'h3C3F;
-defparam \Add0~2 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N20
-cycloneive_lcell_comb \freq_cnt1~0 (
-// Equation(s):
-// \freq_cnt1~0_combout  = (\Add0~2_combout  & ((!\Equal0~0_combout ) # (!\Equal0~1_combout )))
-
-	.dataa(\Equal0~1_combout ),
-	.datab(\Equal0~0_combout ),
-	.datac(gnd),
-	.datad(\Add0~2_combout ),
-	.cin(gnd),
-	.combout(\freq_cnt1~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \freq_cnt1~0 .lut_mask = 16'h7700;
-defparam \freq_cnt1~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X44_Y33_N21
-dffeas \freq_cnt1[1] (
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\freq_cnt1~0_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(freq_cnt1[1]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \freq_cnt1[1] .is_wysiwyg = "true";
-defparam \freq_cnt1[1] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N4
-cycloneive_lcell_comb \Add0~4 (
-// Equation(s):
-// \Add0~4_combout  = (freq_cnt1[2] & (\Add0~3  $ (GND))) # (!freq_cnt1[2] & (!\Add0~3  & VCC))
-// \Add0~5  = CARRY((freq_cnt1[2] & !\Add0~3 ))
-
-	.dataa(gnd),
-	.datab(freq_cnt1[2]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Add0~3 ),
-	.combout(\Add0~4_combout ),
-	.cout(\Add0~5 ));
-// synopsys translate_off
-defparam \Add0~4 .lut_mask = 16'hC30C;
-defparam \Add0~4 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X44_Y33_N5
-dffeas \freq_cnt1[2] (
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\Add0~4_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(freq_cnt1[2]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \freq_cnt1[2] .is_wysiwyg = "true";
-defparam \freq_cnt1[2] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N6
-cycloneive_lcell_comb \Add0~6 (
-// Equation(s):
-// \Add0~6_combout  = (freq_cnt1[3] & (!\Add0~5 )) # (!freq_cnt1[3] & ((\Add0~5 ) # (GND)))
-// \Add0~7  = CARRY((!\Add0~5 ) # (!freq_cnt1[3]))
-
-	.dataa(freq_cnt1[3]),
 	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Add0~5 ),
-	.combout(\Add0~6_combout ),
-	.cout(\Add0~7 ));
-// synopsys translate_off
-defparam \Add0~6 .lut_mask = 16'h5A5F;
-defparam \Add0~6 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X44_Y33_N7
-dffeas \freq_cnt1[3] (
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\Add0~6_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(freq_cnt1[3]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \freq_cnt1[3] .is_wysiwyg = "true";
-defparam \freq_cnt1[3] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N28
-cycloneive_lcell_comb \Equal0~0 (
-// Equation(s):
-// \Equal0~0_combout  = (!freq_cnt1[0] & (!freq_cnt1[2] & (freq_cnt1[1] & !freq_cnt1[3])))
-
-	.dataa(freq_cnt1[0]),
-	.datab(freq_cnt1[2]),
-	.datac(freq_cnt1[1]),
-	.datad(freq_cnt1[3]),
-	.cin(gnd),
-	.combout(\Equal0~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Equal0~0 .lut_mask = 16'h0010;
-defparam \Equal0~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N8
-cycloneive_lcell_comb \Add0~8 (
-// Equation(s):
-// \Add0~8_combout  = (freq_cnt1[4] & (\Add0~7  $ (GND))) # (!freq_cnt1[4] & (!\Add0~7  & VCC))
-// \Add0~9  = CARRY((freq_cnt1[4] & !\Add0~7 ))
-
-	.dataa(freq_cnt1[4]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Add0~7 ),
-	.combout(\Add0~8_combout ),
-	.cout(\Add0~9 ));
-// synopsys translate_off
-defparam \Add0~8 .lut_mask = 16'hA50A;
-defparam \Add0~8 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N30
-cycloneive_lcell_comb \freq_cnt1~2 (
-// Equation(s):
-// \freq_cnt1~2_combout  = (\Add0~8_combout  & ((!\Equal0~0_combout ) # (!\Equal0~1_combout )))
-
-	.dataa(\Equal0~1_combout ),
-	.datab(gnd),
-	.datac(\Add0~8_combout ),
-	.datad(\Equal0~0_combout ),
-	.cin(gnd),
-	.combout(\freq_cnt1~2_combout ),
-	.cout());
-// synopsys translate_off
-defparam \freq_cnt1~2 .lut_mask = 16'h50F0;
-defparam \freq_cnt1~2 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X44_Y33_N31
-dffeas \freq_cnt1[4] (
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\freq_cnt1~2_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(freq_cnt1[4]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \freq_cnt1[4] .is_wysiwyg = "true";
-defparam \freq_cnt1[4] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N10
-cycloneive_lcell_comb \Add0~10 (
-// Equation(s):
-// \Add0~10_combout  = (freq_cnt1[5] & (!\Add0~9 )) # (!freq_cnt1[5] & ((\Add0~9 ) # (GND)))
-// \Add0~11  = CARRY((!\Add0~9 ) # (!freq_cnt1[5]))
-
-	.dataa(gnd),
-	.datab(freq_cnt1[5]),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Add0~9 ),
-	.combout(\Add0~10_combout ),
-	.cout(\Add0~11 ));
-// synopsys translate_off
-defparam \Add0~10 .lut_mask = 16'h3C3F;
-defparam \Add0~10 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N24
-cycloneive_lcell_comb \freq_cnt1~3 (
-// Equation(s):
-// \freq_cnt1~3_combout  = (\Add0~10_combout  & ((!\Equal0~0_combout ) # (!\Equal0~1_combout )))
-
-	.dataa(\Equal0~1_combout ),
-	.datab(\Equal0~0_combout ),
-	.datac(gnd),
-	.datad(\Add0~10_combout ),
-	.cin(gnd),
-	.combout(\freq_cnt1~3_combout ),
-	.cout());
-// synopsys translate_off
-defparam \freq_cnt1~3 .lut_mask = 16'h7700;
-defparam \freq_cnt1~3 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X44_Y33_N25
-dffeas \freq_cnt1[5] (
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\freq_cnt1~3_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(freq_cnt1[5]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \freq_cnt1[5] .is_wysiwyg = "true";
-defparam \freq_cnt1[5] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N12
-cycloneive_lcell_comb \Add0~12 (
-// Equation(s):
-// \Add0~12_combout  = (freq_cnt1[6] & (\Add0~11  $ (GND))) # (!freq_cnt1[6] & (!\Add0~11  & VCC))
-// \Add0~13  = CARRY((freq_cnt1[6] & !\Add0~11 ))
-
-	.dataa(freq_cnt1[6]),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(vcc),
-	.cin(\Add0~11 ),
-	.combout(\Add0~12_combout ),
-	.cout(\Add0~13 ));
-// synopsys translate_off
-defparam \Add0~12 .lut_mask = 16'hA50A;
-defparam \Add0~12 .sum_lutc_input = "cin";
-// synopsys translate_on
-
-// Location: FF_X44_Y33_N13
-dffeas \freq_cnt1[6] (
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\Add0~12_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(freq_cnt1[6]),
-	.prn(vcc));
-// synopsys translate_off
-defparam \freq_cnt1[6] .is_wysiwyg = "true";
-defparam \freq_cnt1[6] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N14
-cycloneive_lcell_comb \Add0~14 (
-// Equation(s):
-// \Add0~14_combout  = freq_cnt1[7] $ (\Add0~13 )
-
-	.dataa(gnd),
-	.datab(freq_cnt1[7]),
 	.datac(gnd),
 	.datad(gnd),
-	.cin(\Add0~13 ),
-	.combout(\Add0~14_combout ),
+	.cin(gnd),
+	.combout(\pwm_out4~feeder_combout ),
 	.cout());
 // synopsys translate_off
-defparam \Add0~14 .lut_mask = 16'h3C3C;
-defparam \Add0~14 .sum_lutc_input = "cin";
+defparam \pwm_out4~feeder .lut_mask = 16'hFFFF;
+defparam \pwm_out4~feeder .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X44_Y33_N15
-dffeas \freq_cnt1[7] (
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\Add0~14_combout ),
+// Location: FF_X27_Y4_N1
+dffeas pwm_out4(
+	.clk(\clk~input_o ),
+	.d(\pwm_out4~feeder_combout ),
 	.asdata(vcc),
 	.clrn(vcc),
 	.aload(gnd),
@@ -547,100 +165,11 @@ dffeas \freq_cnt1[7] (
 	.ena(vcc),
 	.devclrn(devclrn),
 	.devpor(devpor),
-	.q(freq_cnt1[7]),
+	.q(\pwm_out4~q ),
 	.prn(vcc));
 // synopsys translate_off
-defparam \freq_cnt1[7] .is_wysiwyg = "true";
-defparam \freq_cnt1[7] .power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N26
-cycloneive_lcell_comb \Equal0~1 (
-// Equation(s):
-// \Equal0~1_combout  = (!freq_cnt1[6] & (!freq_cnt1[7] & (freq_cnt1[4] & freq_cnt1[5])))
-
-	.dataa(freq_cnt1[6]),
-	.datab(freq_cnt1[7]),
-	.datac(freq_cnt1[4]),
-	.datad(freq_cnt1[5]),
-	.cin(gnd),
-	.combout(\Equal0~1_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Equal0~1 .lut_mask = 16'h1000;
-defparam \Equal0~1 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N16
-cycloneive_lcell_comb \Equal0~2 (
-// Equation(s):
-// \Equal0~2_combout  = (\Equal0~1_combout  & \Equal0~0_combout )
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(\Equal0~1_combout ),
-	.datad(\Equal0~0_combout ),
-	.cin(gnd),
-	.combout(\Equal0~2_combout ),
-	.cout());
-// synopsys translate_off
-defparam \Equal0~2 .lut_mask = 16'hF000;
-defparam \Equal0~2 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X44_Y33_N17
-dffeas pwm_out1(
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\Equal0~2_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\pwm_out1~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam pwm_out1.is_wysiwyg = "true";
-defparam pwm_out1.power_up = "low";
-// synopsys translate_on
-
-// Location: LCCOMB_X44_Y33_N18
-cycloneive_lcell_comb \pwm_out3~0 (
-// Equation(s):
-// \pwm_out3~0_combout  = !\Equal0~2_combout 
-
-	.dataa(gnd),
-	.datab(gnd),
-	.datac(gnd),
-	.datad(\Equal0~2_combout ),
-	.cin(gnd),
-	.combout(\pwm_out3~0_combout ),
-	.cout());
-// synopsys translate_off
-defparam \pwm_out3~0 .lut_mask = 16'h00FF;
-defparam \pwm_out3~0 .sum_lutc_input = "datac";
-// synopsys translate_on
-
-// Location: FF_X44_Y33_N19
-dffeas pwm_out3(
-	.clk(\clk~inputclkctrl_outclk ),
-	.d(\pwm_out3~0_combout ),
-	.asdata(vcc),
-	.clrn(vcc),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.devclrn(devclrn),
-	.devpor(devpor),
-	.q(\pwm_out3~q ),
-	.prn(vcc));
-// synopsys translate_off
-defparam pwm_out3.is_wysiwyg = "true";
-defparam pwm_out3.power_up = "low";
+defparam pwm_out4.is_wysiwyg = "true";
+defparam pwm_out4.power_up = "low";
 // synopsys translate_on
 
 assign PWM_OUT1 = \PWM_OUT1~output_o ;

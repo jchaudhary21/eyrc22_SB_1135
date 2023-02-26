@@ -1,14 +1,14 @@
-Fitter Status : Successful - Sat Jan 28 16:39:26 2023
+Fitter Status : Successful - Mon Feb 27 01:01:20 2023
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : pwm_motor
 Top-level Entity Name : pwm_motor
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 16 / 22,320 ( < 1 % )
-    Total combinational functions : 16 / 22,320 ( < 1 % )
-    Dedicated logic registers : 10 / 22,320 ( < 1 % )
-Total registers : 10
+Total logic elements : 1 / 22,320 ( < 1 % )
+    Total combinational functions : 1 / 22,320 ( < 1 % )
+    Dedicated logic registers : 1 / 22,320 ( < 1 % )
+Total registers : 1
 Total pins : 5 / 154 ( 3 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )

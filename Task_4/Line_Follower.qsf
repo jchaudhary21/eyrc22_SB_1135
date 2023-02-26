@@ -72,7 +72,7 @@ set_location_assignment PIN_F3 -to led_r
 set_location_assignment PIN_B1 -to led_m
 set_location_assignment PIN_L3 -to led_l
 set_global_assignment -name ENABLE_SIGNALTAP OFF
-set_global_assignment -name USE_SIGNALTAP_FILE stp4.stp
+set_global_assignment -name USE_SIGNALTAP_FILE stp1.stp
 set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
@@ -81,7 +81,7 @@ set_location_assignment PIN_A15 -to Digit0
 set_location_assignment PIN_A13 -to Digit1
 set_location_assignment PIN_B13 -to Digit2
 set_location_assignment PIN_A11 -to Digit3
-set_location_assignment PIN_D12 -to tx
+set_location_assignment PIN_D9 -to tx
 set_location_assignment PIN_D1 -to ledt
 set_location_assignment PIN_A12 -to colour_freq
 set_location_assignment PIN_F9 -to red_led

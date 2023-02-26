@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Feb 26 20:00:05 2023
+Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Revision Name : pwm_motor
+Top-level Entity Name : pwm_motor
+Family : Cyclone IV E
+Total logic elements : 1,270
+    Total combinational functions : 761
+    Dedicated logic registers : 914
+Total registers : 914
+Total pins : 3
+Total virtual pins : 0
+Total memory bits : 143,360
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

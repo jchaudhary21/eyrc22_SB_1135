@@ -4,11 +4,11 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "PWM_OUT1",
+					"name" : "PWM_OUT2",
 					"strict" : false
 				},
 				{
-					"name" : "PWM_OUT3",
+					"name" : "PWM_OUT4",
 					"strict" : false
 				},
 				{
