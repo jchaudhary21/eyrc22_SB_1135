@@ -462,7 +462,7 @@ localparam
 				data_3 = 2'b11 ;
 				
 reg [1:0] cf = data_1 ;
-reg [11:0]white_threshold =  2000 ; 
+reg [11:0]white_threshold =  1900 ; 
 
 
 
@@ -695,15 +695,15 @@ assign led_l = l_led ;
 
 // --- PWM --- 
 
-reg [100:0] pwm_thres = 100000 ;
+reg [100:0] pwm_thres = 1000 ;
 
 reg [100:0] rw_f_pwm_thres = 0 ;
 reg [100:0] rw_b_pwm_thres = 0 ;
 reg [100:0] lw_f_pwm_thres = 0 ;
 reg [100:0] lw_b_pwm_thres = 0 ;
  
-reg [100:0] pwm_slow  = 100000;
-reg [100:0] pwm_fast  = 100000; 
+reg [100:0] pwm_slow  = 1000;
+reg [100:0] pwm_fast  = 1000; 
 
 reg [100:0] pwm_cnt = 0 ;
 

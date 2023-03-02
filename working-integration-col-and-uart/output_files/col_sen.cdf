@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22F17) Path("C:/Users/himan/Desktop/verilog/col_sen/output_files/") File("col_sen.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE22F17) Path("C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/working-integration-col-and-uart/output_files/") File("col_sen.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

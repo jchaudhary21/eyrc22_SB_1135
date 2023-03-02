@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Mon Jan 30 22:24:36 2023
+Analysis & Synthesis Status : Successful - Thu Mar 02 16:28:58 2023
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : col_sen
 Top-level Entity Name : col_sen
 Family : Cyclone IV E
-Total logic elements : 1,178
-    Total combinational functions : 1,076
-    Dedicated logic registers : 580
-Total registers : 580
-Total pins : 6
+Total logic elements : 1,680
+    Total combinational functions : 982
+    Dedicated logic registers : 1,131
+Total registers : 1131
+Total pins : 2
 Total virtual pins : 0
-Total memory bits : 0
+Total memory bits : 7,552
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0

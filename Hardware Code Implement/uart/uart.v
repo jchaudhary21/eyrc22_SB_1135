@@ -121,7 +121,7 @@ case (cs)
 						if (bit_counter == 4'b1000)
 						begin 
 						bit_counter = 0 ;
-						cs = terminate  ;
+						cs = idle  ;
 						end 
 						end 
 			

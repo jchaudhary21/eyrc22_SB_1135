@@ -1,5 +1,5 @@
 Analysis & Synthesis report for uart
-Sat Oct 29 00:14:08 2022
+Wed Mar 01 21:11:03 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -46,7 +46,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Oct 29 00:14:08 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 01 21:11:03 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; uart                                        ;
 ; Top-level Entity Name              ; uart                                        ;
@@ -154,7 +154,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
+; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -162,17 +162,17 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.1%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                 ;
-+----------------------------------+-----------------+------------------------+--------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path   ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------+---------+
-; uart.v                           ; yes             ; User Verilog HDL File  ; E:/E-yantra/Task 2/uart/uart.v ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------+---------+
+; uart.v                           ; yes             ; User Verilog HDL File  ; C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/uart.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------+
@@ -184,8 +184,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;               ;
 ; Total combinational functions               ; 36            ;
 ; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 15            ;
-;     -- 3 input functions                    ; 11            ;
+;     -- 4 input functions                    ; 14            ;
+;     -- 3 input functions                    ; 12            ;
 ;     -- <=2 input functions                  ; 10            ;
 ;                                             ;               ;
 ; Logic elements by mode                      ;               ;
@@ -202,8 +202,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;               ;
 ; Maximum fan-out node                        ; clk_50M~input ;
 ; Maximum fan-out                             ; 20            ;
-; Total fan-out                               ; 160           ;
-; Average fan-out                             ; 2.67          ;
+; Total fan-out                               ; 159           ;
+; Average fan-out                             ; 2.65          ;
 +---------------------------------------------+---------------+
 
 
@@ -248,7 +248,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart|bit_counter[2]       ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |uart|cs[2]                ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |uart|cs[2]                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
@@ -268,8 +268,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;     normal            ; 29                          ;
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 5                           ;
-;         3 data inputs ; 7                           ;
-;         4 data inputs ; 15                          ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 14                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
 ; Average LUT depth     ; 3.04                        ;
@@ -281,7 +281,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -291,21 +291,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Sat Oct 29 00:13:51 2022
+    Info: Processing started: Wed Mar 01 21:10:51 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off uart -c uart
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file uart.v
-    Info (12023): Found entity 1: uart File: E:/E-yantra/Task 2/uart/uart.v Line: 20
+    Info (12023): Found entity 1: uart File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/uart.v Line: 20
 Info (12127): Elaborating entity "uart" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at uart.v(67): truncated value with size 32 to match size of target (3) File: E:/E-yantra/Task 2/uart/uart.v Line: 67
-Warning (10230): Verilog HDL assignment warning at uart.v(84): truncated value with size 32 to match size of target (4) File: E:/E-yantra/Task 2/uart/uart.v Line: 84
-Warning (10230): Verilog HDL assignment warning at uart.v(96): truncated value with size 32 to match size of target (4) File: E:/E-yantra/Task 2/uart/uart.v Line: 96
-Warning (10230): Verilog HDL assignment warning at uart.v(108): truncated value with size 32 to match size of target (4) File: E:/E-yantra/Task 2/uart/uart.v Line: 108
-Warning (10230): Verilog HDL assignment warning at uart.v(120): truncated value with size 32 to match size of target (4) File: E:/E-yantra/Task 2/uart/uart.v Line: 120
-Warning (10230): Verilog HDL assignment warning at uart.v(136): truncated value with size 32 to match size of target (9) File: E:/E-yantra/Task 2/uart/uart.v Line: 136
+Warning (10230): Verilog HDL assignment warning at uart.v(67): truncated value with size 32 to match size of target (3) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/uart.v Line: 67
+Warning (10230): Verilog HDL assignment warning at uart.v(84): truncated value with size 32 to match size of target (4) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/uart.v Line: 84
+Warning (10230): Verilog HDL assignment warning at uart.v(96): truncated value with size 32 to match size of target (4) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/uart.v Line: 96
+Warning (10230): Verilog HDL assignment warning at uart.v(108): truncated value with size 32 to match size of target (4) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/uart.v Line: 108
+Warning (10230): Verilog HDL assignment warning at uart.v(120): truncated value with size 32 to match size of target (4) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/uart.v Line: 120
+Warning (10230): Verilog HDL assignment warning at uart.v(136): truncated value with size 32 to match size of target (9) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/uart.v Line: 136
 Info (286030): Timing-Driven Synthesis is running
-Info (144001): Generated suppressed messages file E:/E-yantra/Task 2/uart/output_files/uart.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/output_files/uart.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 38 device resources after synthesis - the final resource count might be different
@@ -313,15 +313,15 @@ Info (21057): Implemented 38 device resources after synthesis - the final resour
     Info (21059): Implemented 1 output pins
     Info (21061): Implemented 36 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4757 megabytes
-    Info: Processing ended: Sat Oct 29 00:14:08 2022
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:30
+    Info: Peak virtual memory: 4758 megabytes
+    Info: Processing ended: Wed Mar 01 21:11:03 2023
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:23
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in E:/E-yantra/Task 2/uart/output_files/uart.map.smsg.
+The suppressed messages can be found in C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/Hardware Code Implement/uart/output_files/uart.map.smsg.
 
 

@@ -1,5 +1,5 @@
 EDA Netlist Writer report for col_sen
-Mon Jan 30 22:25:00 2023
+Thu Mar 02 16:29:21 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Mon Jan 30 22:25:00 2023 ;
+; EDA Netlist Writer Status ; Successful - Thu Mar 02 16:29:21 2023 ;
 ; Revision Name             ; col_sen                               ;
 ; Top-level Entity Name     ; col_sen                               ;
 ; Family                    ; Cyclone IV E                          ;
@@ -66,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+-----------------------------------------------------------------------+
-; Simulation Generated Files                                            ;
-+-----------------------------------------------------------------------+
-; Generated Files                                                       ;
-+-----------------------------------------------------------------------+
-; C:/Users/himan/Desktop/verilog/col_sen/simulation/modelsim/col_sen.vo ;
-+-----------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                     ;
++----------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                ;
++----------------------------------------------------------------------------------------------------------------+
+; C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/working-integration-col-and-uart/simulation/modelsim/col_sen.vo ;
++----------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -81,14 +81,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Mon Jan 30 22:24:59 2023
+    Info: Processing started: Thu Mar 02 16:29:18 2023
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off col_sen -c col_sen
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file col_sen.vo in folder "C:/Users/himan/Desktop/verilog/col_sen/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file col_sen.vo in folder "C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/working-integration-col-and-uart/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4642 megabytes
-    Info: Processing ended: Mon Jan 30 22:25:00 2023
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 4649 megabytes
+    Info: Processing ended: Thu Mar 02 16:29:21 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

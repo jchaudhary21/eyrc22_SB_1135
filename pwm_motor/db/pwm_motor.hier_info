@@ -1,4 +1,5 @@
 |pwm_motor
+clk => pwm_out2.CLK
 clk => freq_cnt1[0].CLK
 clk => freq_cnt1[1].CLK
 clk => freq_cnt1[2].CLK
@@ -30,13 +31,10 @@ clk => freq_cnt1[27].CLK
 clk => freq_cnt1[28].CLK
 clk => freq_cnt1[29].CLK
 clk => freq_cnt1[30].CLK
-clk => pwm_out4.CLK
-clk => pwm_out3.CLK
-clk => pwm_out2.CLK
 clk => pwm_out1.CLK
 PWM_OUT1 <= pwm_out1.DB_MAX_OUTPUT_PORT_TYPE
 PWM_OUT2 <= pwm_out2.DB_MAX_OUTPUT_PORT_TYPE
-PWM_OUT3 <= pwm_out3.DB_MAX_OUTPUT_PORT_TYPE
-PWM_OUT4 <= pwm_out4.DB_MAX_OUTPUT_PORT_TYPE
+PWM_OUT3 <= <GND>
+PWM_OUT4 <= <GND>
 
 

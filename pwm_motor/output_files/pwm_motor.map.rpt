@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pwm_motor
-Mon Feb 27 01:01:14 2023
+Thu Mar 02 03:51:26 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -14,12 +14,11 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
- 14. Analysis & Synthesis Suppressed Messages
+  9. General Register Statistics
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -46,15 +45,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Feb 27 01:01:14 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar 02 03:51:26 2023       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; pwm_motor                                   ;
 ; Top-level Entity Name              ; pwm_motor                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 1                                           ;
-; Total registers                    ; 1                                           ;
+; Total logic elements               ; 48                                          ;
+;     Total combinational functions  ; 48                                          ;
+;     Dedicated logic registers      ; 32                                          ;
+; Total registers                    ; 32                                          ;
 ; Total pins                         ; 5                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -158,10 +157,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -174,36 +174,36 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary            ;
-+---------------------------------------------+----------+
-; Resource                                    ; Usage    ;
-+---------------------------------------------+----------+
-; Estimated Total logic elements              ; 1        ;
-;                                             ;          ;
-; Total combinational functions               ; 0        ;
-; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 0        ;
-;     -- 3 input functions                    ; 0        ;
-;     -- <=2 input functions                  ; 0        ;
-;                                             ;          ;
-; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 0        ;
-;     -- arithmetic mode                      ; 0        ;
-;                                             ;          ;
-; Total registers                             ; 1        ;
-;     -- Dedicated logic registers            ; 1        ;
-;     -- I/O registers                        ; 0        ;
-;                                             ;          ;
-; I/O pins                                    ; 5        ;
-;                                             ;          ;
-; Embedded Multiplier 9-bit elements          ; 0        ;
-;                                             ;          ;
-; Maximum fan-out node                        ; pwm_out4 ;
-; Maximum fan-out                             ; 2        ;
-; Total fan-out                               ; 8        ;
-; Average fan-out                             ; 0.73     ;
-+---------------------------------------------+----------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 48        ;
+;                                             ;           ;
+; Total combinational functions               ; 48        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 10        ;
+;     -- 3 input functions                    ; 0         ;
+;     -- <=2 input functions                  ; 38        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 18        ;
+;     -- arithmetic mode                      ; 30        ;
+;                                             ;           ;
+; Total registers                             ; 32        ;
+;     -- Dedicated logic registers            ; 32        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 5         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 32        ;
+; Total fan-out                               ; 185       ;
+; Average fan-out                             ; 2.06      ;
++---------------------------------------------+-----------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -211,33 +211,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |pwm_motor                 ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |pwm_motor          ; pwm_motor   ; work         ;
+; |pwm_motor                 ; 48 (48)             ; 32 (32)                   ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |pwm_motor          ; pwm_motor   ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                   ;
-+----------------------------------------+---------------------------------------------+
-; Register name                          ; Reason for Removal                          ;
-+----------------------------------------+---------------------------------------------+
-; freq_cnt1[8..11]                       ; Stuck at GND due to stuck port data_in      ;
-; freq_cnt1[0..7,12..30]                 ; Stuck at GND due to stuck port clock_enable ;
-; pwm_out2                               ; Merged with pwm_out4                        ;
-; pwm_out1                               ; Merged with pwm_out3                        ;
-; pwm_out3                               ; Stuck at GND due to stuck port data_in      ;
-; Total Number of Removed Registers = 34 ;                                             ;
-+----------------------------------------+---------------------------------------------+
-
-
-+------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                        ;
-+---------------+---------------------------+----------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register ;
-+---------------+---------------------------+----------------------------------------+
-; freq_cnt1[8]  ; Stuck at GND              ; pwm_out3                               ;
-;               ; due to stuck port data_in ;                                        ;
-+---------------+---------------------------+----------------------------------------+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; pwm_out2                              ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -245,7 +231,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1     ;
+; Total registers                              ; 32    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -261,14 +247,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 5                           ;
-; cycloneiii_ff         ; 1                           ;
-;     plain             ; 1                           ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
+; cycloneiii_ff         ; 32                          ;
+;     plain             ; 32                          ;
+; cycloneiii_lcell_comb ; 49                          ;
+;     arith             ; 30                          ;
+;         2 data inputs ; 30                          ;
+;     normal            ; 19                          ;
 ;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 7                           ;
+;         4 data inputs ; 10                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 3.45                        ;
 +-----------------------+-----------------------------+
 
 
@@ -287,32 +278,35 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Mon Feb 27 01:01:01 2023
+    Info: Processing started: Thu Mar 02 03:51:13 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pwm_motor -c pwm_motor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Warning (10259): Verilog HDL error at pwm_motor.v(44): constant value overflow File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 44
 Info (12021): Found 1 design units, including 1 entities, in source file pwm_motor.v
     Info (12023): Found entity 1: pwm_motor File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 1
 Info (12127): Elaborating entity "pwm_motor" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at pwm_motor.v(14): object "DUTY_CYCLE" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 14
-Warning (10036): Verilog HDL or VHDL warning at pwm_motor.v(24): object "freq_cnt2" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 24
 Warning (10036): Verilog HDL or VHDL warning at pwm_motor.v(29): object "counter" assigned a value but never read File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 29
+Warning (10230): Verilog HDL assignment warning at pwm_motor.v(41): truncated value with size 32 to match size of target (31) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 41
+Warning (10230): Verilog HDL assignment warning at pwm_motor.v(50): truncated value with size 32 to match size of target (31) File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 50
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "PWM_OUT1" is stuck at GND File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 5
+    Warning (13410): Pin "PWM_OUT2" is stuck at GND File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 6
     Warning (13410): Pin "PWM_OUT3" is stuck at GND File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 7
+    Warning (13410): Pin "PWM_OUT4" is stuck at GND File: C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/pwm_motor.v Line: 9
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/himan/Documents/GitHub/eyrc22_SB_1135/pwm_motor/output_files/pwm_motor.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 6 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 54 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 1 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4746 megabytes
-    Info: Processing ended: Mon Feb 27 01:01:14 2023
+    Info (21061): Implemented 49 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4758 megabytes
+    Info: Processing ended: Thu Mar 02 03:51:26 2023
     Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Total CPU time (on all processors): 00:00:22
 
 
 +------------------------------------------+
