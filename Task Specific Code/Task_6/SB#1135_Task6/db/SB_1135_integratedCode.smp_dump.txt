@@ -1,0 +1,18 @@
+
+State Machine - |SB_1135_integratedCode|adc_sm_data
+Name adc_sm_data.data_3 adc_sm_data.data_1 adc_sm_data.data_2 
+adc_sm_data.data_1 0 0 0 
+adc_sm_data.data_2 0 1 1 
+adc_sm_data.data_3 1 1 0 
+
+State Machine - |SB_1135_integratedCode|adc_sm_channel_data
+Name adc_sm_channel_data.channel_3 adc_sm_channel_data.channel_1 adc_sm_channel_data.channel_2 
+adc_sm_channel_data.channel_1 0 0 0 
+adc_sm_channel_data.channel_2 0 1 1 
+adc_sm_channel_data.channel_3 1 1 0 
+
+State Machine - |SB_1135_integratedCode|adc_sm_address
+Name adc_sm_address.df_3 adc_sm_address.df_1 adc_sm_address.df_2 
+adc_sm_address.df_1 0 0 0 
+adc_sm_address.df_2 0 1 1 
+adc_sm_address.df_3 1 1 0 
