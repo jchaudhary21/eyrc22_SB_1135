@@ -1,1 +1,1 @@
-# eyrc22_SB_1135
+FPGA BOT based on Intel's DE0- Nano FPGA board 
